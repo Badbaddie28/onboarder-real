@@ -92,12 +92,30 @@
                                 </div>
                             </div>
   
-                            <input type="button" class="next action-button" value="Done" /> 
+                            <input type="button" class="next action-button" value="Done" data-bs-toggle="modal" data-bs-target="#SuccessModal" /> 
                         </div>
                     </fieldset>
-  
                 </form>
             </div>
         </div>
     </div>
   </div>
+
+<!-- Success Modal -->
+<div id="SuccessModal" class="modal fade" data-bs-backdrop="static" >
+	<div class="modal-dialog modal-dialog-centered modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header justify-content-center">
+				<div class="icon-box">
+					<i class="fa-sharp fa-solid fa-check"></i>
+				</div>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body text-center">
+				<h4>Great!</h4>	
+				<p>Your organization account has been created successfully.</p>
+				<button class="btn btn-success" data-dismiss="modal"><span>Start Exploring</span> <i class="fa-solid fa-arrow-right" style="width: 5px; height: 5px;"></i></button>
+			</div>
+		</div>
+	</div>
+</div> 
