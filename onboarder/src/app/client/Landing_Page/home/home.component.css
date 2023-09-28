@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter&family=Plus+Jakarta+Sans:wght@200&display=swap');
+
+.badge {
+    background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
+}
+
+.nav-item {
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 800;
+}
+
+.Card {
+    display: flex;
+    gap: 70px;
+}
+.Card2 {
+    background-color: #3676d7 ;
+}
+.Card3 {
+    background-color: #edb666 ;
+}

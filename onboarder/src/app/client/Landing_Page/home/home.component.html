@@ -1,0 +1,41 @@
+<div class="container">
+    <header class="d-flex justify-content-center py-3 mb-5 border-bottom">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a routerLink="/home" class="nav-link">Home</a></li>
+        <li class="nav-item"><a routerLink="/about" class="nav-link">About</a></li>
+        <li class="nav-item"><a routerLink="/services" class="nav-link">Services</a></li>
+        <li class="nav-item"><a routerLink="/developers" class="nav-link">Developers</a></li>
+      </ul>
+    </header>
+</div>
+
+<div class="container my-5">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
+      <span class="badge text-bg-primary">EVENTS · MEMBERSHIP · ATTENDANCE</span> <br>
+      <img class="bi mt-4 mb-3" src="assets/img/logo-name.png">
+      <h1 class="text-body-emphasis">Membership Made Easy, Events Made Memorable</h1>
+      <p class="col-lg-8 mx-auto fs-5 text-muted">
+        A comprehensive event and membership management system designed to streamline and simplify the process of organizing and managing events while efficiently handling membership-related tasks.
+      </p>
+    </div>
+</div>
+
+<div class="Card align-items-md-stretch justify-content-center my-5">
+    <div class="col-md-5">
+        <div  class="Card2 h-100 p-5 text-white rounded-3">
+            <h2>Register your Organization</h2>
+            <p>To start your onboarding journey, register your organization to make your organization visible to your members.</p>
+            <button class="btn btn-outline-light" type="button"  (click)="navigatetoOrg()">Register Organization</button>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="Card3 h-100 p-5 text-dark rounded-3">
+            <h2>Join an Organization</h2>
+            <p>Join your organization through your org code to access the announcements and updates.</p>
+            <button class="btn btn-outline-dark" type="button" (click)="navigatetoMem()">Join Organization</button>
+        </div>
+    </div>
+</div>  
+
+
