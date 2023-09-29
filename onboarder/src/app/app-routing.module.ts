@@ -9,6 +9,9 @@ import { OrgRegistrationComponent } from './client/Org/org-registration/org-regi
 import { MemSignupComponent } from './client/Member/mem-signup/mem-signup.component';
 import { MemLoginComponent } from './client/Member/mem-login/mem-login.component';
 import { MemLandingComponent } from './client/Member/mem-landing/mem-landing.component';
+import { OrgLoginComponent } from './client/Org/org-login/org-login.component';
+import { OrgDashboardComponent } from './client/Org/org-dashboard/org-dashboard.component';
+import { OrgEventsComponent } from './client/Org/org-events/org-events.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -17,8 +20,11 @@ const routes: Routes = [
   { path: 'services', component: ServicesComponent },
   { path: 'developers', component: DevelopersComponent },
   { path: 'org-landing', component: OrgLandingComponent },
-  { path: 'member-landing', component: MemLandingComponent },
+  { path: 'org-login', component: OrgLoginComponent },
   { path: 'org-registration', component: OrgRegistrationComponent },
+  { path: 'org-dashboard', component: OrgDashboardComponent },
+  { path: 'org-events', component: OrgEventsComponent},
+  { path: 'member-landing', component: MemLandingComponent },
   { path: 'member-signup', component: MemSignupComponent },
   { path: 'member-login', component: MemLoginComponent },
 ];

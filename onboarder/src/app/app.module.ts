@@ -13,6 +13,11 @@ import { MemRegistrationComponent } from './client/Member/mem-registration/mem-r
 import { MemLandingComponent } from './client/Member/mem-landing/mem-landing.component';
 import { MemSignupComponent } from './client/Member/mem-signup/mem-signup.component';
 import { MemLoginComponent } from './client/Member/mem-login/mem-login.component';
+import { OrgLoginComponent } from './client/Org/org-login/org-login.component';
+import { OrgDashboardComponent } from './client/Org/org-dashboard/org-dashboard.component';
+import { OrgNavbarComponent } from './client/Org/org-navbar/org-navbar.component';
+import { OrgEventsComponent } from './client/Org/org-events/org-events.component';
+import { OrgProfileComponent } from './client/Org/org-profile/org-profile.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +31,12 @@ import { MemLoginComponent } from './client/Member/mem-login/mem-login.component
     MemRegistrationComponent,
     MemLandingComponent,
     MemSignupComponent,
-    MemLoginComponent
+    MemLoginComponent,
+    OrgLoginComponent,
+    OrgDashboardComponent,
+    OrgNavbarComponent,
+    OrgEventsComponent,
+    OrgProfileComponent
   ],
   imports: [
     BrowserModule,
