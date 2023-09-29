@@ -9,8 +9,8 @@
                     <ul id="progressbar">
                         <li class="active" id="account"><strong>Account</strong></li>
                         <li id="personal"><strong>Information</strong></li>
-                        <li id="payment"><strong>Image</strong></li>
-                        <li id="confirm"><strong>Finish</strong></li>
+                        <li id="payment"><strong>Goals</strong></li>
+                        <li id="confirm"><strong>Image</strong></li>
                     </ul>
                     <div class="progress">
                         <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
@@ -48,51 +48,45 @@
                             </div> 
                                   <label class="fieldlabels">Brief Description of the Organization's Purpose: *</label> <input type="text" name="fname" placeholder="Organization Purpose and Description" /> 
                                   <label class="fieldlabels">Organization's History: *</label> <input type="text" name="lname" placeholder="Organization History" /> 
-                                  <label class="fieldlabels">Mission: *</label> <input type="text" name="lname" placeholder="Mission" /> 
-                                  <label class="fieldlabels">Vision: *</label> <input type="text" name="phno" placeholder="Vision" /> 
-                                  <label class="fieldlabels">Core Values: *</label> <input type="text" name="phno_2" placeholder="Core Values" />
-                        </div> <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        </div> 
+                        
+                        <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
   
                     <fieldset>
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
-                                    <h2 class="fs-title">Logo Image Upload:</h2>
+                                    <h2 class="fs-title">General Information:</h2>
                                 </div>
                                 <div class="col-5">
                                     <h2 class="steps">Step 3 - 4</h2>
                                 </div>
                             </div> 
-                                  <label class="fieldlabels">Upload Your Organizations Logo:</label> <input type="file" name="pic" accept="image/*"> 
+                                  <label class="fieldlabels">Mission: *</label> <input type="text" name="lname" placeholder="Mission" /> 
+                                  <label class="fieldlabels">Vision: *</label> <input type="text" name="phno" placeholder="Vision" /> 
+                                  <label class="fieldlabels">Core Values: *</label> <input type="text" name="phno_2" placeholder="Core Values" />
                         </div> 
                         
-                        <input type="button" name="next" class="next action-button" value="Submit" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     
                     <fieldset>
                         <div class="form-card">
-                            <div class="row">
-                                <div class="col-7">
-                                    <h2 class="fs-title">Finish:</h2>
-                                </div>
-                                <div class="col-5">
-                                    <h2 class="steps">Step 4 - 4</h2>
-                                </div>
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Logo Image Upload:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 4 - 4</h2>
+                                    </div>
+                                </div> 
+                                      <label class="fieldlabels">Upload Your Organizations Logo:</label> <input type="file" name="pic" accept="image/*"> 
                             </div> 
+                            
+                            <input type="button" name="next" class="next action-button" value="Submit" data-bs-toggle="modal" data-bs-target="#SuccessModal" />
   
-                            <div class="row justify-content-center">
-                                <div class="col-3"> <img src="../../../assets/img/success.png" class="fit-image"> </div>
-                            </div>
-  
-                            <div class="row justify-content-center">
-                                <div class="col-7 text-center">                          
-                                  <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> 
-                                  <h5 class="purple-text text-center">You Have Successfully Signed Up Your Organization</h5>
-                                </div>
-                            </div>
-  
-                            <input type="button" class="next action-button" value="Done" data-bs-toggle="modal" data-bs-target="#SuccessModal" /> 
                         </div>
                     </fieldset>
                 </form>
@@ -107,14 +101,14 @@
 		<div class="modal-content">
 			<div class="modal-header justify-content-center">
 				<div class="icon-box">
-					<i class="fa-sharp fa-solid fa-check"></i>
+					<i class="fa-regular fa-circle-check"></i>
 				</div>
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-			</div>
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="Close" (click)="navigatetoHome()"></button>
+            </div>
 			<div class="modal-body text-center">
 				<h4>Great!</h4>	
 				<p>Your organization account has been created successfully.</p>
-				<button class="btn btn-success" data-dismiss="modal"><span>Start Exploring</span> <i class="fa-solid fa-arrow-right" style="width: 5px; height: 5px;"></i></button>
+				<button class="btn btn-success" data-dismiss="modal" (click)="navigatetoLanding()" ><span>Start Exploring</span> <i class="fa-solid fa-arrow-right" style="width: 5px; height: 5px;"></i></button>
 			</div>
 		</div>
 	</div>

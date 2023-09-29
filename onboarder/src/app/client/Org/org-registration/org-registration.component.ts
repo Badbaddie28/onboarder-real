@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -9,7 +10,7 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
 })
 export class OrgRegistrationComponent implements OnInit {
   
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     // Load and initialize the JavaScript file
@@ -29,5 +30,13 @@ export class OrgRegistrationComponent implements OnInit {
       scriptElement.onerror = (error) => reject(error); // Change this line
       document.body.appendChild(scriptElement);
     });
+  }
+  
+  navigatetoHome() {
+    this.router.navigate(['home']);
+  }
+
+  navigatetoLanding() {
+    this.router.navigate(['org-landing']);
   }
 }
