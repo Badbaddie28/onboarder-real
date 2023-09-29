@@ -4,7 +4,68 @@
     background: linear-gradient(135deg, #1e30f3 0%, #e21e80 100%);
 }
 
-.nav-item {
+/* NAV BAR */
+header {
+    background-color: #007FE1;
+    width: 100%; 
+}
+.nav-item a {   
+    color: #fff;
+    font-size: 20px;
     font-family: 'Plus Jakarta Sans';
     font-weight: 800;
+    margin: 6px;
 }
+.nav-item a:after {
+   display: block;
+   content      : '';
+   border-bottom: solid 2px #fff;
+   transform    : scaleX(0);
+   transition   : transform 300ms ease-in-out;
+}
+
+.nav-item a:hover:after {
+   transform: scaleX(1);
+}
+/*SERVICES*/
+ .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 30px;
+  }
+.services {
+    text-align:center;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(0.25turn, #007FE1, #000fe17c, #00e1d244);
+    border-image-slice: 1;
+    width:30%;
+    margin: auto;
+    padding: 10px;
+  }
+  .service {
+    text-align: center;
+    padding: 25px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid #007FE1;
+    cursor: pointer;
+    transition: transform 0.5s, background 0.5s;
+    
+  }
+  .service i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #007FE1;
+  }
+  .service h2 {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .service:hover {
+    background: #3676d7;
+    color: #fff;
+    transform: scale(1.05);
+  }
+  .service:hover i {
+    color: #fff;
+  }
