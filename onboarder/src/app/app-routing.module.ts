@@ -16,6 +16,10 @@ import { OrgMemformsComponent } from './client/Org/org-memforms/org-memforms.com
 import { OrgMemverificationComponent } from './client/Org/org-memverification/org-memverification.component';
 import { OrgMembersComponent } from './client/Org/org-members/org-members.component';
 import { OrgProfileComponent } from './client/Org/org-profile/org-profile.component';
+import { MemDashboardComponent } from './client/Member/mem-dashboard/mem-dashboard.component';
+import { MemEventsComponent } from './client/Member/mem-events/mem-events.component';
+import { MemOrganizationComponent } from './client/Member/mem-organization/mem-organization.component';
+import { MemProfileComponent } from './client/Member/mem-profile/mem-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,6 +39,10 @@ const routes: Routes = [
   { path: 'member-landing', component: MemLandingComponent },
   { path: 'member-signup', component: MemSignupComponent },
   { path: 'member-login', component: MemLoginComponent },
+  { path: 'member-dashboard', component: MemDashboardComponent},
+  { path: 'member-events', component: MemEventsComponent},
+  { path: 'member-organization', component: MemOrganizationComponent},
+  { path: 'member-profile', component: MemProfileComponent},
 ];
 
 @NgModule({

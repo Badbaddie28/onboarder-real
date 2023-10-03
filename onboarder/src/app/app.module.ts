@@ -22,6 +22,10 @@ import { OrgMemformsComponent } from './client/Org/org-memforms/org-memforms.com
 import { OrgMemverificationComponent } from './client/Org/org-memverification/org-memverification.component';
 import { OrgMembersComponent } from './client/Org/org-members/org-members.component';
 import { MemProfileComponent } from './client/Member/mem-profile/mem-profile.component';
+import { MemNavbarComponent } from './client/Member/mem-navbar/mem-navbar.component';
+import { MemDashboardComponent } from './client/Member/mem-dashboard/mem-dashboard.component';
+import { MemOrganizationComponent } from './client/Member/mem-organization/mem-organization.component';
+import { MemEventsComponent } from './client/Member/mem-events/mem-events.component';
 
 @NgModule({
   declarations: [
@@ -32,10 +36,6 @@ import { MemProfileComponent } from './client/Member/mem-profile/mem-profile.com
     DevelopersComponent,
     OrgRegistrationComponent,
     OrgLandingComponent,
-    MemRegistrationComponent,
-    MemLandingComponent,
-    MemSignupComponent,
-    MemLoginComponent,
     OrgLoginComponent,
     OrgNavbarComponent,
     OrgEventsComponent,
@@ -43,12 +43,21 @@ import { MemProfileComponent } from './client/Member/mem-profile/mem-profile.com
     OrgCommunityComponent,
     OrgMemformsComponent,
     OrgMemverificationComponent,
-    OrgMembersComponent,
+    OrgMembersComponent,    
+    MemRegistrationComponent,
+    MemLandingComponent,
+    MemSignupComponent,
+    MemLoginComponent,
+    MemProfileComponent,
+    MemNavbarComponent,
+    MemDashboardComponent,
+    MemOrganizationComponent,
+    MemEventsComponent,
     MemProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
