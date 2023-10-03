@@ -6,7 +6,7 @@ import { ServicesComponent } from './client/Landing_Page/services/services.compo
 import { DevelopersComponent } from './client/Landing_Page/developers/developers.component';
 import { OrgLandingComponent } from './client/Org/org-landing/org-landing.component';
 import { OrgRegistrationComponent } from './client/Org/org-registration/org-registration.component';
-import { MemSignupComponent } from './client/Member/mem-signup/mem-signup.component';
+import { MemberSignupComponent } from './client/Member/mem-signup/mem-signup.component';
 import { MemLoginComponent } from './client/Member/mem-login/mem-login.component';
 import { MemLandingComponent } from './client/Member/mem-landing/mem-landing.component';
 import { OrgLoginComponent } from './client/Org/org-login/org-login.component';
@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'org-events', component: OrgEventsComponent},
   { path: 'org-profile', component: OrgProfileComponent },
   { path: 'member-landing', component: MemLandingComponent },
-  { path: 'member-signup', component: MemSignupComponent },
+  { path: 'member-signup', component: MemberSignupComponent },
   { path: 'member-login', component: MemLoginComponent },
   { path: 'member-dashboard', component: MemDashboardComponent},
   { path: 'member-events', component: MemEventsComponent},

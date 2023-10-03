@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mem-navbar',
@@ -6,9 +8,32 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mem-navbar.component.css']
 })
 export class MemNavbarComponent implements OnInit {
-  constructor() { }
+  member!: string;
+  constructor(
+    private http:HttpClient,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+
+    
+
+    this.http.get('http://localhost:5000/api/member', {
+      withCredentials: true
+    }).subscribe(
+      (res:any) => {
+        this.member = `${res.firstName}`;
+    
+      },
+      (err) => {
+        this.member = "error"
+       
+    
+      }
+    )
+
+
+
     // Load and initialize the JavaScript file
     this.loadScript('assets/js/navbar.js').then(() => {
       // The JavaScript file is loaded and initialized
@@ -16,6 +41,13 @@ export class MemNavbarComponent implements OnInit {
       console.error('Error loading navbar.js', error);
     });
   }
+
+  logout() {
+    this.http.post('http://localhost:5000/api/logout', {withCredentials: true})
+      this.router.navigate(['/home']);
+      
+  }
+
 
   private loadScript(scriptUrl: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {

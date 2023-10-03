@@ -11,7 +11,7 @@ import { OrgRegistrationComponent } from './client/Org/org-registration/org-regi
 import { OrgLandingComponent } from './client/Org/org-landing/org-landing.component';
 import { MemRegistrationComponent } from './client/Member/mem-registration/mem-registration.component';
 import { MemLandingComponent } from './client/Member/mem-landing/mem-landing.component';
-import { MemSignupComponent } from './client/Member/mem-signup/mem-signup.component';
+import { MemberSignupComponent } from './client/Member/mem-signup/mem-signup.component';
 import { MemLoginComponent } from './client/Member/mem-login/mem-login.component';
 import { OrgLoginComponent } from './client/Org/org-login/org-login.component';
 import { OrgNavbarComponent } from './client/Org/org-navbar/org-navbar.component';
@@ -26,6 +26,8 @@ import { MemNavbarComponent } from './client/Member/mem-navbar/mem-navbar.compon
 import { MemDashboardComponent } from './client/Member/mem-dashboard/mem-dashboard.component';
 import { MemOrganizationComponent } from './client/Member/mem-organization/mem-organization.component';
 import { MemEventsComponent } from './client/Member/mem-events/mem-events.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,7 @@ import { MemEventsComponent } from './client/Member/mem-events/mem-events.compon
     OrgMembersComponent,    
     MemRegistrationComponent,
     MemLandingComponent,
-    MemSignupComponent,
+    MemberSignupComponent,
     MemLoginComponent,
     MemProfileComponent,
     MemNavbarComponent,
@@ -56,8 +58,12 @@ import { MemEventsComponent } from './client/Member/mem-events/mem-events.compon
     MemProfileComponent
   ],
   imports: [
+  
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
