@@ -14,10 +14,14 @@ import { MemLandingComponent } from './client/Member/mem-landing/mem-landing.com
 import { MemSignupComponent } from './client/Member/mem-signup/mem-signup.component';
 import { MemLoginComponent } from './client/Member/mem-login/mem-login.component';
 import { OrgLoginComponent } from './client/Org/org-login/org-login.component';
-import { OrgDashboardComponent } from './client/Org/org-dashboard/org-dashboard.component';
 import { OrgNavbarComponent } from './client/Org/org-navbar/org-navbar.component';
 import { OrgEventsComponent } from './client/Org/org-events/org-events.component';
 import { OrgProfileComponent } from './client/Org/org-profile/org-profile.component';
+import { OrgCommunityComponent } from './client/Org/org-community/org-community.component';
+import { OrgMemformsComponent } from './client/Org/org-memforms/org-memforms.component';
+import { OrgMemverificationComponent } from './client/Org/org-memverification/org-memverification.component';
+import { OrgMembersComponent } from './client/Org/org-members/org-members.component';
+import { MemProfileComponent } from './client/Member/mem-profile/mem-profile.component';
 
 @NgModule({
   declarations: [
@@ -33,10 +37,14 @@ import { OrgProfileComponent } from './client/Org/org-profile/org-profile.compon
     MemSignupComponent,
     MemLoginComponent,
     OrgLoginComponent,
-    OrgDashboardComponent,
     OrgNavbarComponent,
     OrgEventsComponent,
-    OrgProfileComponent
+    OrgProfileComponent,
+    OrgCommunityComponent,
+    OrgMemformsComponent,
+    OrgMemverificationComponent,
+    OrgMembersComponent,
+    MemProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -12,7 +12,7 @@ export class OrgLoginComponent implements OnInit{
   ngOnInit(): void {
   }
   
-  navigatetoOrgDashboard() {
-    this.router.navigate(['org-dashboard']);
+  navigatetoOrgCommunity() {
+    this.router.navigate(['org-community']);
   }
 }

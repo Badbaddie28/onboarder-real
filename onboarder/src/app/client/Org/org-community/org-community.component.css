@@ -46,11 +46,24 @@ aside {
     border-bottom: 1px solid #f6f6f6;
 }
 
-.content {
-    height: 100vh;
-}
-
 .navbar-brand {
     font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: bold;
+}
+
+.carousel {
+    margin-top: 10px;
+}
+
+.row {
+    margin-top: 10px;
+}
+
+.event {
+    background-color: #fff;
+}
+
+.container-fluid {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f6f6f6;
 }
