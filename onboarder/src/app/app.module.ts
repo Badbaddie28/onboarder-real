@@ -28,6 +28,7 @@ import { MemOrganizationComponent } from './client/Member/mem-organization/mem-o
 import { MemEventsComponent } from './client/Member/mem-events/mem-events.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { OrgCreateEventComponent } from './client/Org/org-create-event/org-create-event.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { HttpClientModule } from '@angular/common/http';
     MemDashboardComponent,
     MemOrganizationComponent,
     MemEventsComponent,
-    MemProfileComponent
+    MemProfileComponent,
+    OrgCreateEventComponent
   ],
   imports: [
   
