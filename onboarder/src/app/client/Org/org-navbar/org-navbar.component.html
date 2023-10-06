@@ -1,50 +1,79 @@
-<div class="menuToggle" (click)="toggleSidebar()"></div>
-<div class="sidebar">
-    <ul>
-        <li class="logo" style="--bg: #FFFFFF;">
-            <a>
-                <div class="imgBx icon">
-                    <img src="../../../assets/img/logo-black.png" width="40" height="40">
-                </div>                
-                <div class="title">Onboarder</div>
-            </a>
-        </li>
+<div class="container">
+    <div class="sidebar">
 
-        <div class="Menulist">
-            <li style="--bg: #ffa117;" class="active">
-                <a routerLink="/org-dashboard">
-                    <div class="icon"><i class="fa-solid fa-house"></i></div>
-                    <div class="text">Dashboard</div>    
-                </a>
-            </li>
-            <li style="--bg: #0fc70f;">
-                <a>
-                    <div class="icon"><i class="fa-solid fa-user"></i></div>
-                    <div class="text">Profile</div>    
-                </a>
-            </li>
-            <li style="--bg: #2196f3;">
-                <a routerLink="/org-events">
-                    <div class="icon"><i class="fa-solid fa-calendar-days"></i></div>
-                    <div class="text">Events</div>    
-                </a>
-            </li>
+        <div class="head">
+            <div class="user-img">
+                <img src="../../../../assets/img/profile-pic.png" alt="profile pic">
+            </div>
+
+            <div class="user-details">
+                <p class="title">Abbrev Org</p>
+                <p class="name">Organization Name</p>
+            </div>
         </div>
-        <div class="bottom">
-            <li style="--bg: #FFFFFF;">
-                <a href="#">
-                    <div class="imgBx icon">
-                        <img src="../../../assets/img/profile-pic.png" width="40" height="40">
-                    </div>
-                    <div class="text">Juan Dela Cruz</div>
-                </a>
-            </li>
-            <li style="--bg: #FFFFFF;">
-                <a href="#">
-                    <div class="icon"><i class="fa-solid fa-right-from-bracket"></i></div>
-                    <div class="text">Logout</div>
-                </a>
-            </li>
+        
+        <div class="nav">
+            <div class="menu">
+                <p class="title">Main</p>
+
+                <ul>
+                    <li>
+                        <a routerLink="/org-community">
+                            <i class="fa-solid fa-house"></i>
+                            <span class="text">Community</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/org-memverification">
+                            <i class="bi bi-patch-check-fill"></i>
+                            <span class="text">Member Verification</span>  
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/org-members">
+                            <i class="fa-solid fa-people-group"></i>
+                            <span class="text">Members</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/org-memforms">
+                            <i class="fa-solid fa-file-lines"></i>
+                            <span class="text">Membership Form</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/org-events">
+                            <i class="fa-regular fa-calendar-days"></i>
+                            <span class="text">Events</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="menu-low">
+                <p class="title">Account</p>
+
+                <ul>
+                    <li>
+                        <a routerLink="/org-profile">
+                            <i class="fa-solid fa-user"></i>
+                            <span class="text">Profile</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a>
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                            <span class="text">Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </ul>
-</div>
+    </div>
+</div>  

@@ -11,13 +11,23 @@ import { OrgRegistrationComponent } from './client/Org/org-registration/org-regi
 import { OrgLandingComponent } from './client/Org/org-landing/org-landing.component';
 import { MemRegistrationComponent } from './client/Member/mem-registration/mem-registration.component';
 import { MemLandingComponent } from './client/Member/mem-landing/mem-landing.component';
-import { MemSignupComponent } from './client/Member/mem-signup/mem-signup.component';
+import { MemberSignupComponent } from './client/Member/mem-signup/mem-signup.component';
 import { MemLoginComponent } from './client/Member/mem-login/mem-login.component';
 import { OrgLoginComponent } from './client/Org/org-login/org-login.component';
-import { OrgDashboardComponent } from './client/Org/org-dashboard/org-dashboard.component';
 import { OrgNavbarComponent } from './client/Org/org-navbar/org-navbar.component';
 import { OrgEventsComponent } from './client/Org/org-events/org-events.component';
 import { OrgProfileComponent } from './client/Org/org-profile/org-profile.component';
+import { OrgCommunityComponent } from './client/Org/org-community/org-community.component';
+import { OrgMemformsComponent } from './client/Org/org-memforms/org-memforms.component';
+import { OrgMemverificationComponent } from './client/Org/org-memverification/org-memverification.component';
+import { OrgMembersComponent } from './client/Org/org-members/org-members.component';
+import { MemProfileComponent } from './client/Member/mem-profile/mem-profile.component';
+import { MemNavbarComponent } from './client/Member/mem-navbar/mem-navbar.component';
+import { MemDashboardComponent } from './client/Member/mem-dashboard/mem-dashboard.component';
+import { MemOrganizationComponent } from './client/Member/mem-organization/mem-organization.component';
+import { MemEventsComponent } from './client/Member/mem-events/mem-events.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,19 +38,32 @@ import { OrgProfileComponent } from './client/Org/org-profile/org-profile.compon
     DevelopersComponent,
     OrgRegistrationComponent,
     OrgLandingComponent,
-    MemRegistrationComponent,
-    MemLandingComponent,
-    MemSignupComponent,
-    MemLoginComponent,
     OrgLoginComponent,
-    OrgDashboardComponent,
     OrgNavbarComponent,
     OrgEventsComponent,
-    OrgProfileComponent
+    OrgProfileComponent,
+    OrgCommunityComponent,
+    OrgMemformsComponent,
+    OrgMemverificationComponent,
+    OrgMembersComponent,    
+    MemRegistrationComponent,
+    MemLandingComponent,
+    MemberSignupComponent,
+    MemLoginComponent,
+    MemProfileComponent,
+    MemNavbarComponent,
+    MemDashboardComponent,
+    MemOrganizationComponent,
+    MemEventsComponent,
+    MemProfileComponent
   ],
   imports: [
+  
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,10 +1,7 @@
-body {
-    margin-left: 100px;
-}
-.contents {
-    transition: margin-left 0.3s ease-in-out;
-}
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter&family=Plus+Jakarta+Sans:wght@200&display=swap');
 
-.contents.pushed {
-    margin-left: 200px; /* Adjust the width to match the sidebar width */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
