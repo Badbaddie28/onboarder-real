@@ -1,22 +1,119 @@
 <body>
-    <div class="container">
-        <aside>
-            <app-mem-navbar></app-mem-navbar>
-        </aside>
+  <div class="container">
+      <aside>
+          <app-org-navbar></app-org-navbar>
+      </aside>
 
-        <div class="content">
-            <nav class="navbar navbar-expand-lg  rounded" aria-label="Thirteenth navbar example">
-                <div class="container-fluid">          
-                  <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
-                    <a class="navbar-brand col-lg-9 me-0">Member Profile</a>
-                    <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                      <button class="btn btn-primary">Save Changes</button>
-                    </div>
+      <div class="content">
+          <nav class="navbar navbar-expand-lg  rounded" aria-label="Thirteenth navbar example">
+              <div class="container-fluid">          
+                <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+                  <a class="navbar-brand col-lg-9 me-0">Organization Profile</a>
+                  <div class="d-lg-flex col-lg-3 justify-content-lg-end">
+                    <button class="btn btn-primary">Save Changes</button>
                   </div>
                 </div>
-            </nav> 
+              </div>
+          </nav> 
+
+          <div class="container gap-3">
+            <div class="col-md-3">
+    
+                <!-- Upload image input-->
+                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
+                    <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
+                    <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
+                    <div class="input-group-append">
+                        <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
+                    </div>
+                </div>
+    
+                <!-- Uploaded image area-->
+                <p class="font-italic text-white text-center">The profile picture uploaded will be rendered inside the box below.</p>
+                <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
+    
+            </div>
+
+            <div class="col-md-9">
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Organization Name</span>
+                <input type="text" class="form-control" placeholder="Please enter the name of your organization" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Organization Name Abbreviation</span>
+                <input type="text" class="form-control" placeholder="Please enter the abbreviation of the name of your organization" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Office Address</span>
+                <input type="text" class="form-control" placeholder="Please enter the office address of your organization" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Short Description of the Organization</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Organization's Vision</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Organization's Mission</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Organization's Core Values</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+              </div>
+            </div> 
         </div>
+
+        <div class="imagecontainer">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="card">
+                      <div class="card-header">
+                          <div class="float-left"><strong>Announcement Panel Image Uploader</strong> </div>
+                      </div>
+
+                      <div class="card-body card-block">
+                          <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                              <div class="row form-group">
+                                  <div class="col-12 col-md-12">
+                                      <div class="control-group" id="fields">
+                                          
+                                          <div class="controls">
+                                              <label class="control-label" for="field1">
+                                                Recommended image size is 1600 x 500
+                                              </label>
+
+                                              <div class="entry input-group upload-input-group">
+                                                <input class="form-control" name="fields[]" type="file">
+
+                                                <button class="btn btn-upload btn-success btn-add" type="button">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                              </div>
+                                          </div>
+
+                                          <button class="btn btn-primary">Upload</button>
+
+                                      </div>             
+                                  </div>       
+                              </div>       
+                          </form>
+                      </div>
+                  </div>
+            </div>
+        </div>
+      </div>
     </div>
+
+  </div>
 </body>
 
 

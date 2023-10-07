@@ -20,6 +20,7 @@ import { MemDashboardComponent } from './client/Member/mem-dashboard/mem-dashboa
 import { MemEventsComponent } from './client/Member/mem-events/mem-events.component';
 import { MemOrganizationComponent } from './client/Member/mem-organization/mem-organization.component';
 import { MemProfileComponent } from './client/Member/mem-profile/mem-profile.component';
+import { OrgCreateEventComponent } from './client/Org/org-create-event/org-create-event.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,6 +37,8 @@ const routes: Routes = [
   { path: 'org-community', component: OrgCommunityComponent },
   { path: 'org-events', component: OrgEventsComponent},
   { path: 'org-profile', component: OrgProfileComponent },
+  { path: 'org-create-event', component: OrgCreateEventComponent },
+
   { path: 'member-landing', component: MemLandingComponent },
   { path: 'member-signup', component: MemberSignupComponent },
   { path: 'member-login', component: MemLoginComponent },
