@@ -9,7 +9,7 @@ $(document).ready(function(){
     
     setProgressBar(current);
     
-   
+    
 
     $(".next").click(function(){
     
@@ -39,7 +39,6 @@ $(document).ready(function(){
         setProgressBar(++current);
         });
     
-    
 
         $(".success").click(function(){
             
@@ -50,7 +49,7 @@ $(document).ready(function(){
             $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
             
             //show the next fieldset
-            next_fs.show();
+            document.addEventListener('postRequestSuccess', function (){next_fs.show();
 
             
             //hide the current fieldset with style
@@ -68,7 +67,7 @@ $(document).ready(function(){
             duration: 500
             });
             setProgressBar(++current);
-            });
+            }); });
     
     
     $(".previous").click(function(){

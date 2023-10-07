@@ -39,9 +39,7 @@ const organizationSchema = new mongoose.Schema ({
     coreValues:{
         type: String,
     },
-    logo:{
-        type: String
-    }
+   
 
 })
 

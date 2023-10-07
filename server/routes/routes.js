@@ -119,7 +119,7 @@ router.post('/orgRegister', async (req, res) => {
   let mission = req.body.mission
   let vision = req.body.vision
   let coreValues = req.body.coreValues
-  let logo = req.body.logo
+ 
 
   const salt = await bcrypt.genSalt(10)
   const hashedPassword = await bcrypt.hash(password, salt)
@@ -141,7 +141,7 @@ router.post('/orgRegister', async (req, res) => {
       mission:mission,
       vision:vision,
       coreValues,
-      logo:logo
+    
   })
 
   const result = await organization.save();

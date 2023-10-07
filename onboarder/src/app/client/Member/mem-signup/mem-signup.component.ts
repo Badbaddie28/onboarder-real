@@ -33,10 +33,10 @@ export class MemberSignupComponent implements OnInit {
     })
 
      // Load and initialize the JavaScript file
-     this.loadScript('assets/js/org-info.js').then(() => {
+     this.loadScript('assets/js/mem-signup.js').then(() => {
       // The JavaScript file is loaded and initialized
     }).catch(error => {
-      console.error('Error loading org-info.js', error);
+      console.error('Error loading mem-signup.js', error);
     });
   }
 
