@@ -19,6 +19,10 @@ const memberSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
+    userType:{
+        type: String,
+        default : "member"
+    }
 })
 
 module.exports = mongoose.model("Member", memberSchema)

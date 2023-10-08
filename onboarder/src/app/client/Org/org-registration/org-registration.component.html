@@ -29,18 +29,18 @@
                                 </div>
                             </div>
                                   <label class="fieldlabels">Organization Name: *</label> 
-                                  <input type="text" name="orgName" formControlName="orgName" placeholder="Organization Name" />
+                                  <input type="text" id="orgName" name="orgName" formControlName="orgName" placeholder="Organization Name" />
                                   
                                   <label class="fieldlabels">Organization Type: *</label> 
-                                  <input type="text" formControlName="orgType" name="orgType" placeholder="Organization Type" /> 
+                                  <input type="text" id="orgType" formControlName="orgType" name="orgType" placeholder="Organization Type" /> 
 
                                   <label class="fieldlabels">Organization Email: *</label> 
-                                  <input type="text" formControlName="orgEmail" name="orgType" placeholder="Organization Email" /> 
+                                  <input type="text" id="orgEmail" formControlName="orgEmail" name="orgEmail" placeholder="Organization Email" /> 
 
                                   <label class="fieldlabels">Password: *</label>
-                                   <input type="password" name="orgType" formControlName="password" placeholder="Password" /> 
+                                   <input type="password" id="password" name="password" formControlName="password" placeholder="Password" /> 
                                   
-                        </div> <input type="button" name="next" class="next action-button" value="Next" />
+                        </div> <input type="button" name="next" class="next action-button" value="Next" (click)="validateStep1()" />
                     </fieldset>
   
                     <fieldset>
@@ -54,12 +54,12 @@
                                 </div>
                             </div> 
                                   <label class="fieldlabels">Brief Description of the Organization's Purpose: *</label> 
-                                  <input type="text" name="orgType" formControlName="about" placeholder="Organization Purpose and Description" /> 
+                                  <input type="text" id="about" name="about" formControlName="about" placeholder="Organization Purpose and Description" /> 
                                   <label class="fieldlabels">Organization's History: *</label> 
-                                  <input type="text" name="orgType" formControlName="orgHistory" placeholder="Organization History" /> 
+                                  <input type="text" id="orgHistory" name="orgHistory" formControlName="orgHistory" placeholder="Organization History" /> 
                         </div> 
                         
-                        <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" (click)="validateStep2()"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
   
                     <fieldset>
@@ -73,14 +73,14 @@
                                 </div>
                             </div> 
                                   <label class="fieldlabels">Mission: *</label> 
-                                  <input type="text" name="orgType" formControlName="mission" placeholder="Mission" /> 
+                                  <input type="text" id="mission" name="orgType" formControlName="mission" placeholder="Mission" /> 
                                   <label class="fieldlabels">Vision: *</label> 
-                                  <input type="text"  formControlName="vision" placeholder="Vision" /> 
+                                  <input type="text" id="vision" formControlName="vision" placeholder="Vision" /> 
                                   <label class="fieldlabels">Core Values: *</label>
-                                   <input type="text"  formControlName="coreValues" placeholder="Core Values" />
+                                   <input type="text"  id="coreValues" formControlName="coreValues" placeholder="Core Values" />
                         </div> 
                         
-                        <input type="button" name="next" class="next action-button" value="Next" /> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        <input type="button" name="next" class="next action-button" value="Next" (click)="validateStep3()"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     
                     <fieldset>
@@ -97,9 +97,8 @@
                                       <label class="fieldlabels">Upload Your Organizations Logo:</label> <input type="file" name="pic" accept="image/*"> 
                             </div> 
                             
-                            <input type="button" name="next" class="next action-button" value="Submit" value="Done" (click)="submit()"  />
-                    
-                            <!-- data-bs-toggle="modal" data-bs-target="#SuccessModal" -->
+                            <input type="button" name="next" data-bs-toggle="modal" data-bs-target="#SuccessModal" class="next action-button" value="Submit" value="Done" (click)="submit()"  />
+
   
                         </div>
                     </fieldset>
@@ -122,7 +121,7 @@
 			<div class="modal-body text-center">
 				<h4>Great!</h4>	
 				<p>Your organization account has been created successfully.</p>
-				<button class="btn btn-success" data-dismiss="modal" (click)="navigatetoLanding()" ><span>Start Exploring</span> <i class="fa-solid fa-arrow-right" style="width: 5px; height: 5px;"></i></button>
+				<button class="btn btn-success" data-dismiss="modal" (click)="navigatetoLogin()" ><span>Start Exploring</span> <i class="fa-solid fa-arrow-right" style="width: 5px; height: 5px;"></i></button>
 			</div>
 		</div>
 	</div>

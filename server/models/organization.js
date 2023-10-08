@@ -39,6 +39,10 @@ const organizationSchema = new mongoose.Schema ({
     coreValues:{
         type: String,
     },
+    userType:{
+        type: String,
+        default : "organization",
+    }
    
 
 })

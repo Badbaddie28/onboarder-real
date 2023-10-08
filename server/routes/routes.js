@@ -12,6 +12,8 @@ router.post('/register', async (req, res) => {
     let lastName = req.body.lastName
     let email = req.body.email
     let password = req.body.password
+    let userType = req.body.userType
+
 
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
@@ -27,7 +29,8 @@ router.post('/register', async (req, res) => {
         firstName:firstName,
         lastName:lastName,
         email:email,
-        password:hashedPassword
+        password:hashedPassword,
+        userType:userType,
     })
 
     const result = await member.save();
@@ -119,6 +122,8 @@ router.post('/orgRegister', async (req, res) => {
   let mission = req.body.mission
   let vision = req.body.vision
   let coreValues = req.body.coreValues
+  let userType = req.body.userType
+
  
 
   const salt = await bcrypt.genSalt(10)
@@ -140,7 +145,9 @@ router.post('/orgRegister', async (req, res) => {
       orgHistory:orgHistory,
       mission:mission,
       vision:vision,
-      coreValues,
+      coreValues:coreValues,
+      userType:userType,
+
     
   })
 
