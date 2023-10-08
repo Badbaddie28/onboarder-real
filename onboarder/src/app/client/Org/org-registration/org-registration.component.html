@@ -8,8 +8,10 @@
                     <!-- progressbar -->
                     <ul id="progressbar">
                         <li class="active" id="account"><strong>Privacy Notice</strong></li>
-                        <li id="personal"><strong>Org Information</strong></li>
-                        <li id="payment"><strong>Account Information</strong></li> 
+                        <li id="information"><strong>Org Information</strong></li>
+                        <li id="goals"><strong>Org Goals</strong></li> 
+                        <li id="image"><strong>Image</strong></li>
+                        <li id="information"><strong>Account Information</strong></li>
                         <li id="confirm"><strong>Finish</strong></li>
                     </ul>
                     <div class="progress">
@@ -25,7 +27,7 @@
                                     <h2 class="fs-title">Privacy Notice:</h2>
                                 </div>
                                 <div class="col-5">
-                                    <h2 class="steps">Step 1 - 4</h2>
+                                    <h2 class="steps">Step 1 - 6</h2>
                                 </div>
                             </div>
                                 <p>Welcome to Onboarder ("we," "our," or "us"). Protecting your privacy and ensuring the security of your personal information is of utmost importance to us. This Privacy Notice is designed to inform you about how we collect, use, disclose, and safeguard your personal data when you use the Onboarder application.
@@ -71,12 +73,9 @@
                                     <h2 class="fs-title">Organization Information:</h2>
                                 </div>
                                 <div class="col-5">
-                                    <h2 class="steps">Step 2 - 4</h2>
+                                    <h2 class="steps">Step 2 - 6</h2>
                                 </div>
                             </div> 
-
-                                <label class="fieldlabels">Upload Your Organizations Logo:</label> 
-                                <input type="file" name="pic" accept="image/*"> 
 
                                 <label class="fieldlabels">Organization Name: *</label> 
                                 <input type="text" id="orgName" name="orgName" formControlName="orgName" placeholder="Organization Name" />
@@ -90,15 +89,6 @@
                                 <label class="fieldlabels">Organization's History: *</label> 
                                 <input type="text" id="orgHistory" name="orgHistory" formControlName="orgHistory" placeholder="Organization History" /> 
 
-                                <label class="fieldlabels">Mission: *</label> 
-                                <input type="text" id="mission" name="orgType" formControlName="mission" placeholder="Mission" /> 
-
-                                <label class="fieldlabels">Vision: *</label> 
-                                <input type="text" id="vision" formControlName="vision" placeholder="Vision" /> 
-
-                                <label class="fieldlabels">Core Values: *</label>
-                                 <input type="text"  id="coreValues" formControlName="coreValues" placeholder="Core Values" />
-
                             </div> 
                         
                         <input type="button" name="next" class="next action-button" value="Next" (click)="validateStep2()"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
@@ -108,10 +98,56 @@
                         <div class="form-card">
                             <div class="row">
                                 <div class="col-7">
+                                    <h2 class="fs-title">Organization Goals:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 3 - 6</h2>
+                                </div>
+                            </div> 
+
+                            <label class="fieldlabels">Mission: *</label> 
+                            <input type="text" id="mission" name="orgType" formControlName="mission" placeholder="Mission" /> 
+
+                            <label class="fieldlabels">Vision: *</label> 
+                            <input type="text" id="vision" formControlName="vision" placeholder="Vision" /> 
+
+                            <label class="fieldlabels">Core Values: *</label>
+                            <input type="text"  id="coreValues" formControlName="coreValues" placeholder="Core Values" />
+
+                    </div> 
+                        
+                        <input type="button" name="next" class="next action-button" value="Next" (click)="validateStep3()"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                    
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Logo Upload:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 4 - 6</h2>
+                                    </div>
+                                </div> 
+
+                                <label class="fieldlabels">Upload Your Organizations Logo:</label> 
+                                <input type="file" name="pic" accept="image/*"> 
+
+                            </div> 
+                            
+                            <input type="button" name="next" data-bs-toggle="modal" data-bs-target="#SuccessModal" class="next action-button" value="Submit" value="Done" (click)="submit()"  />
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
                                     <h2 class="fs-title">Account Information:</h2>
                                 </div>
                                 <div class="col-5">
-                                    <h2 class="steps">Step 3 - 4</h2>
+                                    <h2 class="steps">Step 3 - 6</h2>
                                 </div>
                             </div> 
                                    <label class="fieldlabels">Organization Email: *</label> 
@@ -132,7 +168,7 @@
                                         <h2 class="fs-title">Finish:</h2>
                                     </div>
                                     <div class="col-5">
-                                        <h2 class="steps">Step 4 - 4</h2>
+                                        <h2 class="steps">Step 5 - 6</h2>
                                     </div>
                                 </div> 
 
@@ -149,10 +185,38 @@
                             </div> 
                             
                             <input type="button" name="next" data-bs-toggle="modal" data-bs-target="#SuccessModal" class="next action-button" value="Submit" value="Done" (click)="submit()"  />
-
-  
                         </div>
                     </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="form-card">
+                                <div class="row">
+                                    <div class="col-7">
+                                        <h2 class="fs-title">Finish:</h2>
+                                    </div>
+                                    <div class="col-5">
+                                        <h2 class="steps">Step 6 - 6</h2>
+                                    </div>
+                                </div> 
+
+                                <div class="row justify-content-center">
+                                    <div class="col-3"> <img src="../../../assets/img/success.png" class="fit-image"> </div>
+                                </div>
+      
+                                <div class="row justify-content-center">
+                                    <div class="col-7 text-center">                          
+                                      <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> 
+                                      <h5 class="purple-text text-center">You have successfully created an account. This is just the first step. You can now access and register to organizations on this platform!</h5>
+                                    </div>
+                                </div>
+                            </div> 
+                            
+                            <input type="button" name="next" data-bs-toggle="modal" data-bs-target="#SuccessModal" class="next action-button" value="Submit" value="Done" (click)="submit()"  />
+                        </div>
+                    </fieldset>
+
+
                 </form>
             </div>
         </div>
