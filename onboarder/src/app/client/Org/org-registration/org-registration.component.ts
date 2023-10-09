@@ -34,6 +34,7 @@ export class OrgRegistrationComponent implements OnInit {
       orgType: ['', Validators.required],
       orgEmail: ['', Validators.required],
       password: ['', Validators.required],
+      cpassword: ['', Validators.required],
       about: ['', Validators.required],
       orgHistory: ['', Validators.required],
       mission: ['', Validators.required],
@@ -125,7 +126,15 @@ export class OrgRegistrationComponent implements OnInit {
  
     Swal.fire('Error', 'Please enter a valid email address', 'error');
 
-  } else {
+  } 
+
+  else if(organization.password !== organization.cpassword){
+ 
+    Swal.fire('Error', 'Password not match', 'error');
+
+  } 
+  
+  else {
 
   this.http
     .post('http://localhost:5000/api/orgRegister', organization, {

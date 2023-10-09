@@ -28,7 +28,9 @@ export class MemberSignupComponent implements OnInit {
       firstName:"",
       lastName:"",
       email:"",
-      password:""
+      password:"",
+      cpassword:"",
+
 
     })
 
@@ -82,7 +84,13 @@ export class MemberSignupComponent implements OnInit {
  
     Swal.fire('Error', 'Please enter a valid email address', 'error');
 
-  } else {
+  } 
+  else if(member.password !== member.cpassword){
+ 
+    Swal.fire('Error', 'Password not match', 'error');
+
+  } 
+  else {
 
   this.http
     .post('http://localhost:5000/api/register', member, {
