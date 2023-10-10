@@ -50,6 +50,15 @@ aside {
     height: 100vh;
 }
 
+.navbar-brand {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: bold;
+}
+
+.content {
+    height: 100vh;
+}
+
 .card-header {
     background: #435d7d;
     color: white;

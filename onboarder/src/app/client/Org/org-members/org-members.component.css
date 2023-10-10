@@ -28,10 +28,10 @@ aside {
 }
 
 .content {
-    height: 100vh;
     /* Scrollable content area */
     flex: 1; /* Allow content to grow and take remaining space */
     margin-left: 260px; /* Adjust for the sidebar width */
+    margin-top: 20px;
     padding: 20px; /* Add padding as needed */
     overflow-y: auto; /* Enable vertical scrolling when content overflows */
 }
@@ -44,6 +44,15 @@ aside {
 .container-fluid {
     padding-bottom: 10px;
     border-bottom: 1px solid #f6f6f6;
+}
+
+.content {
+    height: 100vh;
+}
+
+.navbar-brand {
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: bold;
 }
 
 

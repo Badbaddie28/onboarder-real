@@ -1,25 +1,10 @@
-<body>
-    <div class="container">
-        <aside>
-            <app-org-navbar></app-org-navbar>
-        </aside>
-
-        <div class="content">
-            <nav class="navbar">
-                <div class="navbar-brand">CREATE EVENT</div>
-                <ul class="nav-links" [class.nav-links-open]="showNavLinks">
-                  <li class="nav-link" *ngFor="let link of links">
-                    <a [routerLink]="link.url" routerLinkActive="active">{{ link.label }}</a>
-                  </li>
-                </ul>
-                <button class="menu-icon" (click)="toggleNavLinks()">☰</button>
-            </nav> 
-        </div>
-    </div>
-
-    <div>
-        <router-outlet></router-outlet>
-    </div>
-</body>
-
-
+<nav class="navbar">
+    <div class="navbar-brand">CREATE EVENT</div>
+    <ul class="nav-links" [class.nav-links-open]="showNavLinks">
+      <li class="nav-link" *ngFor="let link of links">
+        <a [routerLink]="link.url" routerLinkActive="active">{{ link.label }}</a>
+      </li>
+    </ul>
+    <button class="menu-icon" (click)="toggleNavLinks()">☰</button>
+</nav>
+  

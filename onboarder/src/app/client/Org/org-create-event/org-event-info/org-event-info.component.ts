@@ -6,5 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./org-event-info.component.css']
 })
 export class OrgEventInfoComponent {
+  activeButton: number = 1; // Default to Button 1 active state
+  isSmallScreen = false;
+  isSideNavOpen = true;
 
+
+  onButtonClicked(buttonNumber: number) {
+    this.activeButton = buttonNumber;
+  }
 }

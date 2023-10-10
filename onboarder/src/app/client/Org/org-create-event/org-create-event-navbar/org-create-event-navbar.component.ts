@@ -10,7 +10,7 @@ export class OrgCreateEventNavbarComponent {
     { label: 'Basic Info', url: '/basic-info' },
     { label: 'Details', url: '/details' },
     { label: 'Tickets', url: '/tickets' },
-    { label: 'Registration Forn', url: '/regform' },
+    { label: 'Registration Form', url: '/regform' },
     { label: 'Post Event', url: '/post-event' }
   ];
 
