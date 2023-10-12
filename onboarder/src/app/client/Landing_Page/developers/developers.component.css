@@ -34,7 +34,7 @@ header {
   padding: 5px 20px;
   border-radius: 30px;
   float: left;
-  margin-left: 100%;
+  margin-left: 10%;
   margin-top: 8px;
   font-family: 'Plus Jakarta Sans';
   font-weight: 700;
@@ -169,3 +169,7 @@ section {
   .team .member .social a + a {
     margin-left: 8px;
   }
+    /*Footer*/
+footer {
+  background-color: #007FE1;
+}
