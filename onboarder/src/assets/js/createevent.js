@@ -26,18 +26,6 @@ $(document).ready(function(){
         current_fs = $(this).parent();
         next_fs = $("fieldset").eq(current);
         
-        // Perform validation based on the current step before proceeding to the next step
-        if (current === 2 && !next()) {
-            return false;
-        } else if (current === 3 && !next_fs()) {
-            return false;
-        } else if (current === 4 && !next_fs()) {
-            return false;
-        }
-        else if (current === 5 && !next_fs()) {
-            return false;
-        }
-
         // Add Class Active
         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
