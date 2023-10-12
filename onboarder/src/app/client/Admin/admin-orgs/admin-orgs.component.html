@@ -39,7 +39,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let OrganizationItem of OrganizationArray" >
                                     <td>
                                         <span class="custom-checkbox">
                                             <input type="checkbox" id="checkbox1" name="options[]" value="1">
@@ -47,11 +47,11 @@
                                         </span>
                                     </td>
                                     <td>Logo</td>
-                                    <td>Kimmy Kukurikapu</td>
-                                    <td>Emeng Org</td>
-                                    <td>kimmy@gmail.com</td>
+                                    <td>{{OrganizationItem.orgName}}</td>
+                                    <td>{{OrganizationItem.orgType}}</td>
+                                    <td>{{OrganizationItem.orgEmail}}</td>
                                     <td>123465324</td>
-                                    <td>11-28-2323</td>
+                                    <td>{{OrganizationItem.dateCreated}}</td>
                                     <td>
                                         <a><i class="fa-solid fa-eye"></i></a>
                                     </td>

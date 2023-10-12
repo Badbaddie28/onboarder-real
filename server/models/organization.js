@@ -42,6 +42,11 @@ const organizationSchema = new mongoose.Schema ({
     userType:{
         type: String,
         default : "organization",
+    },
+    
+    dateCreated:{
+        type: Date,
+        default :Date,
     }
    
 

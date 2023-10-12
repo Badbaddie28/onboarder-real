@@ -22,6 +22,12 @@ const memberSchema = new mongoose.Schema ({
     userType:{
         type: String,
         default : "member"
+    },
+
+    dateCreated:{
+        type: Date,
+        default :Date,
+    
     }
 })
 
