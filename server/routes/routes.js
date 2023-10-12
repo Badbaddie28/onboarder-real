@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Member = require('../models/member');
 const Organization = require('../models/organization');
+const member = require('../models/member');
+const organization = require('../models/organization');
 
 const router = Router()
 
@@ -53,6 +55,62 @@ router.post('/register', async (req, res) => {
 
 });
 
+//READ Member
+
+router.get('/viewmember', async (req, res) => {
+  try {
+    const member = await Member.find({});
+    res.send(member);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+
+}  );
+
+//UPDATE Member
+
+router.patch('/member/:id', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const body = req.body;
+    const updateMember = await Member.findByIdAndUpdate(_id,body,{new:true});
+    if(!updateMember)
+    {
+      return res.status(404).send;
+    }
+    return res.status(200).send(updateMember);
+   
+  } catch (error) {
+    res.status(400).send(error);
+  }
+
+});
+
+//DELETE Member
+router.delete('/member/:id', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const deleteMember = await Member.findByIdAndDelete(_id);
+    if(!deleteMember)
+    {
+     return res.status(404).send();
+    }
+    
+    res.status(201).send(
+      {
+        "status" : true,
+        "message" : "student deleted"
+      }
+    );
+   
+  } catch (error) {
+    res.status(400).send(error);
+  }
+
+});
+
+
+// MEMBER LOGIN
 router.post('/login', async (req, res) => {
   const member = await Member.findOne({email:req.body.email})
   if(!member){
@@ -103,6 +161,7 @@ router.get('/member', async (req, res) => {
     }
 });
 
+//MEMBER LOGOUT
 router.post('/logout', (req,res) =>{
   res.cookie("jwt", "", {maxAge:0})
 
@@ -110,6 +169,8 @@ router.post('/logout', (req,res) =>{
     message:"success"
   });
 });
+
+
 
 //ORGANIZATION REGISTRATION
 router.post('/orgRegister', async (req, res) => {
@@ -171,7 +232,61 @@ router.post('/orgRegister', async (req, res) => {
   })
 }
 
-})
+});
+
+//READ Organization
+
+router.get('/vieworganization', async (req, res) => {
+  try {
+    const organization = await Organization.find({});
+    res.send(organization);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+
+}  );
+
+//UPDATE Organization
+
+router.patch('/organization/:id', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const body = req.body;
+    const updateOrganization = await Organization.findByIdAndUpdate(_id,body,{new:true});
+    if(!updateOrganization)
+    {
+      return res.status(404).send;
+    }
+    return res.status(200).send(updateOrganization);
+   
+  } catch (error) {
+    res.status(400).send(error);
+  }
+
+});
+
+//DELETE Member
+router.delete('/organization/:id', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const deleteOrganization = await Organization.findByIdAndDelete(_id);
+    if(!deleteOrganization)
+    {
+     return res.status(404).send();
+    }
+    
+    res.status(201).send(
+      {
+        "status" : true,
+        "message" : "organization deleted"
+      }
+    );
+   
+  } catch (error) {
+    res.status(400).send(error);
+  }
+
+});
 
 module.exports = router
 

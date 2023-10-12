@@ -1,0 +1,74 @@
+<body>
+    <div class="container">
+        <aside>
+            <app-admin-navbar></app-admin-navbar>
+        </aside>
+
+        <div class="content">
+
+            <div class="container-xl">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h2><b>Organizations</b></h2>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><span>Delete</span></a>						
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="selectAll">
+                                            <label for="selectAll"></label>
+                                        </span>
+                                    </th>
+                                    <th>Logo</th>
+                                    <th>Org Name</th>
+                                    <th>Org Type</th>
+                                    <th>Org Email</th>
+                                    <th>Org-code</th>
+                                    <th>Date Created</th>
+                                    <th>View</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let OrganizationItem of OrganizationArray" >
+                                    <td>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                            <label for="checkbox1"></label>
+                                        </span>
+                                    </td>
+                                    <td>Logo</td>
+                                    <td>{{OrganizationItem.orgName}}</td>
+                                    <td>{{OrganizationItem.orgType}}</td>
+                                    <td>{{OrganizationItem.orgEmail}}</td>
+                                    <td>123465324</td>
+                                    <td>{{OrganizationItem.dateCreated}}</td>
+                                    <td>
+                                        <a><i class="fa-solid fa-eye"></i></a>
+                                    </td>
+                                    <td>
+                                        <a href="#acceptMemberModal" class="accept" data-toggle="modal"><i class="fa-solid fa-square-check"></i></a>
+                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa-solid fa-square-xmark"></i></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+

@@ -13,6 +13,6 @@ export class MemLoginComponent implements OnInit{
   }
   
   navigatetoMemDashboard() {
-    this.router.navigate(['member-dashboard']);
+    this.router.navigate(['member-profile']);
   }
 }

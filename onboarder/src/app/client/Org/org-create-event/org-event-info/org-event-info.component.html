@@ -1,0 +1,74 @@
+<body>
+    <div class="container">
+        <aside>
+            <app-org-navbar></app-org-navbar>
+        </aside>
+
+        <div class="content">
+            <app-org-create-event-navbar></app-org-create-event-navbar>
+            
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">BASIC INFORMATION</h5>
+                  <form class="row g-3 needs-validation" novalidate>
+                    <div class="col-md-15 position-relative">
+                      <label for="validationTooltip01" class="form-label">Name of the Event</label>
+                      <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter the name of the event" required>
+                      <div class="valid-tooltip">
+                        Looks good!
+                      </div>
+                    </div>
+
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea">Short Description of the Event</label>
+                    </div>
+  
+                    <div class="location">
+                        <label>Location</label>
+                        <div class="button-container">
+                            <button (click)="onButtonClicked(1)" [class.active]="activeButton === 1">Venue</button>
+                            <button (click)="onButtonClicked(2)" [class.active]="activeButton === 2">Online</button>
+                            <button (click)="onButtonClicked(3)" [class.active]="activeButton === 3">Hybrid</button>
+                        </div>
+                
+                
+                      <!-- Add content that will change based on the button pressed -->
+                      <div class="loc" *ngIf="activeButton === 1">
+                        <div class="mb-3">
+                            <label class="form-label">Complete Address of the Venue</label>
+                            <input class="form-control" placeholder="Please enter the complete address of the venue">
+                        </div>
+                      </div>
+                      <div class="loc" *ngIf="activeButton === 2">
+                        <div class="mb-3">
+                            <label class="form-label">Meeting URL Link</label>
+                            <input class="form-control" placeholder="Please enter the meeting link of the event">
+                        </div>
+                      </div>
+                      <div  class="loc"*ngIf="activeButton === 3">
+                        <div class="mb-3">
+                            <label class="form-label">Complete Address of the Venue</label>
+                            <input class="form-control" placeholder="Please enter the complete address of the venue">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Meeting URL Link</label>
+                            <input class="form-control" placeholder="Please enter the meeting link of the event">
+                        </div>
+                      </div>
+                    </div>
+                    
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary me-md-2" type="button">Previous</button>
+                        <button class="btn btn-primary" type="button">Next</button>
+                    </div>  
+
+                  </form>
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
+
+
