@@ -34,15 +34,10 @@ import { MemEventsComponent } from './client/Member/mem-events/mem-events.compon
 import { AdminNavbarComponent } from './client/Admin/admin-navbar/admin-navbar.component';
 
 import { GeneralLoginComponent } from './client/Login/general-login/general-login.component';
-import { OrgCreateEventNavbarComponent } from './client/Org/org-create-event/org-create-event-navbar/org-create-event-navbar.component';
-import { OrgEventDetailsComponent } from './client/Org/org-create-event/org-event-details/org-event-details.component';
-import { OrgEventInfoComponent } from './client/Org/org-create-event/org-event-info/org-event-info.component';
-import { OrgEventTicketComponent } from './client/Org/org-create-event/org-event-ticket/org-event-ticket.component';
-import { OrgEventRegformComponent } from './client/Org/org-create-event/org-event-regform/org-event-regform.component';
-import { OrgEventPosteventComponent } from './client/Org/org-create-event/org-event-postevent/org-event-postevent.component';
 import { AdminOrgsComponent } from './client/Admin/admin-orgs/admin-orgs.component';
 import { AdminUsersComponent } from './client/Admin/admin-users/admin-users.component';
 import { AdminEventsComponent } from './client/Admin/admin-events/admin-events.component';
+import { OrgCreateEventComponent } from './client/Org/org-create-event/org-create-event.component';
 
 @NgModule({
   declarations: [
@@ -71,15 +66,10 @@ import { AdminEventsComponent } from './client/Admin/admin-events/admin-events.c
     MemProfileComponent,
     AdminNavbarComponent,
     GeneralLoginComponent,
-    OrgCreateEventNavbarComponent,
-    OrgEventDetailsComponent,
-    OrgEventInfoComponent,
-    OrgEventTicketComponent,
-    OrgEventRegformComponent,
-    OrgEventPosteventComponent,
     AdminOrgsComponent,
     AdminUsersComponent,
-    AdminEventsComponent
+    AdminEventsComponent,
+    OrgCreateEventComponent
   ],
   imports: [
   

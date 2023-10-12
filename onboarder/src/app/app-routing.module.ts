@@ -27,7 +27,7 @@ import { GeneralLoginComponent } from './client/Login/general-login/general-logi
 import { AdminOrgsComponent } from './client/Admin/admin-orgs/admin-orgs.component';
 import { AdminUsersComponent } from './client/Admin/admin-users/admin-users.component';
 import { AdminEventsComponent } from './client/Admin/admin-events/admin-events.component';
-import { OrgEventInfoComponent } from './client/Org/org-create-event/org-event-info/org-event-info.component';
+import { OrgCreateEventComponent } from './client/Org/org-create-event/org-create-event.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,7 +47,7 @@ const routes: Routes = [
   { path: 'org-community', component: OrgCommunityComponent },
   { path: 'org-events', component: OrgEventsComponent},
   { path: 'org-profile', component: OrgProfileComponent },
-  { path: 'org-create-event', component: OrgEventInfoComponent },
+  { path: 'org-create-event', component: OrgCreateEventComponent },
 
 
   { path: 'member-landing', component: MemLandingComponent },
