@@ -133,6 +133,9 @@ table.table td a:hover {
 table.table td a.accept {
 	color: #0a7f29;
 }
+table.table td a.view {
+	color: #21a0db;
+}
 table.table td a.delete {
 	color: #F44336;
 }
