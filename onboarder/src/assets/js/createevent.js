@@ -58,7 +58,7 @@ $(document).ready(function(){
             $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
             
             //show the next fieldset
-            document.addEventListener('postRequestSuccess', function ()
+            document.addEventListener(function ()
             {
             next_fs.show();
 

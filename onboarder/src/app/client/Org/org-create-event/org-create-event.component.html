@@ -171,14 +171,12 @@
                                 <input type="text" id="eventSeats" name="eventSeats" formControlName="eventSeats" placeholder="Please enter your contact number" />
 
                                 <label class="fieldlabels">Chapter: *</label> 
-                                <select class="form-select" id="validationTooltip04" required>
-                                  <option selected disabled value="">Choose...</option>
-                                  <option>Davao</option>
-                                  <option>Manila</option>
-                                  <option>Marikina</option>
-                                  <option>Mandaluyong</option>
-                                  <option>Rizal</option>
-                                </select>   
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected>Choose....</option>
+                                    <option value="1">Manila</option>
+                                    <option value="2">Mandaluyong</option>
+                                    <option value="3">Muntinlupa</option>
+                                </select>
 
                             </div> 
 
@@ -199,10 +197,25 @@
                                 </div>
                             </div> 
 
-                            <!--Dito ilalagay yung Preview Post View together with yung allow all non-members kineme-->
+                            <div class="row">
+                                <div class="col-12 mt-3">
+                                    <div class="card">
+                                        <div class="card-horizontal">
+                                            <div class="img-square-wrapper">
+                                                <img class="" src="http://via.placeholder.com/300x180" alt="Card image cap">
+                                            </div>
+                                            <div class="card-body">
+                                              <span class="card-date">Date of the Event</span>
+                                              <h4 class="card-eventtitle">Name of Event</h4>
+                                              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div> 
                         
-                        <input type="submit"  class="success action-button"  /> 
+                        <input type="submit"  value="Post Event" class="success action-button"  /> 
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     

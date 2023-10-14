@@ -87,15 +87,15 @@
   }
   
   #msform .action-button {
-    width: 100px;
+    width: 120px;
     background: #3676d7;
     font-weight: bold;
     color: white;
     border: 0 none;
     border-radius: 0px;
     cursor: pointer;
-    padding: 10px 5px;
-    margin: 10px 0px 10px 5px;
+    padding: 10px 3px;
+    margin: 10px 0px 15px 5px;
     float: right
   }
   
@@ -382,3 +382,58 @@
   width: 100%;
 }
 
+.form-select {
+  padding: 10px;
+}
+
+.card-horizontal {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.text-title {
+  padding: 10px;
+  padding-bottom: 0;
+}
+
+.card {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.card-date {
+  font-weight: 800;
+  color: gray;
+}
+
+.card-text {
+  margin-bottom: 3px;
+  margin-top: 0;
+}
+
+.card-eventtitle {
+  margin-bottom: 5px;
+  font-weight: 800;
+}
+
+.card-title {
+  margin-top: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #435d7d;
+}
+.card-title1 {
+  margin-top: 30px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #435d7d;
+}
+
+.card-body {
+  margin-left: 10px;
+}
+
+button {
+  margin-bottom: 0px;
+}
