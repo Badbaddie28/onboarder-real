@@ -8,7 +8,6 @@ body {
 }
 
 .container {
-    display: flex;
     margin: 0;
 }
 
@@ -37,10 +36,6 @@ aside {
 }
 
 /* Hide the scrollbar for webkit-based browsers */
-.content::-webkit-scrollbar {
-    display: none;
-}
-
 .container-fluid {
     padding-bottom: 10px;
     border-bottom: 1px solid #f6f6f6;
@@ -117,19 +112,29 @@ table.table th i {
 }	
 table.table td:last-child i {
 	opacity: 0.9;
-	font-size: 22px;
-	margin: 0 5px;
+	font-size: 19px;
 }
-table.table td a {
+
+table.table td .btn {
 	font-weight: bold;
-	color: #566787;
-	display: inline-block;
-	text-decoration: none;
-	outline: none !important;
+	color: #f6f6f6;
+	outline: none;
+	padding: 0px;
 }
+
+.btn-danger {
+	margin-left: 2px;
+}
+
+.btn .btn-success {
+	padding: 10px;
+}
+
+
 table.table td a:hover {
 	color: #2196F3;
 }
+
 table.table td a.accept {
 	color: #0a7f29;
 }
@@ -141,7 +146,13 @@ table.table td a.delete {
 }
 table.table td i {
 	font-size: 19px;
+	padding: 5px;
 }
+
+table.table td .bi .bi-eye{
+	margin: 10px;
+}
+
 table.table .avatar {
 	border-radius: 50%;
 	vertical-align: middle;

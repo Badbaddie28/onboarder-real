@@ -130,7 +130,7 @@ table.table td a {
 table.table td a:hover {
 	color: #2196F3;
 }
-table.table td a.accept {
+table.table td a.edit {
 	color: #0a7f29;
 }
 

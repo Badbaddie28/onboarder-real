@@ -46,11 +46,11 @@
                                     <td>juandelacruz@mail.com</td>
                                     <td>11-12-2023</td>
                                     <td>
-                                        <a href="#editMemberModal" class="view" data-toggle="modal"><i class="fa-solid fa-eye"></i></a>
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#viewEventModal"><i class="bi bi-eye"></i></button>
                                     </td>
                                     <td>
-                                        <a href="#acceptMemberModal" class="accept" data-toggle="modal"><i class="fa-solid fa-square-check"></i></a>
-                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa-solid fa-square-xmark"></i></a>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEventModal"><i class="bi bi-pencil-square"></i></button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteEventModal"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -60,6 +60,34 @@
             </div>
         </div>
     </div>
+
+    <!--Modal: modalConfirmDelete-->
+    <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content text-center">
+                <!--Header-->
+                <div class="modal-header d-flex justify-content-center">
+                <p class="heading">Are you sure?</p>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+
+                <i class="fas fa-times fa-4x animated rotateIn"></i>
+
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer flex-center">
+                <a href="" class="btn  btn-outline-danger">Yes</a>
+                <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalConfirmDelete-->
 </body>
 
 
