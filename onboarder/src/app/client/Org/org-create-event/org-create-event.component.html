@@ -76,7 +76,7 @@
                         
                                   <div class="content">                                    
                                     <label class="fieldlabels">Meeting URL</label>  
-                                    <input placeholder=" " type="text">
+                                    <input placeholder="Please put the meeting link" type="text">
                                   </div>
                               </div>
                             </div>
@@ -97,9 +97,9 @@
 
                                 <div class="container col-md-6">
                                     <div class="mb-5">
-                                        <label for="Image" class="fieldlabels">Official Poster of the Event: </label>
+                                        <label class="fieldlabels">Official Poster of the Event: </label>
                                         <input class="form-control" type="file" id="formFile" onchange="preview('frame')">
-                                        <label for="Image" class="fieldlabels">Recommended image size: 2160 x 1080px <br>  Maximum file size: 10MB <br> Supported image files: JPEG or PNG</label>
+                                        <label class="fieldlabels">Recommended image size: 2160 x 1080px <br>  Maximum file size: 10MB <br> Supported image files: JPEG or PNG</label>
                                         <button onclick="clearImage('formFile', 'frame')" class="action-button">Delete</button>
                                     </div>
                                     <img id="frame" src="" class="img-fluid" />
@@ -110,9 +110,9 @@
                                 
                                 <div class="container col-md-6">
                                     <div class="mb-5">
-                                        <label for="Image" class="fieldlabels">Programme: </label>
+                                        <label class="fieldlabels">Programme: </label>
                                         <input class="form-control" type="file" id="formFile1" onchange="preview('frame1')">
-                                        <label for="Image" class="fieldlabels">Recommended image size: 2160 x 1080px <br>  Maximum file size: 10MB <br> Supported image files: JPEG or PNG</label>
+                                        <label class="fieldlabels">Recommended image size: 2160 x 1080px <br>  Maximum file size: 10MB <br> Supported image files: JPEG or PNG</label>
                                         <button onclick="clearImage('formFile1', 'frame1')" class="action-button">Delete</button>
                                     </div>
                                     <img id="frame1" src="" class="img-fluid" />
@@ -144,15 +144,13 @@
 
                             <label class="fieldlabels">Payment Process and Details: *</label> 
                             <textarea class="form-control" placeholder="Please enter your payment process and details" id="floatingTextarea"></textarea>            
-
-
-                    </div> 
+                        </div> 
                         
                         <input type="button" name="next" class="next action-button" value="Next"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>
                     
                     <fieldset>
-                        <div class="form-card">
+
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
@@ -163,10 +161,31 @@
                                     </div>
                                 </div> 
 
-                                <!--Dito ilalagay yung form-->
+                                <label class="fieldlabels">Full Name: *</label> 
+                                <input type="text" id="eventSeats" name="eventSeats" formControlName="eventSeats" placeholder="Please enter the your full name" />
+                                
+                                <label class="fieldlabels">Membership Type: *</label> 
+                                <input type="text" id="eventSeats" name="eventSeats" formControlName="eventSeats" placeholder="Please enter your type of membership" />
+
+                                <label class="fieldlabels">Contact Number: *</label> 
+                                <input type="text" id="eventSeats" name="eventSeats" formControlName="eventSeats" placeholder="Please enter your contact number" />
+
+                                <label class="fieldlabels">Chapter: *</label> 
+                                <select class="form-select" id="validationTooltip04" required>
+                                  <option selected disabled value="">Choose...</option>
+                                  <option>Davao</option>
+                                  <option>Manila</option>
+                                  <option>Marikina</option>
+                                  <option>Mandaluyong</option>
+                                  <option>Rizal</option>
+                                </select>   
+
                             </div> 
+
+
                         
-                        </div>
+                            <input type="button" name="next" class="next action-button" value="Next"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                        
                     </fieldset>
 
                     <fieldset>
