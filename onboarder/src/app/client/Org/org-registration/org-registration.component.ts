@@ -32,7 +32,7 @@ export class OrgRegistrationComponent implements OnInit {
     this.form = this.formBuilder.group({
       orgName: ['', Validators.required],
       orgType: ['', Validators.required],
-      orgEmail: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
       cpassword: ['', Validators.required],
       about: ['', Validators.required],
@@ -68,11 +68,11 @@ export class OrgRegistrationComponent implements OnInit {
 
   
 
-  ValidateEmail = (orgEmail: any) => {
+  ValidateEmail = (email: any) => {
  
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   
-    if (orgEmail.match(validRegex)) {  
+    if (email.match(validRegex)) {  
   
       return true;
   
@@ -119,10 +119,10 @@ export class OrgRegistrationComponent implements OnInit {
   submit() {
     let organization = this.form.getRawValue()
     console.log(organization)
-    if(organization.orgEmail == "" || organization.password == ""){
+    if(organization.email == "" || organization.password == ""){
       Swal.fire("Error", "Please fill up all the required fields.", "error")
     }
-  else if(!this.ValidateEmail(organization.orgEmail)){
+  else if(!this.ValidateEmail(organization.email)){
  
     Swal.fire('Error', 'Please enter a valid email address', 'error');
 
@@ -157,6 +157,6 @@ export class OrgRegistrationComponent implements OnInit {
 }
 
   done(){
-    this.router.navigate(['org-login']);
+    this.router.navigate(['member-login']);
   }
 }
