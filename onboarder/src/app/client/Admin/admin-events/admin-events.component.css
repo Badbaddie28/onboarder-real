@@ -248,6 +248,11 @@ table.table .avatar {
 	padding: 30px;
 }
 
+.modal-body label{
+	text-align: left;
+}
+
+
 .modal-body h2 {
 	font-family: 'Plus Jakarta Sans', sans-serif;
 	font-weight: 800;
