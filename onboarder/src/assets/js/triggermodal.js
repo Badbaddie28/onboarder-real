@@ -13,6 +13,36 @@ $(document).on('click', '.btn-success', function() {
     $('#viewEventModal').modal('show');
 });
 
+// Mga kiming pahanash sa location-eventsu 
+$('#editEventModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget); // Button that triggered the modal
+  var modal = $(this);
+  
+  // Get values from the create-event form and populate the edit modal fields
+  // Use jQuery to get values from the create-event form and set them in the edit modal fields
+  $('#editEventName').val($('#eventName').val());
+  $('#editEventDescription').val($('#floatingTextarea').val());
+  $('#editEventDate').val($('#eventDate').val());
+  $('#editEventTime').val($('#eventTime').val());
+  
+  var location = $("input[name='activeButton']:checked").val();
+  $('#editLocation').val(location);
+  
+  // Show/hide location fields based on the selected location
+  if (location === "Venue") {
+      $('#editVenueLocation').show();
+      $('#editOnlineLocation').hide();
+      $('#editHybridLocation').hide();
+  } else if (location === "Online") {
+      $('#editVenueLocation').hide();
+      $('#editOnlineLocation').show();
+      $('#editHybridLocation').hide();
+  } else if (location === "Hybrid") {
+      $('#editVenueLocation').show();
+      $('#editOnlineLocation').show();
+      $('#editHybridLocation').show();
+  }
+},
 
 // Currency sa Price Settins
 $("input[data-type='currency']").on({
@@ -22,13 +52,13 @@ $("input[data-type='currency']").on({
     blur: function() { 
       formatCurrency($(this), "blur");
     }
-});
+}),
 
 
 function formatNumber(n) {
   // format number 1000000 to 1,234,567
   return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-}
+},
 
 
 function formatCurrency(input, blur) {
@@ -96,4 +126,4 @@ function formatCurrency(input, blur) {
   var updated_len = input_val.length;
   caret_pos = updated_len - original_len + caret_pos;
   input[0].setSelectionRange(caret_pos, caret_pos);
-}
+})
