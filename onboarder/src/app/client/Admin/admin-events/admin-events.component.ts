@@ -13,7 +13,7 @@ export class AdminEventsComponent implements OnInit{
       // The JavaScript file is loaded and initialized
     }).catch(error => {
       console.error('Error loading triggermodal.js', error);
-    });
+    });    
   }
 
   private loadScript(scriptUrl: string): Promise<void> {

@@ -49,8 +49,8 @@
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#viewEventModal"><i class="bi bi-eye"></i></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEventModal"><i class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteEventModal"><i class="bi bi-trash"></i></button>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-target="#editEventModal"><i class="bi bi-pencil-square"></i></button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-target="#deleteEventModal"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -61,33 +61,23 @@
         </div>
     </div>
 
-    <!--Modal: modalConfirmDelete-->
-    <div class="modal fade" id="deleteEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
-            <!--Content-->
-            <div class="modal-content text-center">
-                <!--Header-->
-                <div class="modal-header d-flex justify-content-center">
-                <p class="heading">Are you sure?</p>
-                </div>
 
-                <!--Body-->
-                <div class="modal-body">
-
-                <i class="fas fa-times fa-4x animated rotateIn"></i>
-
-                </div>
-
-                <!--Footer-->
-                <div class="modal-footer flex-center">
-                <a href="" class="btn  btn-outline-danger">Yes</a>
-                <a type="button" class="btn  btn-danger waves-effect" data-dismiss="modal">No</a>
-                </div>
-            </div>
-            <!--/.Content-->
+<!-- Modal -->
+<div class="modal fade" id="deleteEventModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center center">
+            <img src="../../../../assets/img/failed.png">
+            <h2>Are you sure?</h2>          
+            
+            <button type="button" class="btn btn-success">Yes</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
         </div>
+      </div>
     </div>
-    <!--Modal: modalConfirmDelete-->
+</div>
+
+
 </body>
 
 

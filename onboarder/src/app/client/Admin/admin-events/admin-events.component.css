@@ -211,14 +211,11 @@ table.table .avatar {
 }
 .custom-checkbox label:before {
 	content: '';
-	margin-right: 10px;
 	display: inline-block;
 	vertical-align: text-top;
 	background: white;
 	border: 1px solid #bbb;
 	border-radius: 2px;
-	box-sizing: border-box;
-	z-index: 2;
 }
 .custom-checkbox input[type="checkbox"]:checked + label:after {
 	content: '';
@@ -246,36 +243,20 @@ table.table .avatar {
 	box-shadow: none;
 	background: #ddd;
 }
-/* Modal styles */
-.modal .modal-dialog {
-	max-width: 400px;
+
+.modal-body {
+	padding: 30px;
 }
-.modal .modal-header, .modal .modal-body, .modal .modal-footer {
-	padding: 20px 30px;
+
+.modal-body h2 {
+	font-family: 'Plus Jakarta Sans', sans-serif;
+	font-weight: 800;
+	margin-top: 10px;
 }
-.modal .modal-content {
-	border-radius: 3px;
-	font-size: 14px;
+
+.modal-body .btn {
+	margin: 10px;
+	border-radius: 49px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
-.modal .modal-footer {
-	background: #ecf0f1;
-	border-radius: 0 0 3px 3px;
-}
-.modal .modal-title {
-	display: inline-block;
-}
-.modal .form-control {
-	border-radius: 2px;
-	box-shadow: none;
-	border-color: #dddddd;
-}
-.modal textarea.form-control {
-	resize: vertical;
-}
-.modal .btn {
-	border-radius: 2px;
-	min-width: 100px;
-}	
-.modal form label {
-	font-weight: normal;
-}	

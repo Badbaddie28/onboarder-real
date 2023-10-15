@@ -1,4 +1,4 @@
-$(document).ready(function () {
-    $('#viewEventModal').modal(); // Example for opening the viewEventModal
+// Event handler for the "Delete" button click
+$(document).on('click', '.btn-danger', function() {
+    $('#deleteEventModal').modal('show');
 });
-
