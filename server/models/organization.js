@@ -11,7 +11,7 @@ const organizationSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    orgEmail:{
+    email:{
         type: String,
         required: true,
         unique: true,

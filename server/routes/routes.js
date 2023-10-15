@@ -176,7 +176,7 @@ router.post('/logout', (req,res) =>{
 router.post('/orgRegister', async (req, res) => {
   let orgName = req.body.orgName
   let orgType = req.body.orgType
-  let orgEmail = req.body.orgEmail
+  let email = req.body.email
   let password = req.body.password
   let about = req.body.about
   let orgHistory = req.body.orgHistory
@@ -189,7 +189,7 @@ router.post('/orgRegister', async (req, res) => {
 
   const salt = await bcrypt.genSalt(10)
   const hashedPassword = await bcrypt.hash(password, salt)
-  const record = await Organization.findOne({ orgEmail:orgEmail });
+  const record = await Organization.findOne({ email:email });
 
   if (record) {
       return res.status(400).send({
@@ -200,7 +200,7 @@ router.post('/orgRegister', async (req, res) => {
   const organization = new Organization({
       orgName:orgName,
       orgType:orgType,
-      orgEmail:orgEmail,
+      email:email,
       password:hashedPassword,
       about:about,
       orgHistory:orgHistory,
