@@ -53,8 +53,8 @@
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#viewOrgModal"><i class="bi bi-eye"></i></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEventModal"><i class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteEventModal"><i class="bi bi-trash"></i></button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editOrgModal"><i class="bi bi-pencil-square"></i></button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteOrgModal"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -85,43 +85,43 @@
         <div class="modal-content">
             <div class="modal-body center">
                 <h2 class="text-center">Edit Organization Information</h2>
-                <form id="editEventForm">
+                <form id="editOrgForm">
                     <!-- Organization Information -->
                     <div class="form-group">
-                        <label for="editEventName" style="margin-top: 10px;">Organization Name</label>
-                        <input type="text" class="form-control" id="editEventName" placeholder="Enter event name">
+                        <label style="margin-top: 10px;">Organization Name</label>
+                        <input type="text" class="form-control" id="editOrgName" placeholder="Enter organization name">
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Organization Type</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Organization Type</label>
+                        <textarea class="form-control" id="editOrgType" placeholder="Enter organization type"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Brief Description of the Organization's Purpose</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Brief Description of the Organization's Purpose</label>
+                        <textarea class="form-control" id="editOrgDescription" placeholder="Enter organization description"></textarea>
                     </div>                    
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Organization's History</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Organization's History</label>
+                        <textarea class="form-control" id="editOrgHistory" placeholder="Enter organization history"></textarea>
                     </div>
 
                     <!-- Organization Goals -->
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Mission</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Mission</label>
+                        <textarea class="form-control" id="editOrgMission" placeholder="Enter organization mission"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Vision</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Vision</label>
+                        <textarea class="form-control" id="editOrgVision" placeholder="Enter organization mission"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Core Values</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Core Values</label>
+                        <textarea class="form-control" id="editCoreValues" placeholder="Enter your organization's core values"></textarea>
                     </div>
 
                     <!-- Organization Goals -->
                     <div class="form-group" id="editEventPoster">
                         <div>
-                            <label style="margin-top: 10px;">Orgaization's Logo </label>
+                            <label style="margin-top: 10px;">Organization's Logo </label>
                             <input class="form-control" type="file" id="formFile" onchange="preview('frame')">
                         </div>
                         <img id="frame" src="" class="img-fluid" />
@@ -129,18 +129,18 @@
 
                     <!-- Account Information -->
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Organization Email</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Organization Email</label>
+                        <input type="text" class="form-control" id="editOrgEmail" placeholder="Enter the organization email">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Password</label>
+                        <input type="text" class="form-control" id="editAccountPassword" placeholder="Enter the account password">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Confirm Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Confirm Password</label>
+                        <input type="text" class="form-control" id="editAccountConfirmPassword" placeholder="Re-enter the account password">
                     </div>
 
                     <div class="text-center center">
@@ -158,43 +158,43 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body center">
-                <form id="editEventForm">
+                <form id="editOrgForm">
                     <!-- Organization Information -->
                     <div class="form-group">
-                        <label for="editEventName" style="margin-top: 10px;">Organization Name</label>
-                        <input type="text" class="form-control" id="editEventName" placeholder="Enter event name">
+                        <label style="margin-top: 10px;">Organization Name</label>
+                        <input type="text" class="form-control" id="editOrgName" placeholder="Enter organization name">
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Organization Type</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Organization Type</label>
+                        <textarea class="form-control" id="editOrgType" placeholder="Enter organization type"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Brief Description of the Organization's Purpose</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Brief Description of the Organization's Purpose</label>
+                        <textarea class="form-control" id="editOrgDescription" placeholder="Enter organization description"></textarea>
                     </div>                    
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Organization's History</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Organization's History</label>
+                        <textarea class="form-control" id="editOrgHistory" placeholder="Enter organization history"></textarea>
                     </div>
 
                     <!-- Organization Goals -->
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Mission</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Mission</label>
+                        <textarea class="form-control" id="editOrgMission" placeholder="Enter organization mission"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Vision</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Vision</label>
+                        <textarea class="form-control" id="editOrgVision" placeholder="Enter organization mission"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Core Values</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Core Values</label>
+                        <textarea class="form-control" id="editCoreValues" placeholder="Enter your organization's core values"></textarea>
                     </div>
 
                     <!-- Organization Goals -->
                     <div class="form-group" id="editEventPoster">
                         <div>
-                            <label style="margin-top: 10px;">Orgaization's Logo </label>
+                            <label style="margin-top: 10px;">Organization's Logo </label>
                             <input class="form-control" type="file" id="formFile" onchange="preview('frame')">
                         </div>
                         <img id="frame" src="" class="img-fluid" />
@@ -202,18 +202,18 @@
 
                     <!-- Account Information -->
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Organization Email</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Organization Email</label>
+                        <input type="text" class="form-control" id="editOrgEmail" placeholder="Enter the organization email">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Password</label>
+                        <input type="text" class="form-control" id="editAccountPassword" placeholder="Enter the account password">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Confirm Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Confirm Password</label>
+                        <input type="text" class="form-control" id="editAccountConfirmPassword" placeholder="Re-enter the account password">
                     </div>
 
                     <div class="text-center center">

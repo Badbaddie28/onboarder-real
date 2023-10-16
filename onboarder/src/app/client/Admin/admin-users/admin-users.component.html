@@ -49,8 +49,8 @@
                                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#viewUserModal"><i class="bi bi-eye"></i></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editEventModal"><i class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteEventModal"><i class="bi bi-trash"></i></button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editUserModal"><i class="bi bi-pencil-square"></i></button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-<!-- Delete Org Modal -->
+<!-- Delete User Modal -->
 <div class="modal fade" id="deleteUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -75,45 +75,37 @@
     </div>
 </div>
 
-<!-- Edit Org Modal -->
+<!-- Edit User Modal -->
 <div class="modal fade" id="editUserModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body center">
                 <h2 class="text-center">Edit User Information</h2>
-                <form id="editEventForm">
+                <form id="editUserForm">
                     <!-- User Information -->
                     <div class="form-group">
-                        <label for="editEventName" style="margin-top: 10px;">First Name</label>
-                        <input type="text" class="form-control" id="editEventName" placeholder="Enter event name">
+                        <label style="margin-top: 10px;">First Name</label>
+                        <input type="text" class="form-control" id="editUserFirstname" placeholder="Enter your first name">
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Last Name</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Current Job</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
-                    </div>                    
-                    <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Current Employer</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Last Name</label>
+                        <textarea class="form-control" id="editUserLastname" placeholder="Enter your last name"></textarea>
                     </div>
 
                     <!-- Account Information -->
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">User Email</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Email</label>
+                        <input type="text" class="form-control" id="editUserEmail" placeholder="Enter your email">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Password</label>
+                        <input type="text" class="form-control" id="editUserPassword" placeholder="Enter your desired password">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Confirm Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Confirm Password</label>
+                        <input type="text" class="form-control" id="editUserPassword2" placeholder="Re-enter your desired password">
                     </div>
 
                     <div class="text-center center">
@@ -126,45 +118,36 @@
     </div>
 </div>
 
-<!-- View Org Modal -->
+<!-- View User Modal -->
 <div class="modal fade" id="viewUserModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body center">
-                <h2 class="text-center">Edit User Information</h2>
-                <form id="editEventForm">
+                <form id="editUserForm">
                     <!-- User Information -->
                     <div class="form-group">
-                        <label for="editEventName" style="margin-top: 10px;">First Name</label>
-                        <input type="text" class="form-control" id="editEventName" placeholder="Enter event name">
+                        <label style="margin-top: 10px;">First Name</label>
+                        <input type="text" class="form-control" id="editUserFirstname" placeholder="Enter your first name">
                     </div>
                     <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Last Name</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Current Job</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
-                    </div>                    
-                    <div class="form-group">
-                        <label for="editEventDescription" style="margin-top: 10px;">Current Employer</label>
-                        <textarea class="form-control" id="editEventDescription" placeholder="Enter event description"></textarea>
+                        <label style="margin-top: 10px;">Last Name</label>
+                        <textarea class="form-control" id="editUserLastname" placeholder="Enter your last name"></textarea>
                     </div>
 
                     <!-- Account Information -->
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">User Email</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Email</label>
+                        <input type="text" class="form-control" id="editUserEmail" placeholder="Enter your email">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Password</label>
+                        <input type="text" class="form-control" id="editUserPassword" placeholder="Enter your desired password">
                     </div>
 
                     <div class="form-group">
-                        <label for="editEventSeats" style="margin-top: 10px;">Confirm Password</label>
-                        <input type="text" class="form-control" id="editEventSeats" placeholder="Enter number of available seats">
+                        <label style="margin-top: 10px;">Confirm Password</label>
+                        <input type="text" class="form-control" id="editUserPassword2" placeholder="Re-enter your desired password">
                     </div>
 
                     <div class="text-center center">
