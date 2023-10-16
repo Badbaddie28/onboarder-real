@@ -165,17 +165,17 @@
     font-family: FontAwesome;
     content: "\f15b"
   }
+
+  #progressbar #information:before {
+    font-family: FontAwesome;
+    content: "\f129"
+  }
   
   #progressbar #personal:before {
     font-family: FontAwesome;
     content: "\f129"
   }
-  
-  #progressbar #payment:before {
-    font-family: FontAwesome;
-    content: "\f030"
-  }
-  
+    
   #progressbar #confirm:before {
     font-family: FontAwesome;
     content: "\f00c"
