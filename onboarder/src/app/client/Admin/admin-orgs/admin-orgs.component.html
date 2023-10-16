@@ -50,11 +50,11 @@
                                     <td>123465324</td>
                                     <td>{{OrganizationItem.dateCreated}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#viewOrgModal"><i class="bi bi-eye"></i></button>
+                                        <button type="button" class="btn btn-success"><i class="bi bi-eye"></i></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editOrgModal"><i class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteOrgModal"><i class="bi bi-trash"></i></button>
+                                        <button type="button" class="btn btn-primary"><i class="bi bi-pencil-square"></i></button>
+                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -66,13 +66,13 @@
     </div>
 
 <!-- Delete Org Modal -->
-<div class="modal fade" id="deleteOrgModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="deleteOrgModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngFor="let OrganizationItem of OrganizationArray">    
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body text-center center">
             <img src="../../../../assets/img/failed.png">
             <h2>Are you sure?</h2>          
-            <button type="button" class="btn btn-success">Yes</button>
+            <button type="button" class="btn btn-success" (click)="setDelete(OrganizationItem)">Yes</button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
         </div>
       </div>
@@ -80,7 +80,7 @@
 </div>
 
 <!-- Edit Org Modal -->
-<div class="modal fade" id="editOrgModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="editOrgModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true">    
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body center">
@@ -154,7 +154,7 @@
 </div>
 
 <!-- View Org Modal -->
-<div class="modal fade" id="viewOrgModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade" id="viewOrgModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true">    
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body center">
