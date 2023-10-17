@@ -38,6 +38,7 @@ import { AdminOrgsComponent } from './client/Admin/admin-orgs/admin-orgs.compone
 import { AdminUsersComponent } from './client/Admin/admin-users/admin-users.component';
 import { AdminEventsComponent } from './client/Admin/admin-events/admin-events.component';
 import { OrgCreateEventComponent } from './client/Org/org-create-event/org-create-event.component';
+import { MemEventregformComponent } from './client/Member/mem-eventregform/mem-eventregform.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { OrgCreateEventComponent } from './client/Org/org-create-event/org-creat
     AdminOrgsComponent,
     AdminUsersComponent,
     AdminEventsComponent,
-    OrgCreateEventComponent
+    OrgCreateEventComponent,
+    MemEventregformComponent
   ],
   imports: [
   

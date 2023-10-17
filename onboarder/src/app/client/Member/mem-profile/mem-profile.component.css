@@ -109,19 +109,33 @@ aside {
   height: 45px;
 }
 
-.subheading {
-    width: 100%;
-    height: 53px;
-    flex-shrink: 0;
-    background: #717070c8;
-    margin-top: 20px;
-    margin-bottom: 10px;
+.content {
+    height: 100vh;
 }
 
-h5 {
-    width: 100%;
-    height: 100%;
-    margin-left: 20px;
-    display: flex; 
-    align-items: center;
+.card-header {
+    background: #435d7d;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.card-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #435d7d;
+}
+
+label {
+    font-weight: bold;
+}
+
+.modal-body .btn {
+	margin: 10px;
+	border-radius: 49px;
+	padding-left: 30px;
+	padding-right: 30px;
 }
