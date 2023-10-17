@@ -3,8 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Member = require('../models/member');
 const Organization = require('../models/organization');
-const member = require('../models/member');
-const organization = require('../models/organization');
+
 
 const router = Router()
 
@@ -113,52 +112,141 @@ router.delete('/member/:id', async (req, res) => {
 // MEMBER LOGIN
 router.post('/login', async (req, res) => {
   const member = await Member.findOne({email:req.body.email})
-  if(!member){
-    return res.status(404).send({
-      message:"User Not Found"
-    })
-  }
+  const organization = await Organization.findOne({email:req.body.email})
 
-  if(!(await bcrypt.compare(req.body.password, member.password))){
-    return res.status(400).send ({
-      message:"Password is Incorrect"
-    });
-  }
+  if(!member){//if there is no member // A
+      if (!organization){ // then check if there org // C
+        return res.status(404).send({
+          message:"User Not Found"
+        })
+      } // C 
 
-  const token = jwt.sign({_id: member._id},"secret")
+      else if (!(await bcrypt.compare(req.body.password, organization.password))){ //if there is then
+        return res.status(400).send ({// then this
+          message:"Password is Incorrect"
+        });
+  }// A
+
+  const token = jwt.sign({_id: organization._id, userType: organization.userType, orgName: organization.orgName},"secret") //but this if valid
 
   res.cookie("jwt", token,{
     httpOnly:true,
-    maxAge:24*60*60*1000,
+    maxAge:3*24*60*60*1000,
+  })
+
+  res.send({
+    message:"success"
+  });
+
+  }
+
+  else if(!(await bcrypt.compare(req.body.password, member.password))){ //but if there is, the check pass, if not valid // B
+    return res.status(400).send ({// then this
+      message:"Password is Incorrect"
+    });
+  } //B
+
+  else {const token = jwt.sign({
+    _id: member._id, 
+    email: member.email,
+    firstName: member.firstName,
+    lastName: member.lastName,
+    userType: member.userType
+  
+  },"secret") //but this if valid
+
+  res.cookie("jwt", token,{
+    httpOnly:true,
+    maxAge:3*24*60*60*1000,
   })
 
   res.send({
     message:"success"
   })
+}
 });
 
-router.get('/member', async (req, res) => {
-    try{
-      const cookie = req.cookies['jwt']
-      const claims = jwt.verify(cookie,"secret")
 
-      if(!claims){
+      router.get('/current', async (req, res) => {
+        try {
+            const cookie = req.cookies['jwt'];
+            const claims = jwt.verify(cookie, "secret");
+    
+            if (!claims) {
+                return res.status(401).send({
+                    message: "unauthenticated"
+                });
+            }
+    
+            let user;
+            if (claims.userType === 'member') {
+                user = await Member.findOne({ _id: claims._id });
+            } else if (claims.userType === 'organization') {
+                user = await Organization.findOne({ _id: claims._id });
+            }
+    
+            if (!user) {
+                return res.status(404).send({
+                    message: "User not found"
+                });
+            }
+    
+            const { password, ...data } = await user.toJSON();
+            res.send(data);
+        } catch (err) {
+            return res.status(401).send({
+                message: 'unauthenticated'
+            });
+        }
+    });
+    
+    router.get('/member', async (req, res) => {
+      try{
+        const cookie = req.cookies['jwt']
+        const claims = jwt.verify(cookie,"secret")
+  
+        if(!claims){
+          return res.status(401).send({
+            message: "unauthenticated"
+          })
+        }
+  
+        const member = await Member.findOne({_id:claims._id})
+        const {password,...data} = await member.toJSON()
+  
+        res.send(data)
+  
+      }
+      catch(err){
         return res.status(401).send({
-          message: "unauthenticated"
+          message:'unauthenticated'
         })
       }
+  });
+  
+    
+router.get('/organization', async (req, res) => {
+  try{
+    const cookie = req.cookies['jwt']
+    const claims = jwt.verify(cookie,"secret")
 
-      const member = await Member.findOne({_id:claims._id})
-      const {password,...data} = await member.toJSON()
-
-      res.send(data)
-
-    }
-    catch(err){
+    if(!claims){
       return res.status(401).send({
-        message:'unauthenticated'
+        message: "unauthenticated"
       })
     }
+
+    const organization = await Organization.findOne({_id:claims._id})
+    const {password,...data} = await organization.toJSON()
+
+    res.send(data)
+
+  }
+  catch(err){
+    return res.status(401).send({
+      message:'unauthenticated'
+    })
+  }
 });
 
 //MEMBER LOGOUT
