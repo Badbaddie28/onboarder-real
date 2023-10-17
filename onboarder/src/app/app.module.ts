@@ -77,7 +77,8 @@ import { OrgCreateEventComponent } from './client/Org/org-create-event/org-creat
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

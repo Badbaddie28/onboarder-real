@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -8,9 +10,28 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
   styleUrls: ['./org-navbar.component.css']
 })
 export class OrgNavbarComponent implements OnInit {
-  constructor() { }
+  organization!: string;
+
+  constructor(private http:HttpClient,
+    private router: Router) { }
 
   ngOnInit(): void {
+
+
+    this.http.get('http://localhost:5000/api/organization', {
+      withCredentials: true
+    }).subscribe(
+      (res:any) => {
+        this.organization = `${res.orgName}`;
+    
+      },
+      (err) => {
+        this.organization = "error"
+       
+    
+      }
+    )
+
     // Load and initialize the JavaScript file
     this.loadScript('assets/js/navbar.js').then(() => {
       // The JavaScript file is loaded and initialized
