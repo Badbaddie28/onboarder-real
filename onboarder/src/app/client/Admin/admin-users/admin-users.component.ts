@@ -38,11 +38,11 @@ setUpdate(data:any)
 
 updateMember(){
   let memberData = {
-    "Member ID" : this._id,
-    "First Name" : this.firstName,
-    "Last Name" : this.lastName,
-    "Email" : this.email,
-    "Date Created" : this.dateCreated
+    "_id" : this._id,
+    "firstName" : this.firstName,
+    "lastName" : this.lastName,
+    "email" : this.email,
+    "dateCreated" : this.dateCreated
   };
 
   this.http.patch("http://localhost:5000/api/member" + "/" + this._id, memberData).subscribe((resultData:any)=>
