@@ -88,6 +88,11 @@ aside {
     border-bottom: 1px solid #435d7d;
 }
 
+.card-body {
+    justify-content: center;
+    align-items: center;
+}
+
 .btn {
 	margin: 10px;
 	border-radius: 49px;

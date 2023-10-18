@@ -39,6 +39,8 @@ import { AdminUsersComponent } from './client/Admin/admin-users/admin-users.comp
 import { AdminEventsComponent } from './client/Admin/admin-events/admin-events.component';
 import { OrgCreateEventComponent } from './client/Org/org-create-event/org-create-event.component';
 import { MemEventregformComponent } from './client/Member/mem-eventregform/mem-eventregform.component';
+import { MemOrgprofileComponent } from './client/Member/mem-orgprofile/mem-orgprofile.component';
+import { MemOrgmemformComponent } from './client/Member/mem-orgmemform/mem-orgmemform.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +73,9 @@ import { MemEventregformComponent } from './client/Member/mem-eventregform/mem-e
     AdminUsersComponent,
     AdminEventsComponent,
     OrgCreateEventComponent,
-    MemEventregformComponent
+    MemEventregformComponent,
+    MemOrgprofileComponent,
+    MemOrgmemformComponent
   ],
   imports: [
   

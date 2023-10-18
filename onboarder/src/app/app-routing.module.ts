@@ -30,6 +30,8 @@ import { AdminEventsComponent } from './client/Admin/admin-events/admin-events.c
 import { OrgCreateEventComponent } from './client/Org/org-create-event/org-create-event.component';
 import { MemRegistrationComponent } from './client/Member/mem-registration/mem-registration.component';
 import { MemEventregformComponent } from './client/Member/mem-eventregform/mem-eventregform.component';
+import { MemOrgprofileComponent } from './client/Member/mem-orgprofile/mem-orgprofile.component';
+import { MemOrgmemformComponent } from './client/Member/mem-orgmemform/mem-orgmemform.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,6 +61,8 @@ const routes: Routes = [
   { path: 'member-profile', component: MemProfileComponent},
   { path: 'member-event-registration', component: MemRegistrationComponent},
   { path: 'member-event-regform', component: MemEventregformComponent},
+  { path: 'member-orgprofile', component: MemOrgprofileComponent},
+  { path: 'member-orgmemform', component: MemOrgmemformComponent},
 
 
   { path: 'admin-orgs', component: AdminOrgsComponent},
