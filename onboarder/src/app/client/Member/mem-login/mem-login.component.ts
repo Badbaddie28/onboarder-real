@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from 'src/app/service/auth.service';
 
 interface ServerResponse {
@@ -24,7 +25,7 @@ export class MemLoginComponent implements OnInit{
     private formBuilder: FormBuilder,
     private http:HttpClient,
     private router: Router,
-    authService: AuthService
+    
     ) {}
 
   ngOnInit(): void {
