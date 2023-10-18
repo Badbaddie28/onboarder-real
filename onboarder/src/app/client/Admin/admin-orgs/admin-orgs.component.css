@@ -126,8 +126,15 @@ table.table td .btn {
 	margin-left: 2px;
 }
 
-.btn .btn-success {
-	padding: 10px;
+.btn .btn-danger, .btn-danger1 {
+	background-color: #F44336;
+	color: white;
+}
+
+
+.btn .btn-success, .btn-success1 {
+	background-color: #0a7f29;
+	color: white;
 }
 
 

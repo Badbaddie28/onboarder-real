@@ -46,10 +46,10 @@
                                     <td>{{MemberItem.email}}</td>
                                     <td>{{MemberItem.dateCreated}}</td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#viewUserModal"><i class="bi bi-eye"></i></button>
+                                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#viewUserModal" (click)="setUpdate(MemberItem)"><i class="bi bi-eye"></i></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editUserModal"><i class="bi bi-pencil-square"></i></button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editUserModal" (click)="setUpdate(MemberItem)"><i class="bi bi-pencil-square"></i></button>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUserModal"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
@@ -62,13 +62,13 @@
     </div>
 
 <!-- Delete User Modal -->
-<div class="modal fade" id="deleteUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+<div class="modal fade" id="deleteUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngFor="let MemberItem of MemberArray">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body text-center center">
             <img src="../../../../assets/img/failed.png">
             <h2>Are you sure?</h2>          
-            <button type="button" class="btn btn-success">Yes</button>
+            <button type="button" class="btn btn-success1" (click)="setDelete(MemberItem)" data-bs-dismiss="modal">Yes</button>
             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
         </div>
       </div>
@@ -76,85 +76,68 @@
 </div>
 
 <!-- Edit User Modal -->
-<div class="modal fade" id="editUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body center">
-                <h2 class="text-center">Edit User Information</h2>
-                <form id="editUserForm">
-                    <!-- User Information -->
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">First Name</label>
-                        <input type="text" class="form-control" id="editUserFirstname" placeholder="Enter your first name">
-                    </div>
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Last Name</label>
-                        <textarea class="form-control" id="editUserLastname" placeholder="Enter your last name"></textarea>
-                    </div>
+<div *ngFor = "let MemberItem of MemberArray">
+    <div class="modal fade" id="editUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngIf="_id">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body center">
+                    <h2 class="text-center">Edit User Information</h2>
+                    <form id="editUserForm">
+                        <!-- User Information -->
+                        <div class="form-group">
+                            <label style="margin-top: 10px;">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}">
+                        </div>
+                        <div class="form-group">
+                            <label style="margin-top: 10px;">Last Name</label>
+                            <textarea class="form-control" id="editUserLastname" placeholder="Enter your last name" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}"></textarea>
+                        </div>
+    
+                        <!-- Account Information -->
+                        <div class="form-group">
+                            <label style="margin-top: 10px;">Email</label>
+                            <input type="text" class="form-control" id="editUserEmail" placeholder="Enter your email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
+                        </div>
 
-                    <!-- Account Information -->
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Email</label>
-                        <input type="text" class="form-control" id="editUserEmail" placeholder="Enter your email">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Password</label>
-                        <input type="text" class="form-control" id="editUserPassword" placeholder="Enter your desired password">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Confirm Password</label>
-                        <input type="text" class="form-control" id="editUserPassword2" placeholder="Re-enter your desired password">
-                    </div>
-
-                    <div class="text-center center">
-                        <button type="submit" class="btn btn-success">Save</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
+                        <div class="text-center center">
+                            <button type="submit" class="btn btn-success1" (click)="updateMember()" data-bs-dismiss="modal">Save</button>
+                            <button type="button" class="btn btn-danger1" data-bs-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!-- View User Modal -->
-<div class="modal fade" id="viewUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body center">
-                <form id="editUserForm">
-                    <!-- User Information -->
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">First Name</label>
-                        <input type="text" class="form-control" id="editUserFirstname" placeholder="Enter your first name">
-                    </div>
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Last Name</label>
-                        <textarea class="form-control" id="editUserLastname" placeholder="Enter your last name"></textarea>
-                    </div>
-
-                    <!-- Account Information -->
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Email</label>
-                        <input type="text" class="form-control" id="editUserEmail" placeholder="Enter your email">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Password</label>
-                        <input type="text" class="form-control" id="editUserPassword" placeholder="Enter your desired password">
-                    </div>
-
-                    <div class="form-group">
-                        <label style="margin-top: 10px;">Confirm Password</label>
-                        <input type="text" class="form-control" id="editUserPassword2" placeholder="Re-enter your desired password">
-                    </div>
-
-                    <div class="text-center center">
-                        <button type="submit" class="btn btn-success">Save</button>
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
+<div *ngFor = "let MemberItem of MemberArray">
+    <div class="modal fade" id="viewUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngFor="let MemberItem of MemberArray">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body center">
+                    <form id="editUserForm">
+                        <!-- User Information -->
+                        <div class="form-group">
+                            <label style="margin-top: 10px;">First Name</label>
+                            <input type="text" class="form-control" id="editUserFirstname" placeholder="Enter your first name" [(ngModel)]="firstName" [ngModelOptions]="{standalone: true}" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label style="margin-top: 10px;">Last Name</label>
+                            <textarea class="form-control" id="editUserLastname" placeholder="Enter your last name" [(ngModel)]="lastName" [ngModelOptions]="{standalone: true}" readonly></textarea>
+                        </div>
+    
+                        <!-- Account Information -->
+                        <div class="form-group">
+                            <label style="margin-top: 10px;">Email</label>
+                            <input type="text" class="form-control" id="editUserEmail" placeholder="Enter your email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" readonly>
+                        </div>
+    
+                        <div class="text-center center">
+                            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

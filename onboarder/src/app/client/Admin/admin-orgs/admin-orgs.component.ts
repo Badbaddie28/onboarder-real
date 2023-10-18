@@ -13,6 +13,13 @@ export class AdminOrgsComponent {
   orgType = "";
   email = "";
   dateCreated: any;
+  orgHistory: any;
+  about = "";
+  mission = "";
+  coreValues = "";
+  password = "";
+  vision = "";
+  
 
   constructor(private http: HttpClient){
     this.getAllOrganization();
@@ -32,18 +39,28 @@ export class AdminOrgsComponent {
     this._id = data._id;
     this.orgName = data.orgName;
     this.orgType = data.orgType;
+    this.about = data.about;
+    this.orgHistory = data.orgHistory;
+    this.mission = data.mission;
+    this.vision = data.vision;
+    this.coreValues = data.coreValues;
     this.email = data.email;
     this.dateCreated = data.dateCreated;
   }
 
   updateOrganization(){
     let orgData = {
-      "Org ID" : this._id,
-      "Org Name" : this.orgName,
-      "Org Type" : this.orgType,
-      "Org Email" : this.email,
-      "Date Created" : this.dateCreated
-    };
+      "orgName" : this.orgName,
+      "orgType" : this.orgType,
+      "orgHistory": this.orgHistory,
+      "email" : this.email,
+      "dateCreated" : this.dateCreated,
+      "_id" : this._id,
+      "about" : this.about,
+      "mission" : this.mission,
+      "vision" : this.vision,
+      "coreValues" : this.coreValues,
+    }
 
     this.http.patch("http://localhost:5000/api/organization" + "/" + this._id, orgData).subscribe((resultData:any)=>
     {
@@ -51,7 +68,7 @@ export class AdminOrgsComponent {
       this.getAllOrganization();
     })
   }
-
+  
   setDelete(data:any) {
     this.http.delete("http://localhost:5000/api/organization" + "/" + data._id).subscribe((resultData: any)=>
     {
@@ -59,7 +76,6 @@ export class AdminOrgsComponent {
       this.getAllOrganization();
     })
   }
-
     
   ngOnInit(): void {
     // Load and initialize the JavaScript file
