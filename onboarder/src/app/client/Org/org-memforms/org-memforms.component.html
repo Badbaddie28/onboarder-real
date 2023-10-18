@@ -20,9 +20,12 @@
               <h5 class="card-header">Membership Form</h5>
               <div class="card-body">
                 <h5 class="card-title">Personal Information</h5>
-                <form class="row g-3 needs-validation" novalidate>
+                <form class="row g-3 needs-validation" [formGroup]="form" (submit)="submit()">
                   <div class="col-md-15 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" id="fullName" formControlName="fullName" [checked]="form.get('fullName')?.value" style="margin-right: 5px;">
+
+
+
                     <label for="validationTooltip01" class="form-label">Full Name (First Name, Middle Name, Last Name)</label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your full name" required>
                     <div class="valid-tooltip">
@@ -31,7 +34,8 @@
                   </div>
 
                   <div class="col-md-2 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" id="sex" formControlName="sex" [checked]="form.get('sex')?.value" style="margin-right: 5px;">
+
                     <label for="validationTooltip02" class="form-label">Sex</label>
                     <select class="form-select" id="validationTooltip04" required>
                       <option selected disabled value="">Choose...</option>
@@ -44,7 +48,7 @@
                   </div>
 
                   <div class="col-md-3 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="brithDate" style="margin-right: 5px;">
                     <label for="validationTooltip03" class="form-label">Date of Birth</label>
                     <input type="text" class="form-control" id="validationTooltip02" placeholder="Date of Birth" required>
                     <div class="valid-tooltip">
@@ -53,7 +57,7 @@
                   </div>
 
                   <div class="col-md-3 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="civilStatus" style="margin-right: 5px;">
                     <label for="validationTooltip03" class="form-label">Civil Status</label>
                     <select class="form-select" id="validationTooltip04" required>
                       <option selected disabled value="">Choose...</option>
@@ -66,7 +70,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="religion" style="margin-right: 5px;">
                     <label for="validationTooltip04" class="form-label">Religion</label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your religion" required>
                     <div class="valid-tooltip">
@@ -75,7 +79,7 @@
                   </div>
 
                   <div class="col-md-8 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="address" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Full Address</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your full address" required>
                     <div class="invalid-tooltip">
@@ -84,7 +88,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="zip" style="margin-right: 5px;">
                     <label for="validationTooltip06" class="form-label">Zip</label>
                     <input type="text" class="form-control" id="validationTooltip05" placeholder="Please enter your zip code" required>
                     <div class="invalid-tooltip">
@@ -93,7 +97,7 @@
                   </div>
 
                   <div class="col-md-6 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="email" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Email Address</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your email address" required>
                     <div class="invalid-tooltip">
@@ -102,7 +106,7 @@
                   </div>
 
                   <div class="col-md-6 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="contactNum" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Contact Number</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your contact number" required>
                     <div class="invalid-tooltip">
@@ -116,7 +120,7 @@
 
                   <h5 class="card-title">Educational Attainment</h5>
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="university" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Tertiary University / College</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your undergraduate university" required>
                     <div class="invalid-tooltip">
@@ -125,7 +129,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="degree" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Degree</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" required>
                     <div class="invalid-tooltip">
@@ -134,7 +138,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="year" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Year of Graduation</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" required>
                     <div class="invalid-tooltip">
@@ -332,7 +336,7 @@
 
                   
                   <div class="col-12">
-                    <button class="btn btn-primary" type="submit">Submit form</button>
+                    <input type="submit"  class="success action-button"  />
                   </div>
                 </form>
               </div>

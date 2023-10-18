@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Member = require('../models/member');
 const Organization = require('../models/organization');
+const MemForm = require('../models/membershipForm')
 
 
 const router = Router()
@@ -374,6 +375,27 @@ router.delete('/organization/:id', async (req, res) => {
     res.status(400).send(error);
   }
 
+});
+
+router.post('/submitForm', async (req, res) => {
+  let fullName = req.body.fullName
+  let sex = req.body.sex
+
+  try {
+      // Create a new Member instance with checkbox data
+      const newMembershipForm = new MemForm({
+        fullName:fullName,
+        sex:sex
+      })
+
+      // Save the new member to the database
+      await newMembershipForm.save();
+
+      res.status(201).json({ message: 'Member created successfully' });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 module.exports = router

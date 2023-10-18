@@ -13,7 +13,7 @@
   
   #heading {
     text-transform: uppercase;
-    color: #3676d7;
+    color: #00E1D3;
     font-weight: normal
   }
   
@@ -46,14 +46,15 @@
   #msform textarea {
     padding: 8px 15px 8px 15px;
     border: 1px solid #ccc;
-    border-radius: 0px;
+    border-radius: 20px;
+    box-shadow: 3px 3px lightgray;
     margin-bottom: 25px;
     margin-top: 2px;
     width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
     color: #2C3E50;
-    background-color: #ECEFF1;
+    background-color: white;
     font-size: 16px;
     letter-spacing: 1px
   }
@@ -63,17 +64,17 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #3676d7;
+    border: 1px solid #00E1D3;
     outline-width: 0
   }
   
   #msform .action-button {
     width: 100px;
-    background: #3676d7;
+    background: #00E1D3;
     font-weight: bold;
     color: white;
     border: 0 none;
-    border-radius: 0px;
+    border-radius: 30px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 0px 10px 5px;
@@ -91,7 +92,7 @@
     font-weight: bold;
     color: white;
     border: 0 none;
-    border-radius: 0px;
+    border-radius: 30px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px 10px 0px;
@@ -111,7 +112,7 @@
   
   .fs-title {
     font-size: 25px;
-    color: #3676d7;
+    color: #00E1D3;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
@@ -119,13 +120,13 @@
 
   .fs-title1 {
     font-size: 25px;
-    color: #3676d7;
+    color: #00E1D3;
     font-weight: normal;
     text-align: left
   }
   
   .purple-text {
-    color: #3676d7;
+    color: #00E1D3;
     font-weight: normal
   }
   
@@ -138,18 +139,18 @@
   }
   
   .fieldlabels {
-    color: gray;
+    color: #00E1D3;
     text-align: left
   }
   
   #progressbar {
     margin-bottom: 30px;
     overflow: hidden;
-    color: lightgrey
+    color: #00E1D3
   }
   
   #progressbar .active {
-    color: #3676d7
+    color: #00E1D3
   }
   
   #progressbar li {
@@ -188,7 +189,7 @@
     display: block;
     font-size: 20px;
     color: #ffffff;
-    background: lightgray;
+    background: gray;
     border-radius: 50%;
     margin: 0 auto 10px auto;
     padding: 2px
@@ -198,7 +199,7 @@
     content: '';
     width: 100%;
     height: 2px;
-    background: lightgray;
+    background: #00E1D3;
     position: absolute;
     left: 0;
     top: 25px;
@@ -207,7 +208,7 @@
   
   #progressbar li.active:before,
   #progressbar li.active:after {
-    background: #3676d7
+    background: #00E1D3
   }
   
   .progress {
@@ -215,7 +216,7 @@
   }
   
   .progress-bar {
-    background-color: #3676d7
+    background-color: #00E1D3
   }
   
   .fit-image {
