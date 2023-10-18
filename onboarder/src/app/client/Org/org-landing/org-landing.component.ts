@@ -17,6 +17,6 @@ export class OrgLandingComponent implements OnInit {
   }
 
   navigatetoLogIn() {
-    this.router.navigate(['general-login']);
+    this.router.navigate(['member-login']);
   }
 }
