@@ -10,70 +10,56 @@
                   <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
                     <a class="navbar-brand col-lg-9 me-0">Organization Profile</a>
                     <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                      <button class="btn btn-primary">Save Changes</button>
+                      <button type="button" class="btn btn-success" data-bs-backdrop="fade" data-bs-toggle="modal" data-bs-target="#editOrgProfileModal">Edit Profile</button>
                     </div>
                   </div>
                 </div>
             </nav> 
 
-            <div class="container gap-3">
-              <div class="col-md-3">
-      
-                  <!-- Upload image input-->
-                  <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                      <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
-                      <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
-                      <div class="input-group-append">
-                          <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
-                      </div>
-                  </div>
-      
-                  <!-- Uploaded image area-->
-                  <p class="font-italic text-white text-center">The profile picture uploaded will be rendered inside the box below.</p>
-                  <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
-      
+            <div class="card-horizontal gap-3 text-center align-items-center justify-content-center">
+              <div class="img-square-wrapper">
+                  <img class="" src="http://via.placeholder.com/200x200" alt="Card image cap">
               </div>
-
-              <div class="col-md-9">
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Organization Name</span>
-                  <input type="text" class="form-control" placeholder="Please enter the name of your organization" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Organization Name Abbreviation</span>
-                  <input type="text" class="form-control" placeholder="Please enter the abbreviation of the name of your organization" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-text" id="basic-addon1">Office Address</span>
-                  <input type="text" class="form-control" placeholder="Please enter the office address of your organization" aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-text">Short Description of the Organization</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-text">Organization's Vision</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-text">Organization's Mission</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-
-                <div class="input-group mb-3">
-                  <span class="input-group-text">Organization's Core Values</span>
-                  <textarea class="form-control" aria-label="With textarea"></textarea>
-                </div>
-              </div> 
+              <div class="card-body">
+                  <h4 class="card-eventtitle">Name of Organization</h4>
+                  <h5 class="card-eventtitle">Email</h5>
+                  <p class="card-text">(Org Description)Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              </div>
           </div>
 
-          <div class="imagecontainer">
-            <div class="row">
+          <hr>
+
+          <div class="card-body">
+              <h4 class="card-eventtitle">History</h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+
+          <hr>
+
+          <div class="card-body">
+              <h4 class="card-eventtitle">Vision</h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+
+          <hr>
+
+          <div class="card-body">
+              <h4 class="card-eventtitle">Mission</h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+
+          <hr>
+
+          <div class="card-body">
+              <h4 class="card-eventtitle">Core Values</h4>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+
+          <hr>
+
+             
+            <div class="imagecontainer">
+              <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-header">
@@ -114,6 +100,70 @@
       </div>
 
     </div>
+
+    
+<!-- Edit Org Profile User Modal -->
+<div class="modal fade" id="editOrgProfileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body center gap-3">
+        <form id="editOrgForm">
+            <h2 class="text-center">Edit Organization Information</h2>
+            <form id="editOrgForm">
+                <!-- Organization Logo Upload -->
+                <div class="form-group" id="editEventLogo">
+                  <div>
+                      <label style="margin-top: 10px;">Organization's Logo </label>
+                      <input class="form-control" type="file" id="formFile" onchange="preview('frame')">
+                  </div>
+                  <img id="frame" src="" class="img-fluid" />
+                </div>
+
+                <!-- Organization Information -->
+                <div class="form-group">
+                    <label style="margin-top: 10px;">Organization Name</label>
+                        <input type="text" class="form-control" id="editOrgName" placeholder="Enter organization name">
+                </div>
+                <div class="form-group">
+                  <label style="margin-top: 10px;">Organization Email</label>
+                  <input type="text" class="form-control" id="editOrgEmail" placeholder="Enter the organization email">
+                </div>  
+                <div class="form-group">
+                    <label style="margin-top: 10px;">Brief Description of the Organization's Purpose</label>
+                    <textarea class="form-control" id="editOrgDescription" placeholder="Enter organization description"></textarea>
+                </div>                    
+                <div class="form-group">
+                    <label style="margin-top: 10px;">Organization's History</label>
+                    <textarea class="form-control" id="editOrgHistory" placeholder="Enter organization history"></textarea>
+                </div>
+
+                <!-- Organization Goals -->
+                <div class="form-group">
+                    <label style="margin-top: 10px;">Mission</label>
+                    <textarea class="form-control" id="editOrgMission" placeholder="Enter organization mission"></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="margin-top: 10px;">Vision</label>
+                    <textarea class="form-control" id="editOrgVision" placeholder="Enter organization vision"></textarea>
+                </div>
+                <div class="form-group">
+                    <label style="margin-top: 10px;">Core Values</label>
+                    <textarea class="form-control" id="editCoreValues" placeholder="Enter your organization's core values"></textarea>
+                </div>
+
+
+                <div class="text-center center">
+                  <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save Changes</button>
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>                
+                </div>
+            </form>
+        </form> 
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
 
 
