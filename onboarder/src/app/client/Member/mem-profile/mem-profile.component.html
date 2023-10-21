@@ -10,74 +10,61 @@
                 <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
                   <a class="navbar-brand col-lg-9 me-0">Member Profile</a>
                   <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                    <button class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-success" data-bs-backdrop="fade" data-bs-toggle="modal" data-bs-target="#editOrgProfileModal">Edit Profile</button>
                   </div>
                 </div>
               </div>
           </nav> 
 
-          <div class="container gap-3">
-            <div class="col-md-3">
-    
-                <!-- Upload image input-->
-                <div class="input-group mb-3 px-2 py-2 rounded-pill bg-white shadow-sm">
-                    <input id="upload" type="file" onchange="readURL(this);" class="form-control border-0">
-                    <label id="upload-label" for="upload" class="font-weight-light text-muted">Choose file</label>
-                    <div class="input-group-append">
-                        <label for="upload" class="btn btn-light m-0 rounded-pill px-4"> <i class="fa fa-cloud-upload mr-2 text-muted"></i><small class="text-uppercase font-weight-bold text-muted">Choose file</small></label>
-                    </div>
-                </div>
-    
-                <!-- Uploaded image area-->
-                <p class="font-italic text-white text-center">The profile picture uploaded will be rendered inside the box below.</p>
-                <div class="image-area mt-4"><img id="imageResult" src="#" alt="" class="img-fluid rounded shadow-sm mx-auto d-block"></div>
-    
+          <div class="card-horizontal gap-3 text-center align-items-center justify-content-center">
+            <div class="img-square-wrapper">
+                <img class="" src="http://via.placeholder.com/200x200" alt="Card image cap">
             </div>
-
-            <div class="col-md-9 d-flex flex-column align-items-center">
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="memFirstName">First Name</span>
-                <input type="text" class="form-control" placeholder="Please enter your first name" aria-label="firstName">
-              </div>
-            
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="memLastName">Last Name</span>
-                <input type="text" class="form-control" placeholder="Please enter your last name" aria-label="lastName">
-              </div>
-            
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="memEmailAddress">Email Address</span>
-                <input type="text" class="form-control" placeholder="Please enter your email address" aria-label="UserEmailAddress">
-              </div>
-            
-              <div class="input-group mb-3">
-                <span class="input-group-text" id="memPass">Password</span>
-                <input type="text" class="form-control" placeholder="Please enter your password" aria-label="UserPass">
-              </div>
-            
-              <div class="mt-3">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editPassModal">Change Password</button>
-              </div>
+            <div class="card-body">
+                <h4 class="card-eventtitle">Last Name of the User</h4>
+                <h4 class="card-eventtitle1">First Name and Middle Name</h4>
+                <p>Email</p>
             </div>
-        </div>
-    </div>
-  </div>
-
-
-<!-- Edit Password User Modal -->
-<div class="modal fade" id="editPassModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-body text-center center">
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="memPass">Password</span>
-          <input type="text" class="form-control" placeholder="Please enter your password" aria-label="UserPass">
-          <button type="button" class="btn btn-primary">Save Changes</button>
         </div>
       </div>
+  </div>
+
+  
+<!-- Edit Org Profile User Modal -->
+<div class="modal fade" id="editOrgProfileModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-body center gap-3">
+      <form id="editOrgForm">
+          <h2 class="text-center">Edit Member Information</h2>
+          <form id="editMemberForm">
+
+              <!-- Organization Information -->
+              <div class="form-group">
+                  <label style="margin-top: 10px;">Member Surname</label>
+                      <input type="text" class="form-control" id="editOrgName" placeholder="Enter your surname">
+              </div>
+              <div class="form-group">
+                <label style="margin-top: 10px;">Member First and Middle Name</label>
+                <input type="text" class="form-control" id="editOrgEmail" placeholder="Enter your first name followed by your middle name">
+              </div>  
+              <div class="form-group">
+                  <label style="margin-top: 10px;">Member Email</label>
+                  <textarea class="form-control" id="editOrgDescription" placeholder="Enter your email"></textarea>
+              </div>                    
+
+
+              <div class="text-center center">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Save Changes</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>                
+              </div>
+          </form>
+      </form> 
     </div>
   </div>
 </div>
+</div>
+
 
 </body>
 
