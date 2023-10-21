@@ -40,6 +40,12 @@ export class OrgNavbarComponent implements OnInit {
     });
   }
 
+  logout() {
+    this.http.post('http://localhost:5000/api/logout', {withCredentials: true})
+      this.router.navigate(['/home']);
+      
+  }
+
   private loadScript(scriptUrl: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       const scriptElement = document.createElement('script');

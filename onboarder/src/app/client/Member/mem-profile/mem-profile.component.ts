@@ -68,6 +68,7 @@ export class MemProfileComponent implements OnInit {
         this.memberemail = updatedData.email;
   
         console.log(updatedData);
+        this.fetchMemberInfo();
       },
       (error) => {
         console.error('Error updating member:', error);
