@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -14,13 +15,13 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
 export class OrgRegistrationComponent implements OnInit {
   
   form!:FormGroup
+  logo!:Observable<any>
 
   isStep1Valid = false;
   isStep2Valid = false;
   isStep3Valid = false;
   isStep4Valid = false;
 
-  
   constructor(
     private formBuilder: FormBuilder,
     private http:HttpClient,
@@ -39,7 +40,8 @@ export class OrgRegistrationComponent implements OnInit {
       orgHistory: ['', Validators.required],
       mission: ['', Validators.required],
       vision: ['', Validators.required],
-      coreValues: ['', Validators.required]
+      coreValues: ['', Validators.required],
+      logo: ['', Validators.required]
   });
 
   this.isStep1Valid = true;
@@ -67,6 +69,27 @@ export class OrgRegistrationComponent implements OnInit {
   }
 
   
+  // Assuming you have a function to handle file changes
+onChange = ($event: Event) => {
+  const target = $event.target as HTMLInputElement;
+  const file: File = (target.files as FileList)[0];
+  this.convertfiletobase64(file, (base64String) => {
+    // Set the base64 string to the logo form control
+    this.form.get('logo')?.setValue(base64String);
+  });
+}
+
+// Your convertfiletobase64 function
+convertfiletobase64(file: File, callback: (base64string: string) => void) {
+  const reader = new FileReader();
+  reader.onload = (e) => {
+    let base64string = reader.result as string;
+
+
+    callback(base64string);
+  };
+  reader.readAsDataURL(file);
+}
 
   ValidateEmail = (email: any) => {
  

@@ -273,6 +273,7 @@ router.post('/orgRegister', async (req, res) => {
   let vision = req.body.vision
   let coreValues = req.body.coreValues
   let userType = req.body.userType
+  let logo = req.body.logo
 
  
 
@@ -297,8 +298,7 @@ router.post('/orgRegister', async (req, res) => {
       vision:vision,
       coreValues:coreValues,
       userType:userType,
-
-    
+      logo: logo
   })
 
   const result = await organization.save();
