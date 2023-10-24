@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter&family=Plus+Jakarta+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 body {
     margin: 0;
@@ -55,91 +56,6 @@ aside {
     font-weight: bold;
 }
 
-#upload {
-    opacity: 0;
-}
-
-#upload-label {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-}
-
-.image-area {
-    border: 2px dashed rgba(255, 255, 255, 0.7);
-    padding: 1rem;
-    position: relative;
-}
-
-.image-area::before {
-    content: 'Profile Picture';
-    color: #fff;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.8rem;
-    z-index: 1;
-}
-
-.image-area img {
-    z-index: 2;
-    position: relative;
-}
-
-/* File Uploader Starts here */
-.imagecontainer{
-    width: 100%;
-}
-.card {
-  margin-top: 20px;
-}
-.btn-upload {
-    padding: 10px 20px;
-    margin-left: 10px;
-}
-.upload-input-group {
-    margin-bottom: 10px;
-}
-
-.input-group>.custom-select:not(:last-child), .input-group>.form-control:not(:last-child) {
-  height: 45px;
-}
-
-.content {
-    height: 100vh;
-}
-
-.card-header {
-    background: #435d7d;
-    color: white;
-    font-size: 20px;
-    padding: 20px;
-}
-
-.card-title {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding-bottom: 4px;
-    border-bottom: 1px solid #435d7d;
-}
-
-label {
-    font-weight: bold;
-}
-
-.modal-body .btn {
-	margin: 10px;
-	border-radius: 49px;
-	padding-left: 30px;
-	padding-right: 30px;
-}
-
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
@@ -149,7 +65,6 @@ label {
     padding: 10px;
     padding-bottom: 0;
 }
-
 
 .card {
     font-family: 'Fira Sans', sans-serif;
@@ -163,10 +78,6 @@ label {
 .card-eventtitle {
     margin-bottom: 5px;
     font-weight: 800;
-}
-
-.card-eventtitle1 {
-    margin-bottom: 5px;
 }
 
 .card-title1 {

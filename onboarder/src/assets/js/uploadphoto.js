@@ -59,3 +59,8 @@ $(function () {
 });
 
 
+
+// Event handler for the "Edit" button click
+$(document).on('click', '.btn-success', function() {
+    $('#editOrgProfileModal').modal('show');
+});

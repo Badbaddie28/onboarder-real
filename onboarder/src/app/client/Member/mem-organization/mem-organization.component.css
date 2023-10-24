@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter&family=Plus+Jakarta+Sans:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 body {
     margin: 0;
@@ -53,4 +54,43 @@ aside {
 .navbar-brand {
     font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: bold;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.text-title {
+    padding: 10px;
+    padding-bottom: 0;
+}
+
+.card {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.card-text {
+    margin-bottom: 3px;
+    margin-top: 0;
+}
+
+.card-eventtitle {
+    margin-bottom: 5px;
+    font-weight: 800;
+}
+
+.card-title1 {
+    margin-top: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #435d7d;
+}
+
+.btn {
+	margin: 10px;
+	border-radius: 49px;
+	padding-left: 30px;
+	padding-right: 30px;
 }

@@ -11,12 +11,65 @@
                     <a class="navbar-brand col-lg-9 me-0">Member Organization/s</a>
                   </div>
                   <div class="d-lg-flex col-lg-3 justify-content-lg-end">
-                    <button class="btn btn-primary">Join by Code</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#joinOrgModal">Join by Code</button>
                   </div>
                 </div>
             </nav> 
+
+            <div class="row">
+              <div class="col-6 mt-3">
+                  <div class="card">
+                      <div class="card-horizontal">
+                          <div class="img-square-wrapper">
+                              <img class="" src="http://via.placeholder.com/200x200" alt="Card image cap">
+                          </div>
+                          <div class="card-body">
+                            <h4 class="card-eventtitle">Name of Organization</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                              <button class="btn btn-primary" routerLink="/member-orgprofile">Read More</button>
+                            </div>                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-6 mt-3">
+                  <div class="card text-center">
+                      <div class="card-horizontal">
+                          <div class="img-square-wrapper">
+                              <img class="" src="http://via.placeholder.com/200x200" alt="Card image cap">
+                          </div>
+                          <div class="card-body">
+                            <h4 class="card-eventtitle">Name of Organization</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                              <button class="btn btn-primary" routerLink="/member-orgprofile">Read More</button>
+                            </div>                        
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
         </div>
     </div>
+
+<!-- Delete User Modal -->
+<div class="modal fade" id="joinOrgModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body text-center center">
+          <div class="form-group">
+            <input type="text" class="form-control" id="editUserEmail" placeholder="Enter the org code">
+          </div>
+
+          <button type="button" class="btn btn-success">Join Org</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </body>
 
 
