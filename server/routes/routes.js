@@ -1,9 +1,12 @@
 const {Router} = require('express')
+const mongoose = require('mongoose');
+
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Member = require('../models/member');
 const Organization = require('../models/organization');
 const MemForm = require('../models/membershipForm')
+const ObjectId = mongoose.Types.ObjectId;
 
 
 const router = Router()
@@ -303,22 +306,20 @@ router.post('/orgRegister', async (req, res) => {
 
   const result = await organization.save();
 
-  //JWT 
+  // //JWT 
 
-  const { _id } = await result.toJSON();
+  // const { _id } = await result.toJSON();
 
-  const token = jwt.sign({ _id: _id }, "secret");
+  // const token = jwt.sign({ _id: _id }, "secret");
 
-  res.cookie("jwt", token, {
-    httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000, // 1 day
-  });
+  // res.cookie("jwt", token, {
+  //   httpOnly: true,
+  //   maxAge: 24 * 60 * 60 * 1000, // 1 day
+  // });
 
 
 
-  res.send({
-      message: "success"
-  })
+  res.status(201).json({ orgID: result._id, message: 'Organization created successfully' });
 }
 
 });
@@ -354,7 +355,7 @@ router.patch('/organization/:id', async (req, res) => {
 
 });
 
-//DELETE Member
+//DELETE Org
 router.delete('/organization/:id', async (req, res) => {
   try {
     const _id = req.params.id;
@@ -391,12 +392,49 @@ router.post('/submitForm', async (req, res) => {
       // Save the new member to the database
       await newMembershipForm.save();
 
+      res.status(201).json({ message: 'Or created successfully' });
+  } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+router.post('/createForm', async (req, res) => {
+  let orgID = req.body.orgID
+
+
+  try {
+      // Create a new Member instance with checkbox data
+      const newMembershipForm = new MemForm({
+        fullName: true,
+        sex: false,
+        orgID:orgID,
+      })
+
+      // Save the new member to the database
+      await newMembershipForm.save();
+
       res.status(201).json({ message: 'Member created successfully' });
   } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+//READ memform
+
+router.get('/myMemForm', async (req, res) => {
+  try {
+    const memForm = await MemForm.find({orgID: '6537de4850b46625e3808fe6'});
+    res.send(memForm);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+}  );
+
+
+
+
 
 module.exports = router
 

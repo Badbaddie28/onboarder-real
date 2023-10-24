@@ -10,47 +10,43 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
   styleUrls: ['./org-profile.component.css']
 })
 export class OrgProfileComponent implements OnInit {
-  _id!:string;
-  orgName!:string;
-  orgType!:string;
-  email!:string;
-  about!:string;
-  orgHistory!:string;
-  vision!:string;
-  mission!:string;
-  coreValues!:string;
+  _id!: string;
+  orgName!: string;
+  orgType!: string;
+  email!: string;
+  about!: string;
+  orgHistory!: string;
+  vision!: string;
+  mission!: string;
+  coreValues!: string;
+  OrgArray: any[] = [];
+
   constructor(
     private http: HttpClient,
     private router: Router
-  ) { }
+  ) { 
+    this.fetchOrgInfo();
+    this.updateOrgInfo();
+  }
 
   ngOnInit(): void {
+    this.fetchOrgInfo();
     // Load and initialize the JavaScript file
     this.loadScript('assets/js/uploadphoto.js').then(() => {
       // The JavaScript file is loaded and initialized
     }).catch(error => {
       console.error('Error loading uploadphoto.js', error);
     });
-    this.fetchOrgInfo();
   }
-  
+
   fetchOrgInfo(): void {
     this.http.get('http://localhost:5000/api/organization', {
       withCredentials: true
     }).subscribe(
       (res: any) => {
-        this._id = `${res._id}`;
-        this.orgName = `${res.orgName}`;
-        this.orgType = `${res.orgType}`;
-        this.email = `${res.email}`;
-        this.about = `${res.about}`;
-        this.orgHistory = `${res.orgHistory}`;
-        this.mission = `${res.mission}`;
-        this.vision = `${res.vision}`;
-        this.coreValues = `${res.coreValues}`;
-  
-        // Call updateOrgInfo here
+        this.setUpdate(res);
         this.updateOrgInfo();
+        // Update the data immediately
       },
       (err) => {
         this._id = "error";
@@ -65,10 +61,8 @@ export class OrgProfileComponent implements OnInit {
       }
     );
   }
-  
 
-  setUpdate(res:any) 
-  {
+  setUpdate(res: any) {
     this._id = `${res._id}`;
     this.orgName = `${res.orgName}`;
     this.orgType = `${res.orgType}`;
@@ -82,17 +76,17 @@ export class OrgProfileComponent implements OnInit {
 
   updateOrgInfo(): void {
     let orgData = {
-      "_id" : this._id,
-      "orgName" : this.orgName,
-      "orgType" : this.orgType,
-      "email" : this.email,
-      "about" : this.about,
-      "orgHistory" : this.orgHistory,
-      "mission" : this.mission,
-      "vision" : this.vision,
-      "coreValues" : this.coreValues
+      "_id": this._id,
+      "orgName": this.orgName,
+      "orgType": this.orgType,
+      "email": this.email,
+      "about": this.about,
+      "orgHistory": this.orgHistory,
+      "mission": this.mission,
+      "vision": this.vision,
+      "coreValues": this.coreValues
     };
-  
+
     this.http.patch('http://localhost:5000/api/organization' + '/' + this._id, orgData, {
       withCredentials: true
     }).subscribe(
@@ -109,7 +103,6 @@ export class OrgProfileComponent implements OnInit {
         this.coreValues = updatedData.coreValues;
 
         console.log(updatedData);
-        this.fetchOrgInfo();
       },
       (error) => {
         console.error('Error updating organization:', error);

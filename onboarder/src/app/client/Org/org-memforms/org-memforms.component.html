@@ -48,7 +48,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-3 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="brithDate" style="margin-right: 5px;">
                     <label for="validationTooltip03" class="form-label">Date of Birth</label>
                     <input type="text" class="form-control" id="validationTooltip02" placeholder="Date of Birth" disabled>
@@ -57,7 +57,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-3 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="civilStatus" style="margin-right: 5px;">
                     <label for="validationTooltip03" class="form-label">Civil Status</label>
                     <select class="form-select" id="validationTooltip04" disabled>
@@ -70,7 +70,7 @@
                     </select>         
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-4 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="religion" style="margin-right: 5px;">
                     <label for="validationTooltip04" class="form-label">Religion</label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your religion" disabled>
@@ -79,7 +79,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-8 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="address" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Full Address</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your full address" disabled>
@@ -88,7 +88,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-4 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="zip" style="margin-right: 5px;">
                     <label for="validationTooltip06" class="form-label">Zip</label>
                     <input type="text" class="form-control" id="validationTooltip05" placeholder="Please enter your zip code" disabled>
@@ -97,7 +97,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="email" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Email Address</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your email address" disabled>
@@ -106,7 +106,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="contactNum" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Contact Number</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your contact number" disabled>
@@ -126,7 +126,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="university" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="university" formControlName="university" [checked]="form.get('university')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Tertiary University / College</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your undergraduate university" disabled>
                     <div class="invalid-tooltip">
@@ -135,7 +135,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="degree" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="degree" formControlName="degree" [checked]="form.get('degree')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Degree</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" disabled>
                     <div class="invalid-tooltip">
@@ -144,7 +144,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="year" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="year" formControlName="year" [checked]="form.get('year')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Year of Graduation</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" disabled>
                     <div class="invalid-tooltip">
@@ -153,7 +153,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Masteral University / College</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your masteral university" disabled>
                     <div class="invalid-tooltip">
@@ -162,7 +162,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Degree</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" disabled>
                     <div class="invalid-tooltip">
@@ -171,7 +171,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Year of Graduation</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" disabled>
                     <div class="invalid-tooltip">
@@ -180,7 +180,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Doctoral University / College</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your doctoral university" disabled>
                     <div class="invalid-tooltip">
@@ -189,7 +189,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Degree</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" disabled>
                     <div class="invalid-tooltip">
@@ -198,7 +198,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Year of Graduation</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" disabled>
                     <div class="invalid-tooltip">
@@ -216,7 +216,9 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <h5 class="card-title">Employment Details</h5>
+
+                  <div class="col-md-4 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Current Employer</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your current employer" disabled>
@@ -225,7 +227,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-4 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Job Title</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your job title" disabled>
@@ -234,7 +236,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-4 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Employer Address</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your employer address" disabled>
@@ -254,7 +256,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">First Member Category</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Regular Membership" disabled>
                     <div class="invalid-tooltip">
@@ -263,7 +265,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Second Member Category</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Associate Membership" disabled>
                     <div class="invalid-tooltip">
@@ -272,7 +274,7 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Third Member Category</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Lifetime Membership" disabled>
                     <div class="invalid-tooltip">
@@ -285,7 +287,7 @@
                   <br>
                   
                   <div class="col-md-4 position-relative">
-                    <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment disabled for this category" disabled></textarea>
+                    <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment required for this category" required></textarea>
                     <div class="invalid-feedback">
                       Please enter a message in the textarea.
                     </div>

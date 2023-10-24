@@ -1,12 +1,23 @@
 const mongoose = require('mongoose')
+const Organization = require('../models/organization');
+
+
+
 
 const membershipFormSchema = new mongoose.Schema ({
+
+    orgID:{
+        type: mongoose.Schema.ObjectId, 
+        ref: "Organization"
+    },
+
     fullName:{
         type: Boolean,
     },
 
     sex:{
         type: Boolean,
+
     },
     
     birthDate:{
