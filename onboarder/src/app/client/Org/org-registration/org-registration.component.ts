@@ -136,26 +136,38 @@ export class OrgRegistrationComponent implements OnInit {
   
   else {
 
-  this.http
-    .post('http://localhost:5000/api/orgRegister', organization, {
+    this.http.post('http://localhost:5000/api/orgRegister', organization, {
+  withCredentials: true,
+}).subscribe(
+  (orgResponse: any) => {
+    console.log('Org Registration Response:', orgResponse);
+    const orgID = orgResponse.orgID; // Get the organization ID from the response
+
+    // Use the orgID when creating the membership form
+    const membershipForm = {
+      orgID: orgID,
+    };
+
+    this.http.post('http://localhost:5000/api/createForm', membershipForm, {
       withCredentials: true,
-      
-    })
-    .subscribe(
+    }).subscribe(
       () => {
-        // Successful request, dispatch a custom event
+        // Membership form created successfully
         const successEvent = new Event('postRequestSuccess');
         document.dispatchEvent(successEvent);
       },
-      
       (err) => {
         Swal.fire("Error", err.error.message, 'error');
       }
     );
-
+  },
+  (err) => {
+    Swal.fire("Error", err.error.message, 'error');
   }
-}
+);
 
+    }
+  }
   done(){
     this.router.navigate(['member-login']);
   }
