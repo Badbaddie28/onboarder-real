@@ -19,7 +19,10 @@ export class OrgProfileComponent implements OnInit {
   vision!: string;
   mission!: string;
   coreValues!: string;
+  logo:string | ArrayBuffer | undefined;
   OrgArray: any[] = [];
+
+  
 
   constructor(
     private http: HttpClient,
@@ -58,6 +61,7 @@ export class OrgProfileComponent implements OnInit {
         this.mission = "error";
         this.vision = "error";
         this.coreValues = "error";
+        this.logo = "error";
       }
     );
   }
@@ -72,6 +76,7 @@ export class OrgProfileComponent implements OnInit {
     this.mission = `${res.mission}`;
     this.vision = `${res.vision}`;
     this.coreValues = `${res.coreValues}`;
+    this.logo = `${res.logo}`
   }
 
   updateOrgInfo(): void {
@@ -84,7 +89,8 @@ export class OrgProfileComponent implements OnInit {
       "orgHistory": this.orgHistory,
       "mission": this.mission,
       "vision": this.vision,
-      "coreValues": this.coreValues
+      "coreValues": this.coreValues,
+      "logo": this.logo
     };
 
     this.http.patch('http://localhost:5000/api/organization' + '/' + this._id, orgData, {
@@ -101,6 +107,7 @@ export class OrgProfileComponent implements OnInit {
         this.mission = updatedData.mission;
         this.vision = updatedData.vision;
         this.coreValues = updatedData.coreValues;
+        this.logo = updatedData.logo;
 
         console.log(updatedData);
       },
@@ -109,6 +116,27 @@ export class OrgProfileComponent implements OnInit {
         // Handle errors, e.g., show an error message to the user
       }
     );
+  }
+
+  onChange = ($event: Event) => {
+    const target = $event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    this.convertfiletobase64(file, (base64String) => {
+      // Set the base64 string to the logo form control
+      this.logo = base64String;
+    });
+  }
+  
+  // Your convertfiletobase64 function
+  convertfiletobase64(file: File, callback: (base64string: string) => void) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      let base64string = reader.result as string;
+  
+  
+      callback(base64string);
+    };
+    reader.readAsDataURL(file);
   }
 
   private loadScript(scriptUrl: string): Promise<void> {

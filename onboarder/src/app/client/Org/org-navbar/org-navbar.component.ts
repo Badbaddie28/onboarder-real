@@ -11,6 +11,7 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
 })
 export class OrgNavbarComponent implements OnInit {
   organization!: string;
+  logo!:string;
 
   constructor(private http:HttpClient,
     private router: Router) { }
@@ -23,10 +24,12 @@ export class OrgNavbarComponent implements OnInit {
     }).subscribe(
       (res:any) => {
         this.organization = `${res.orgName}`;
+        this.logo = `${res.logo}`;
     
       },
       (err) => {
         this.organization = "error"
+        this.logo = "error"
        
     
       }
