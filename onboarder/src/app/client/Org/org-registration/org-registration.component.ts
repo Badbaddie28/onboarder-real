@@ -18,6 +18,7 @@ export class OrgRegistrationComponent implements OnInit {
   orgCode: string | undefined;
   logo!:Observable<any>
 
+
   isStep1Valid = false;
   isStep2Valid = false;
   isStep3Valid = false;
@@ -101,12 +102,7 @@ makeRandomCode(lengthOfCode: number, possible: string) {
   return text;
 }
 
-codeGenerate() {
-  let possible = "ABCDEFGHIJKLMNOPQRSTUVWYXZabcdefghijklmnopqrstuvwxyz123456789"
-  const lengthOfCode = 8;
-  const result = this.makeRandomCode(lengthOfCode, possible);
-  this.form.get('orgCode')?.setValue(result);
-}
+
 
 
   ValidateEmail = (email: any) => {
@@ -158,6 +154,10 @@ codeGenerate() {
   
 
   submit() {
+    let possible = "ABCDEFGHIJKLMNOPQRSTUVWYXZabcdefghijklmnopqrstuvwxyz123456789"
+    const lengthOfCode = 8;
+    const result = this.makeRandomCode(lengthOfCode, possible);
+    this.form.get('orgCode')?.setValue(result);
     let organization = this.form.getRawValue()
     console.log(organization)
     if(organization.email == "" || organization.password == ""){

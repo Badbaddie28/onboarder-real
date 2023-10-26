@@ -12,26 +12,24 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
 export class OrgNavbarComponent implements OnInit {
   organization!: string;
   logo!:string;
+  orgCode!:string;
 
   constructor(private http:HttpClient,
     private router: Router) { }
 
   ngOnInit(): void {
-
-
     this.http.get('http://localhost:5000/api/organization', {
       withCredentials: true
     }).subscribe(
       (res:any) => {
         this.organization = `${res.orgName}`;
         this.logo = `${res.logo}`;
-    
+        this.orgCode = `${res.orgCode}`; 
       },
       (err) => {
         this.organization = "error"
         this.logo = "error"
-       
-    
+        this.orgCode = "error"
       }
     )
 

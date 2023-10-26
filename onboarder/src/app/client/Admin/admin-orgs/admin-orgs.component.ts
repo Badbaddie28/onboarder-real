@@ -21,6 +21,7 @@ export class AdminOrgsComponent {
   coreValues = "";
   password = "";
   vision = "";
+  orgCode = "";
   logo: string | ArrayBuffer | null = null;
   imageObjectUrl: string = "";
 
@@ -52,6 +53,7 @@ export class AdminOrgsComponent {
     this.email = data.email;
     this.dateCreated = data.dateCreated;
     this.logo = data.logo;
+    this.orgCode = data.orgCode;
   }
 
   updateOrganization(){
@@ -66,7 +68,8 @@ export class AdminOrgsComponent {
       "mission" : this.mission,
       "vision" : this.vision,
       "coreValues" : this.coreValues,
-      "logo" : this.logo
+      "logo" : this.logo,
+      "orgCode" : this.orgCode
     }
 
     this.http.patch("http://localhost:5000/api/organization" + "/" + this._id, orgData).subscribe((resultData:any)=>
@@ -88,6 +91,7 @@ export class AdminOrgsComponent {
     this.email = data.email;
     this.dateCreated = data.dateCreated;
     this.logo = data.logo;
+    this.orgCode = data.orgCode;
   }
 
   deleteOrganization(){
@@ -102,7 +106,8 @@ export class AdminOrgsComponent {
       "mission" : this.mission,
       "vision" : this.vision,
       "coreValues" : this.coreValues,
-      "logo" : this.logo
+      "logo" : this.logo,
+      "orgCode" : this.orgCode
     }
 
     this.http.delete("http://localhost:5000/api/organization" + "/" + this._id).subscribe((resultData:any)=>
