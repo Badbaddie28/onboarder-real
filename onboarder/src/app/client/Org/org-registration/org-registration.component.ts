@@ -15,6 +15,7 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
 export class OrgRegistrationComponent implements OnInit {
   
   form!:FormGroup
+  orgCode: string | undefined;
   logo!:Observable<any>
 
   isStep1Valid = false;
@@ -41,7 +42,8 @@ export class OrgRegistrationComponent implements OnInit {
       mission: ['', Validators.required],
       vision: ['', Validators.required],
       coreValues: ['', Validators.required],
-      logo: ['', Validators.required]
+      logo: ['', Validators.required],
+      orgCode: ['', Validators.required]
   });
 
   this.isStep1Valid = true;
@@ -69,7 +71,7 @@ export class OrgRegistrationComponent implements OnInit {
   }
 
   
-  // Assuming you have a function to handle file changes
+  // function to handle file changes
 onChange = ($event: Event) => {
   const target = $event.target as HTMLInputElement;
   const file: File = (target.files as FileList)[0];
@@ -90,6 +92,22 @@ convertfiletobase64(file: File, callback: (base64string: string) => void) {
   };
   reader.readAsDataURL(file);
 }
+
+makeRandomCode(lengthOfCode: number, possible: string) {
+  let text="";
+  for (let i = 0; i < lengthOfCode; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+}
+
+codeGenerate() {
+  let possible = "ABCDEFGHIJKLMNOPQRSTUVWYXZabcdefghijklmnopqrstuvwxyz123456789"
+  const lengthOfCode = 8;
+  const result = this.makeRandomCode(lengthOfCode, possible);
+  this.form.get('orgCode')?.setValue(result);
+}
+
 
   ValidateEmail = (email: any) => {
  
@@ -163,9 +181,12 @@ convertfiletobase64(file: File, callback: (base64string: string) => void) {
   withCredentials: true,
 }).subscribe(
   (orgResponse: any) => {
+    
     console.log('Org Registration Response:', orgResponse);
-    const orgID = orgResponse.orgID; // Get the organization ID from the response
+    
 
+    const orgID = orgResponse.orgID; // Get the organization ID from the response
+    
     // Use the orgID when creating the membership form
     const membershipForm = {
       orgID: orgID,

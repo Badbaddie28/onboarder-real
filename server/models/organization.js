@@ -50,8 +50,10 @@ const organizationSchema = new mongoose.Schema ({
     },
     logo: {
         type: String
+    },
+    orgCode: {
+        type: String
     }
-   
 
 })
 
