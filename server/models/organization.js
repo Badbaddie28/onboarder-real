@@ -1,3 +1,4 @@
+const { encodeBase64 } = require('bcryptjs')
 const mongoose = require('mongoose')
 
 const organizationSchema = new mongoose.Schema ({
@@ -42,13 +43,17 @@ const organizationSchema = new mongoose.Schema ({
     userType:{
         type: String,
         default : "organization",
-    },
-    
+    },  
     dateCreated:{
         type: Date,
         default :Date,
+    },
+    logo: {
+        type: String
+    },
+    orgCode: {
+        type: String
     }
-   
 
 })
 

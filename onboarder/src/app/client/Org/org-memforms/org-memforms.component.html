@@ -26,7 +26,7 @@
                 </div>
 
                 <form class="row g-3 needs-validation" [formGroup]="form" (submit)="submit()">
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" id="fullName" formControlName="fullName" [checked]="form.get('fullName')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip01" class="form-label">Full Name (First Name, Middle Name, Last Name)</label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your full name" disabled>
@@ -35,7 +35,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" id="sex" formControlName="sex" [checked]="form.get('sex')?.value" style="margin-right: 5px;">
                     <label for="validationTooltip02" class="form-label">Sex</label>
                     <select class="form-select" id="validationTooltip04" disabled>
@@ -48,7 +48,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-3 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="brithDate" style="margin-right: 5px;">
                     <label for="validationTooltip03" class="form-label">Date of Birth</label>
                     <input type="text" class="form-control" id="validationTooltip02" placeholder="Date of Birth" disabled>
@@ -57,7 +57,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-3 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="civilStatus" style="margin-right: 5px;">
                     <label for="validationTooltip03" class="form-label">Civil Status</label>
                     <select class="form-select" id="validationTooltip04" disabled>
@@ -70,7 +70,7 @@
                     </select>         
                   </div>
 
-                  <div class="col-md-4 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="religion" style="margin-right: 5px;">
                     <label for="validationTooltip04" class="form-label">Religion</label>
                     <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your religion" disabled>
@@ -79,7 +79,16 @@
                     </div>
                   </div>
 
-                  <div class="col-md-8 position-relative">
+                  <div class="col-md-6 position-relative">
+                    <input class="form-check-input" type="checkbox" value="" id="religion" style="margin-right: 5px;">
+                    <label for="validationTooltip04" class="form-label">ID No.</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your PRC license or student ID number" disabled>
+                    <div class="valid-tooltip">
+                      Looks good!
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="address" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Full Address</label>
                     <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your full address" disabled>
@@ -88,7 +97,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-4 position-relative">
+                  <div class="col-md-6 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="zip" style="margin-right: 5px;">
                     <label for="validationTooltip06" class="form-label">Zip</label>
                     <input type="text" class="form-control" id="validationTooltip05" placeholder="Please enter your zip code" disabled>
@@ -114,10 +123,25 @@
                       Please provide your contact number.
                     </div>
                   </div>
+
+                  <div class="form-group">
+                    <label for="chapter">Chapter</label>
+                    <select name="chapter" [(ngModel)]="selectedChapter" class="form-select">
+                      <option *ngFor="let chapter of chapters" [value]="chapter.id">{{ chapter.name }}</option>
+                    </select>
+                  
+                    <div class="input-group">
+                      <input type="text" id="newChapter" [(ngModel)]="newChapterName" class="form-control" placeholder="Enter new chapter name">
+                      <button type="button" class="btn btn-primary" (click)="addChapter()">Add Chapter</button>
+                    </div>
+                  </div>
+                  
                   <br>
                   <br>
                   <br>
                   <br>
+
+
 
                   <div class="row">
                     <div class="col-md-12 position-relative">
@@ -216,8 +240,6 @@
                     </div>
                   </div>
 
-                  <h5 class="card-title">Employment Details</h5>
-
                   <div class="col-md-4 position-relative">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
                     <label for="validationTooltip05" class="form-label">Current Employer</label>
@@ -287,6 +309,8 @@
                   <br>
                   
                   <div class="col-md-4 position-relative">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                    <label for="validationTooltip05" class="form-label">Qualification Details</label>
                     <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment required for this category" required></textarea>
                     <div class="invalid-feedback">
                       Please enter a message in the textarea.
@@ -294,6 +318,8 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                    <label for="validationTooltip05" class="form-label">Qualification Details</label>
                     <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment disabled for this category" disabled></textarea>
                     <div class="invalid-feedback">
                       Please enter a message in the textarea.
@@ -301,60 +327,40 @@
                   </div>
 
                   <div class="col-md-4 position-relative">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                    <label for="validationTooltip05" class="form-label">Qualification Details</label>
                     <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment disabled for this category" disabled></textarea>
                     <div class="invalid-feedback">
                       Please enter a message in the textarea.
                     </div>
                   </div>
 
-                  <div class="col-md-15 position-relative">
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" style="margin-right: 5px;">
-                    <label for="validationTooltip05" class="form-label">Payment Process and Details</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="enter the payment process and details" disabled>
-                    <div class="invalid-tooltip">
-                      Please enter the payment process and details
+                  <div class="col-md-4 position-relative">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                    <label for="validationTooltip05" class="form-label">Membership Fee Price and Payment Process</label>
+                    <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price" disabled></textarea>
+                    <div class="invalid-feedback">
+                      Please enter a message in the textarea.
                     </div>
                   </div>
 
-                  <div class="imagecontainer">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="float-left"><strong>Membership Application File Uploads</strong> </div>
-                                </div>
-        
-                                <div class="card-body card-block">
-                                    <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
-                                        <div class="row form-group">
-                                            <div class="col-12 col-md-12">
-                                                <div class="control-group" id="fields">
-                                                    
-                                                    <div class="controls">
-                                                        <label class="control-label" for="field1">
-                                                          This is where your application will upload all the files needed for the application
-                                                        </label>
-        
-                                                        <div class="entry input-group upload-input-group">
-                                                          <input class="form-control" name="fields[]" type="file">
-        
-                                                          <button class="btn btn-upload btn-success btn-add" type="button">
-                                                              <i class="fa fa-plus"></i>
-                                                          </button>
-                                                        </div>
-                                                    </div>
-        
-                                                </div>             
-                                            </div>       
-                                        </div>       
-                                    </form>
-                                </div>
-                            </div>
-                      </div>
+                  <div class="col-md-4 position-relative">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                    <label for="validationTooltip05" class="form-label">Membership Fee Price and Payment Process</label>
+                    <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price" disabled></textarea>
+                    <div class="invalid-feedback">
+                      Please enter a message in the textarea.
+                    </div>
                   </div>
-                </div>
 
-
+                  <div class="col-md-4 position-relative">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                    <label for="validationTooltip05" class="form-label">Membership Fee Price and Payment Process</label>
+                    <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price" disabled></textarea>
+                    <div class="invalid-feedback">
+                      Please enter a message in the textarea.
+                    </div>
+                  </div>
                   
                   <div class="col-12">
                     <input type="submit"  class=" btn btn-success action-button"  />

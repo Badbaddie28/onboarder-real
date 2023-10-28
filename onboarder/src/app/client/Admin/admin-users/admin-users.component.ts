@@ -53,7 +53,23 @@ updateMember(){
 }
 
 setDelete(data:any) {
-  this.http.delete("http://localhost:5000/api/member" + "/" +data._id).subscribe((resultData:any)=>
+  this._id = data._id;
+  this.firstName= data.firstName;
+  this.lastName = data.lastName;
+  this.email = data.email;
+  this.dateCreated = data.dateCreated;
+}
+
+deleteMember(){
+  let memberData = {
+    "_id" : this._id,
+    "firstName" : this.firstName,
+    "lastName" : this.lastName,
+    "email" : this.email,
+    "dateCreated" : this.dateCreated
+  };
+
+  this.http.delete("http://localhost:5000/api/member" + "/" + this._id).subscribe((resultData:any)=>
   {
     console.log(resultData);
     this.getAllMember();

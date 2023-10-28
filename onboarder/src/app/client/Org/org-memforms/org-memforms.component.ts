@@ -9,6 +9,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./org-memforms.component.css']
 })
 export class OrgMemformsComponent implements OnInit {
+  selectedChapter: any;
+  newChapterName: string | undefined;
+  chapterService: any;
+
+  chapters: any[] = [
+    { id: 1, name: 'Chapter 1' },
+    { id: 2, name: 'Chapter 2' },
+    { id: 3, name: 'Chapter 3' }
+  ];
+  
+  addChapter() {
+    // Save the new chapter to the database
+    this.chapterService.addChapter(this.newChapterName).subscribe((chapter: any) => {
+      // Add the new chapter to the chapters array in the component
+      this.chapters.push(chapter);
+
+      // Clear the newChapterName input field
+      this.newChapterName = '';
+    });
+  }
+
   form!: FormGroup;
 
   constructor(

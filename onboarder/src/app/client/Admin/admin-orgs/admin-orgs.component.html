@@ -43,18 +43,19 @@
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td>Logo</td>
+                                    <td><img [src]="OrganizationItem.logo" alt="Image" style="width: 100px; height: auto;">
+                                    </td>
                                     <td>{{OrganizationItem.orgName}}</td>
                                     <td>{{OrganizationItem.orgType}}</td>
                                     <td>{{OrganizationItem.email}}</td>
-                                    <td>123465324</td>
+                                    <td>{{OrganizationItem.orgCode}}</td>
                                     <td>{{OrganizationItem.dateCreated}}</td>
                                     <td>
                                         <button type="button" class="btn btn-success" (click)="setUpdate(OrganizationItem)"><i class="bi bi-eye"></i></button>
                                     </td>
                                     <td>
                                         <button type="button" class="btn btn-primary" (click)="setUpdate(OrganizationItem)"><i class="bi bi-pencil-square"></i></button>
-                                        <button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button>
+                                        <button type="button" class="btn btn-danger" (click)="setDelete(OrganizationItem)"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -66,16 +67,18 @@
     </div>
     
     <!-- Delete Org Modal -->
-    <div class="modal fade" id="deleteOrgModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngFor="let OrganizationItem of OrganizationArray">    
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body text-center center">
-                <img src="../../../../assets/img/failed.png">
-                <h2>Are you sure?</h2>          
-                <button type="button" class="btn btn-success1" (click)="setDelete(OrganizationItem)" data-bs-dismiss="modal">Yes</button>
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+    <div>
+        <div class="modal fade" id="deleteOrgModal" tabindex="-1" data-bs-backdrop="static" aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngIf="_id">    
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body text-center center">
+                    <img src="../../../../assets/img/failed.png">
+                    <h2>Are you sure?</h2>          
+                    <button type="button" class="btn btn-success1" (click)="deleteOrganization()" data-bs-dismiss="modal">Yes</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                </div>
+              </div>
             </div>
-          </div>
         </div>
     </div>
     

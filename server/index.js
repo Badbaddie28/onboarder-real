@@ -11,6 +11,9 @@ app.use(cors({
     credentials: true,
     origin: ['http://localhost:4200'],
 }))
+
+app.use(bodyParser.json({limit: '50mb' }));
+app.use(bodyParser.urlencoded({extended:true, limit: '50mb', parameterLimit:50000}))
 app.use(express.json());
 app.use(bodyParser.json());
 app.use("/api", routes)
