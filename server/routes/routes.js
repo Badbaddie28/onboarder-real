@@ -427,12 +427,27 @@ router.post('/createForm', async (req, res) => {
 
 router.get('/myMemForm', async (req, res) => {
   try {
-    const memForm = await MemForm.find({orgID: '6537de4850b46625e3808fe6'});
+    const memForm = await MemForm.find({orgID: '6537edcd943d6c4fdcb3b0df'});
     res.send(memForm);
   } catch (error) {
     res.status(400).send(error);
   }
-}  );
+}  
+);
+
+router.get('/thisOrg/:id', async (req, res) => {
+  try {
+    const orgId = req.params.id; // Corrected from req.params._id to req.params.id
+    const thisOrg = await Organization.findById(orgId);
+    if (!thisOrg) {
+      return res.status(404).send({ error: 'Organization not found' });
+    }
+    res.send(thisOrg);
+  } catch (error) {
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+});
+
 
 
 

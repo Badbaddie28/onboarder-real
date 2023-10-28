@@ -16,45 +16,38 @@
                 </div>
             </nav> 
 
-            <div class="row">
+            <div class="row" >
               <div class="col-6 mt-3">
-                  <div class="card">
+                  <div class="card" *ngFor="let OrganizationItem of OrganizationArray" >
                       <div class="card-horizontal">
                           <div class="img-square-wrapper">
                               <img class="" src="http://via.placeholder.com/200x200" alt="Card image cap">
                           </div>
-                          <div class="card-body">
-                            <h4 class="card-eventtitle">Name of Organization</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+                          
+                          <div class="card-body" >
+
+                            <h4 class="card-eventtitle">{{OrganizationItem.orgName}}</h4>
+                            <p class="card-text">{{OrganizationItem.about}}</p>
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                              <button class="btn btn-primary" routerLink="/member-orgprofile">Read More</button>
-                            </div>                              
+                              <button class="btn btn-primary" (click)="redirectToOrgProfile(OrganizationItem._id)">Read More</button>
+
+                            </div>   
+                            
+                            
+
+
                           </div>
                       </div>
                   </div>
               </div>
 
-              <div class="col-6 mt-3">
-                  <div class="card text-center">
-                      <div class="card-horizontal">
-                          <div class="img-square-wrapper">
-                              <img class="" src="http://via.placeholder.com/200x200" alt="Card image cap">
-                          </div>
-                          <div class="card-body">
-                            <h4 class="card-eventtitle">Name of Organization</h4>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                              <button class="btn btn-primary" routerLink="/member-orgprofile">Read More</button>
-                            </div>                        
-                          </div>
-                      </div>
-                  </div>
-              </div>
+         
             </div>
         </div>
     </div>
 
-<!-- Delete User Modal -->
+<!-- Join by Code -->
 <div class="modal fade" id="joinOrgModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
   <div class="modal-dialog">
     <div class="modal-content">
