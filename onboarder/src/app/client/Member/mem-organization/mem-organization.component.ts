@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mem-organization',
@@ -6,6 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mem-organization.component.css']
 })
 export class MemOrganizationComponent implements OnInit{
+  OrganizationArray: any[] = [];
+
+  constructor(private http: HttpClient, private router: Router) {
+    this.getAllOrganization();
+  }
+
+  getAllOrganization() {
+    this.http.get("http://localhost:5000/api/vieworganization")
+      .subscribe((resultData: any) => {
+        console.log(resultData);
+        this.OrganizationArray = resultData;
+      });
+  }
+
+  redirectToOrgProfile(orgId: string) {
+    this.router.navigate(['/member-orgprofile', orgId]);
+  }
   ngOnInit(): void {
     // Load and initialize the JavaScript file
     this.loadScript('assets/js/mem-org.js').then(() => {
