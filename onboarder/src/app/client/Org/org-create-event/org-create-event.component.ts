@@ -23,7 +23,7 @@ export class OrgCreateEventComponent {
       this.loadScript('assets/js/createevent.js').then(() => {
         // The JavaScript file is loaded and initialized
       }).catch(error => {
-        console.error('Error loading createeventphotoupload.jss', error);
+        console.error('Error loading createeventphotoupload.js', error);
       });
     }
   

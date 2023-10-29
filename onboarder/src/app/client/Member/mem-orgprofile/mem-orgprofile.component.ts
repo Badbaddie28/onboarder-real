@@ -16,11 +16,22 @@ export class MemOrgprofileComponent implements OnInit {
     this.route.params.subscribe(params => {
       const orgId = params['id'];
       this.getAllOrganization(orgId);
+      const orgCode = params['orgCode'];
+    this.getOrganization(orgCode)
+
     });
   }
 
   getAllOrganization(orgId: string) {
     this.http.get(`http://localhost:5000/api/thisOrg/${orgId}`)
+      .subscribe((resultData: any) => {
+        console.log(resultData);
+        this.orgInfo = [resultData];
+      });
+  }
+
+  getOrganization(orgCode: string) {
+    this.http.get(`http://localhost:5000/api/thisOrg1/${orgCode}`)
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.orgInfo = [resultData];
