@@ -53,13 +53,13 @@ export class OrgCreateEventComponent implements OnInit{
       });
     }
 
-    onChange = ($event: Event) => {
+    onChange = ($event: Event, controlName: string) => {
       const target = $event.target as HTMLInputElement;
       const file: File = (target.files as FileList)[0];
       this.convertfiletobase64(file, (base64String) => {
         // Set the base64 string to the logo form control
-        this.form.get('poster')?.setValue(base64String);
-        this.form.get('programme')?.setValue(base64String);
+        this.form.controls['poster'].setValue(base64String);
+        this.form.controls['programme'].setValue(base64String);
       });
     }
     
@@ -68,8 +68,6 @@ export class OrgCreateEventComponent implements OnInit{
       const reader = new FileReader();
       reader.onload = (e) => {
         let base64string = reader.result as string;
-    
-    
         callback(base64string);
       };
       reader.readAsDataURL(file);

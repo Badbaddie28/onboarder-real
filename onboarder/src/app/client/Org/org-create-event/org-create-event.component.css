@@ -437,3 +437,8 @@
 button {
   margin-bottom: 0px;
 }
+
+.img-preview {
+  width: 300px;
+  height: 180px;
+}
