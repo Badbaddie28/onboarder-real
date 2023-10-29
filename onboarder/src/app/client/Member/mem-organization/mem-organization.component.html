@@ -52,12 +52,20 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-body text-center center">
+      
+        <form [formGroup]="form" (submit)="submit($event)">
+
+
+
           <div class="form-group">
-            <input type="text" class="form-control" id="editUserEmail" placeholder="Enter the org code">
+
+            <input type="text" class="form-control" id="editUserEmail" placeholder="Enter the org code" formControlName="orgCode">
           </div>
 
-          <button type="button" class="btn btn-success">Join Org</button>
+          <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Join Org</button>
+
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+           </form>
       </div>
     </div>
   </div>

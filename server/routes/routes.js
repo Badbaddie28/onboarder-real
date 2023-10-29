@@ -436,9 +436,10 @@ router.get('/myMemForm', async (req, res) => {
 }  
 );
 
+//READ specific org
 router.get('/thisOrg/:id', async (req, res) => {
   try {
-    const orgId = req.params.id; // Corrected from req.params._id to req.params.id
+    const orgId = req.params.id; // 
     const thisOrg = await Organization.findById(orgId);
     if (!thisOrg) {
       return res.status(404).send({ error: 'Organization not found' });
@@ -448,6 +449,20 @@ router.get('/thisOrg/:id', async (req, res) => {
     res.status(500).send({ error: 'Internal Server Error' });
   }
 });
+
+router.get('/thisOrg1/:orgCode', async (req, res) => {
+  try {
+    const orgCode = req.params.orgCode; 
+    const organization = await Organization.findOne({ orgCode: orgCode });
+    if (!organization) {
+      return res.status(404).send({ error: 'Organization not found' });
+    }
+    res.send(organization);
+  } catch (error) {
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+});
+
 
 //create event
 router.post('/createEvent', async (req, res) => {
