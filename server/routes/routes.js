@@ -425,9 +425,11 @@ router.post('/createForm', async (req, res) => {
 
 //READ memform
 
-router.get('/myMemForm', async (req, res) => {
+router.get('/myMemForm/:id', async (req, res) => {
   try {
-    const memForm = await MemForm.find({orgID: '6537edcd943d6c4fdcb3b0df'});
+
+    const _id = req.params.id;
+    const memForm = await MemForm.findOne({orgID: _id});
     res.send(memForm);
   } catch (error) {
     res.status(400).send(error);

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-mem-orgprofile',
@@ -10,7 +10,9 @@ import { ActivatedRoute } from '@angular/router';
 export class MemOrgprofileComponent implements OnInit {
   orgInfo: any[] = [];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  constructor(private http: HttpClient, private route: ActivatedRoute,
+    private router: Router,
+    ) {}
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -36,5 +38,9 @@ export class MemOrgprofileComponent implements OnInit {
         console.log(resultData);
         this.orgInfo = [resultData];
       });
+  }
+
+  redirectToMemOrMemForm(_id: string) {
+    this.router.navigate(['/member-orgmemform', _id]);
   }
 }

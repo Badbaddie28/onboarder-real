@@ -63,7 +63,7 @@ const routes: Routes = [
   { path: 'member-event-regform', component: MemEventregformComponent},
   { path: 'member-orgprofile/:id', component: MemOrgprofileComponent},
   { path: 'member-orgprofile1/:orgCode', component: MemOrgprofileComponent},
-  { path: 'member-orgmemform', component: MemOrgmemformComponent},
+  { path: 'member-orgmemform/:id', component: MemOrgmemformComponent},
 
 
   { path: 'admin-orgs', component: AdminOrgsComponent},
