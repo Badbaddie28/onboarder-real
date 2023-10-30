@@ -13,9 +13,14 @@ export class OrgNavbarComponent implements OnInit {
   organization!: string;
   logo!:string;
   orgCode!:string;
+  orgID!:string;
 
   constructor(private http:HttpClient,
     private router: Router) { }
+
+  redirecttoOrgEvent(orgID: string) {
+    this.router.navigate(['/org-events', orgID]);
+  }
 
   ngOnInit(): void {
     this.http.get('http://localhost:5000/api/organization', {
@@ -25,6 +30,7 @@ export class OrgNavbarComponent implements OnInit {
         this.organization = `${res.orgName}`;
         this.logo = `${res.logo}`;
         this.orgCode = `${res.orgCode}`; 
+        this.orgID = `${res._id}`;
       },
       (err) => {
         this.organization = "error"

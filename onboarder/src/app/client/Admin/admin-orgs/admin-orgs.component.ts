@@ -28,15 +28,33 @@ export class AdminOrgsComponent {
   constructor(private http: HttpClient){
     this.getAllOrganization();
   }
+
+  onChange = ($event: Event) => {
+    const target = $event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+    this.convertfiletobase64(file, (base64String) => {
+      // Set the base64 string to the logo form control
+      this.logo = base64String;
+    });
+  }
+  
+  // Your convertfiletobase64 function
+  convertfiletobase64(file: File, callback: (base64string: string) => void) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      let base64string = reader.result as string;
+  
+  
+      callback(base64string);
+    };
+    reader.readAsDataURL(file);
+  }
   
   getAllOrganization(): void {
     this.http.get("http://localhost:5000/api/vieworganization")
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.OrganizationArray = resultData;
-
-        resultData.logo = 'data:image/jpg;base64,' + this.logo;
-        resultData.logo = 'data:image/png;base64,' + this.logo;
       });
   }
 

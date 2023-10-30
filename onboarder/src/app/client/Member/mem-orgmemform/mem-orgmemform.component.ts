@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 
@@ -17,17 +18,28 @@ interface MemForm {
 export class MemOrgmemformComponent implements OnInit {
   memForm$: Observable<MemForm> | undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private router: Router,
+    private route: ActivatedRoute,
+    ) {}
 
   ngOnInit(): void {
-    this.memForm$ = this.http.get<MemForm[]>('http://localhost:5000/api/myMemForm').pipe(
-      map(data => data[0])
-    );
-  
+
+    this.route.params.subscribe(params => {
+      const _id = params['id'];
+      this.getMemForm(_id);
+     });
+    
+  }
+  getMemForm(_id: string) {
+    this.memForm$ = this.http.get<MemForm>(`http://localhost:5000/api/myMemForm/${_id}`);
     this.memForm$.subscribe(data => {
       console.log('API Response:', data);
     });
   }
+  
+
+   
   
   
 }

@@ -12,7 +12,7 @@
                 <div class="card-body" >
                     <h4 class="card-eventtitle">{{OrganizationItem.orgName}}</h4>
                     <p class="card-text">{{OrganizationItem.about}}</p>
-                    <button class="btn btn-primary" routerLink="/member-orgmemform">Register</button>
+                    <button class="btn btn-primary" (click)="redirectToMemOrMemForm(OrganizationItem._id)">Register</button>
                 </div>
             </div>
 

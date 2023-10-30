@@ -49,7 +49,7 @@ const routes: Routes = [
   { path: 'org-memverification', component: OrgMemverificationComponent },
   { path: 'org-members', component: OrgMembersComponent },
   { path: 'org-community', component: OrgCommunityComponent },
-  { path: 'org-events', component: OrgEventsComponent},
+  { path: 'org-events/:orgID', component: OrgEventsComponent},
   { path: 'org-profile', component: OrgProfileComponent },
   { path: 'org-create-event', component: OrgCreateEventComponent },
 
@@ -62,7 +62,8 @@ const routes: Routes = [
   { path: 'member-event-registration', component: MemRegistrationComponent},
   { path: 'member-event-regform', component: MemEventregformComponent},
   { path: 'member-orgprofile/:id', component: MemOrgprofileComponent},
-  { path: 'member-orgmemform', component: MemOrgmemformComponent},
+  { path: 'member-orgprofile1/:orgCode', component: MemOrgprofileComponent},
+  { path: 'member-orgmemform/:id', component: MemOrgmemformComponent},
 
 
   { path: 'admin-orgs', component: AdminOrgsComponent},

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./mem-organization.component.css']
 })
 export class MemOrganizationComponent implements OnInit{
+  form!:FormGroup
+
   OrganizationArray: any[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient, 
+    private router: Router,
+    private formBuilder: FormBuilder) {
     this.getAllOrganization();
   }
 
@@ -26,14 +32,32 @@ export class MemOrganizationComponent implements OnInit{
     this.router.navigate(['/member-orgprofile', orgId]);
   }
   ngOnInit(): void {
+
+    this.form = this.formBuilder.group({
+      orgCode:"",
+    })
+
     // Load and initialize the JavaScript file
     this.loadScript('assets/js/mem-org.js').then(() => {
       // The JavaScript file is loaded and initialized
     }).catch(error => {
       console.error('Error loading mem-org.js', error);
     });    
+
+    
   }
 
+  submit(event: Event) {
+    event.preventDefault();
+    const orgCode = this.form.get('orgCode')?.value;
+    this.redirectToOrgProfile1(orgCode);
+  }
+  
+
+redirectToOrgProfile1(orgCode: string) {
+  this.router.navigate(['/member-orgprofile1', orgCode]);
+
+}
   private loadScript(scriptUrl: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       const scriptElement = document.createElement('script');
