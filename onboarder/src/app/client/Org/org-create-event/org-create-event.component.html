@@ -10,7 +10,6 @@
                         <li class="active" id="account"><strong>Basic Info</strong></li>
                         <li id="information"><strong>Details</strong></li>
                         <li id="ticket"><strong>Tickets</strong></li> 
-                        <li id="file"><strong>Registration Form</strong></li>
                         <li id="check"><strong>Preview Post</strong></li>
                         <li id="confirm"><strong>Finish</strong></li>
                     </ul>
@@ -146,43 +145,6 @@
                         </div> 
                         
                         <input type="button" name="next" class="next action-button" value="Next" (click)="validateStep3()"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                    </fieldset>
-                    
-                    <fieldset>
-
-                            <div class="form-card">
-                                <div class="row">
-                                    <div class="col-7">
-                                        <h2 class="fs-title">Registration Form:</h2>
-                                    </div>
-                                    <div class="col-5">
-                                        <h2 class="steps">Step 4 - 6</h2>
-                                    </div>
-                                </div> 
-
-                                <label class="fieldlabels">Full Name: *</label> 
-                                <input type="text" id="fullname" name="fullname" formControlName="fullname" placeholder="Please enter the your full name" />
-                                
-                                <label class="fieldlabels">Membership Type: *</label> 
-                                <input type="text" id="memtype" name="memtype" formControlName="memtype" placeholder="Please enter your type of membership" />
-
-                                <label class="fieldlabels">Contact Number: *</label> 
-                                <input type="text" id="contactno" name="contactno" formControlName="contactno" placeholder="Please enter your contact number" />
-
-                                <label class="fieldlabels">Chapter: *</label> 
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Choose....</option>
-                                    <option value="1">Manila</option>
-                                    <option value="2">Mandaluyong</option>
-                                    <option value="3">Muntinlupa</option>
-                                </select>
-
-                            </div> 
-
-
-                        
-                            <input type="button" name="next" class="next action-button" value="Next" (click)="validateStep4()"/> <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                        
                     </fieldset>
 
                     <fieldset>
