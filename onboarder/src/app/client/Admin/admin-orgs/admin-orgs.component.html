@@ -126,7 +126,7 @@
                             <div class="form-group" id="editEventPoster">
                                 <div>
                                     <label style="margin-top: 10px;">Organization's Logo </label>
-                                    <input class="form-control" type="file" id="formFile" onchange="preview('frame')">
+                                    <input class="form-control" type="file" id="formFile" onchange="preview('frame')" onchange="preview('frame')" (change)="onChange($event)" [value]="logo" [(ngModel)]="logo" [ngModelOptions]="{standalone: true}">
                                 </div>
                                 <img id="frame" src="" class="img-fluid" />
                             </div>

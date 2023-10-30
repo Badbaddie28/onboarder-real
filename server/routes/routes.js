@@ -5,6 +5,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Member = require('../models/member');
 const Organization = require('../models/organization');
+const Events = require('../models/events');
 const MemForm = require('../models/membershipForm')
 const ObjectId = mongoose.Types.ObjectId;
 
@@ -465,10 +466,96 @@ router.get('/thisOrg1/:orgCode', async (req, res) => {
 });
 
 
+//create event
+router.post('/createEvent', async (req, res) => {
+  let orgID = req.body.orgID;
+  let orgName = req.body.orgName;
+  let eventTitle = req.body.eventTitle;
+  let eventDesc = req.body.eventDesc;
+  let eventDate = req.body.eventDate;
+  let eventTime = req.body.eventTime;
+  let location = req.body.location;
+  let meetingURL = req.body.meetingURL;
+  let poster = req.body.poster;
+  let programme = req.body.programme;
+  let video = req.body.video;
+  let eventSeats = req.body.eventSeats;
+  let eventPrice = req.body.eventPrice;
+  let eventPaymentDetails = req.body.eventPaymentDetails;
 
+  try {
+    const events = new Events({
+      orgID: orgID,
+      orgName: orgName,
+      eventTitle: eventTitle,
+      eventDesc: eventDesc,
+      eventDate: eventDate,
+      eventTime: eventTime,
+      location: location,
+      meetingURL: meetingURL,
+      poster: poster,
+      programme: programme,
+      video: video,
+      eventSeats: eventSeats,
+      eventPrice: eventPrice,
+      eventPaymentDetails: eventPaymentDetails
+    });
 
+    await events.save();
+    res.status(201).json({ events});
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 
+//read events
+router.get('/viewevent', async (req,res) => {
+  try {
+    const event = await Events.find({});
+    res.send(event)
+  } catch (error) {
+    res.status(400).send(error)
+  }
+})
 
+//update event
+router.patch('/event/:id', async (req, res) => {
+  try {
+    const eventID = req.params.id;
+    const body = req.body;
+    const updateEvent = await Events.findByIdAndUpdate(eventID,body,{new:true});
+    if(!updateEvent)
+    {
+      return res.status(404).send;
+    }
+    return res.status(200).send(updateEvent);
+   
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+//delete event 
+router.delete('/event/:id', async (req, res) => {
+  try {
+    const eventID = req.params.id;
+    const deleteEvent = await Events.findByIdAndDelete(eventID);
+    if(!deleteEvent)
+    {
+     return res.status(404).send();
+    }
+    
+    res.status(201).send(
+      {
+        "status" : true,
+        "message" : "event deleted"
+      }
+    );
+  } catch (error) {
+    res.status(400).send(error);
+  }
+
+});
 
 module.exports = router
 

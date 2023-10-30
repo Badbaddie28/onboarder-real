@@ -23,9 +23,10 @@ $(document).ready(function(){
     
 
     $(".next").click(function() {
+        var formData = getFormData();
         current_fs = $(this).parent();
         next_fs = $("fieldset").eq(current);
-        
+
         // Add Class Active
         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
@@ -58,7 +59,7 @@ $(document).ready(function(){
             $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
             
             //show the next fieldset
-            document.addEventListener(function ()
+            document.addEventListener('postRequestSuccess', function ()
             {
             next_fs.show();
 
@@ -119,10 +120,7 @@ $(document).ready(function(){
     return false;
     });
 
-    }); 
-
-
-
+  
 
 // Currency sa Price Settins
 
@@ -208,3 +206,19 @@ function formatCurrency(input, blur) {
   caret_pos = updated_len - original_len + caret_pos;
   input[0].setSelectionRange(caret_pos, caret_pos);
 }
+
+function getFormData() {
+  var formData = {
+    eventTitle: $("#eventTitle").val(),
+    eventDesc: $("#eventDesc").val(),
+    eventDate: $("#eventDate").val(),
+    eventTime: $("#eventTime").val(),
+    location: $("#location").val(),
+    meetingURL: $("#meetingURL").val(),
+    eventSeats: $("#eventSeats").val(),
+    eventPrice: $("#eventPrice").val(),
+    eventPaymentDetails: $("#eventPaymentDetails")
+  };
+  return formData;
+}
+}); 
