@@ -426,11 +426,9 @@ router.post('/createForm', async (req, res) => {
 
 //READ memform
 
-router.get('/myMemForm/:id', async (req, res) => {
+router.get('/myMemForm', async (req, res) => {
   try {
-
-    const _id = req.params.id;
-    const memForm = await MemForm.findOne({orgID: _id});
+    const memForm = await MemForm.find({orgID: '6537edcd943d6c4fdcb3b0df'});
     res.send(memForm);
   } catch (error) {
     res.status(400).send(error);
@@ -556,6 +554,20 @@ router.delete('/event/:id', async (req, res) => {
   }
 
 });
+
+//display events of an org
+router.get('/events/:orgID', async (req, res) => {
+  try{
+    const orgID  = req.params.orgID;
+    const orgEvent = await Events.find({ orgID: orgID });
+    if (!orgEvent) {
+    return res.status(404).send({ error: 'Organization not found' });
+    }
+    res.send(orgEvent);
+    } catch (error) {
+  res.status(500).send({ error: 'Internal Server Error' });
+  }
+})
 
 module.exports = router
 
