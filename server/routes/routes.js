@@ -6,11 +6,59 @@ const jwt = require('jsonwebtoken');
 const Member = require('../models/member');
 const Organization = require('../models/organization');
 const Events = require('../models/events');
-const MemForm = require('../models/membershipForm')
+const MemForm = require('../models/membershipForm');
+const Admin = require('../models/admin')
 const ObjectId = mongoose.Types.ObjectId;
 
 
 const router = Router()
+
+router.post('/admin', async (req, res) => {
+  let firstName = req.body.firstName
+  let lastName = req.body.lastName
+  let email = req.body.email
+  let password = req.body.password
+  let userType = req.body.userType
+
+
+  const salt = await bcrypt.genSalt(10)
+  const hashedPassword = await bcrypt.hash(password, salt)
+  const record = await Admin.findOne({ email:email });
+
+  if (record) {
+      return res.status(400).send({
+        message: "Email is already registered",
+      });
+    } else {
+
+  const admin = new Admin({
+      firstName:firstName,
+      lastName:lastName,
+      email:email,
+      password:hashedPassword,
+      userType:userType,
+  })
+
+  const result = await admin.save();
+
+  //JWT 
+
+  const { _id } = await result.toJSON();
+
+  const token = jwt.sign({ _id: _id }, "secret");
+
+  res.cookie("jwt", token, {
+    httpOnly: true,
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
+  });
+
+  res.send({
+      message: "success"
+  })
+}
+
+});
+
 
 //MEMBER REGISTRATION
 router.post('/register', async (req, res) => {
@@ -114,25 +162,59 @@ router.delete('/member/:id', async (req, res) => {
 });
 
 
-// MEMBER LOGIN
+//LOGIN
 router.post('/login', async (req, res) => {
   const member = await Member.findOne({email:req.body.email})
   const organization = await Organization.findOne({email:req.body.email})
+  const admin = await Admin.findOne({email:req.body.email})
 
-  if(!member){//if there is no member // A
-      if (!organization){ // then check if there org // C
+  if(!member){//if there is no member // A (pag walang member)
+
+      if (!organization){ //A // then check if there  is org // B (pag walang org)
+
+      if(!admin){ //B// check if may admin // (pag walang admin)
         return res.status(404).send({
           message:"User Not Found"
         })
-      } // C 
+      }
 
-      else if (!(await bcrypt.compare(req.body.password, organization.password))){ //if there is then
+      else if (!(await bcrypt.compare(req.body.password, admin.password))){  // Pag merong admin, check if valid si pass (pag di valid) // C
+        return res.status(400).send ({//c// pag di valid pass this one
+          message:"Password is Incorrect"
+        });
+
+      } // c
+
+      const token = jwt.sign({ // but if hindi mali, then sign token
+        _id: admin._id, 
+        email: admin.email,
+        firstName: admin.firstName,
+        lastName: admin.lastName,
+        userType: admin.userType
+      
+      },"secret") //but this if valid
+    
+      res.cookie("jwt", token,{
+        httpOnly:true,
+        maxAge:3*24*60*60*1000,
+      })
+    
+      res.send({
+        message:"success"
+      })
+      
+      } // if may org
+
+      else if (!(await bcrypt.compare(req.body.password, organization.password))){ // if may org compare pass,
         return res.status(400).send ({// then this
           message:"Password is Incorrect"
         });
-  }// A
+  }// pag hindi mali,
 
-  const token = jwt.sign({_id: organization._id, userType: organization.userType, orgName: organization.orgName},"secret") //but this if valid
+  else{const token = jwt.sign({
+    _id: organization._id, 
+    userType: organization.userType, 
+    orgName: organization.orgName},"secret") //sign pag di mali
 
   res.cookie("jwt", token,{
     httpOnly:true,
@@ -141,9 +223,9 @@ router.post('/login', async (req, res) => {
 
   res.send({
     message:"success"
-  });
+  });}
 
-  }
+  } // pag may member
 
   else if(!(await bcrypt.compare(req.body.password, member.password))){ //but if there is, the check pass, if not valid // B
     return res.status(400).send ({// then this
@@ -184,11 +266,15 @@ router.post('/login', async (req, res) => {
             }
     
             let user;
+
             if (claims.userType === 'member') {
                 user = await Member.findOne({ _id: claims._id });
             } else if (claims.userType === 'organization') {
                 user = await Organization.findOne({ _id: claims._id });
             }
+            else if (claims.userType === 'admin') {
+              user = await Admin.findOne({ _id: claims._id });
+          }
     
             if (!user) {
                 return res.status(404).send({
@@ -254,7 +340,31 @@ router.get('/organization', async (req, res) => {
   }
 });
 
-//MEMBER LOGOUT
+router.get('/admin', async (req, res) => {
+  try{
+    const cookie = req.cookies['jwt']
+    const claims = jwt.verify(cookie,"secret")
+
+    if(!claims){
+      return res.status(401).send({
+        message: "unauthenticated"
+      })
+    }
+
+    const admin = await Admin.findOne({_id:claims._id})
+    const {password,...data} = await admin.toJSON()
+
+    res.send(data)
+
+  }
+  catch(err){
+    return res.status(401).send({
+      message:'unauthenticated'
+    })
+  }
+});
+
+//LOGOUT
 router.post('/logout', (req,res) =>{
   res.cookie("jwt", "", {maxAge:0})
 
@@ -639,6 +749,21 @@ router.get('/events/:orgID', async (req, res) => {
     res.send(orgEvent);
     } catch (error) {
   res.status(500).send({ error: 'Internal Server Error' });
+  }
+})
+
+// display org-event details
+router.get('/event/:orgID/:id', async (req, res) => {
+  try {
+    const orgID = req.params.orgID;
+    const id = req.params._id;
+    const orgEvent = await Events.findOne({ orgID: orgID, id: id});
+    if (!orgEvent) {
+      return res.status(404).send({ error: 'Event not found' });
+      }
+      res.send(orgEvent);
+  } catch (error) {
+    res.status(500).send({ error: 'Internal Server Error' });
   }
 })
 
