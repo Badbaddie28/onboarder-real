@@ -11,6 +11,10 @@ const membershipFormSchema = new mongoose.Schema ({
         ref: "Organization"
     },
 
+    personalInfo:{
+        type: Boolean,
+    },
+
     fullName:{
         type: Boolean,
     },
@@ -92,14 +96,18 @@ const membershipFormSchema = new mongoose.Schema ({
         }
     },
 
-    currentEmployer:{
+    employmentDetails:{
+        type:Boolean
+    },
+
+    employer:{
         type:Boolean
     },
 
     jobTitle:{
         type:Boolean
     },
-    employerAddress:{
+    employerAdd:{
         type:Boolean
     },
 

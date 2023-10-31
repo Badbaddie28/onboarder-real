@@ -5,8 +5,22 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 
 interface MemForm {
+
+  personalInfo: boolean;
   fullName: boolean;
   sex: boolean;
+  birthDate: boolean,
+  placceOfBirth : boolean,
+  civilStatus: boolean,
+  religion: boolean,
+  address: boolean,
+  zip: boolean,
+  email: boolean,
+  contactNum: boolean,
+  employmentDetails: boolean,
+  employer: boolean,
+  jobTitle: boolean,
+  employerAdd: boolean,
 }
 
 @Component({

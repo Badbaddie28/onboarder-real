@@ -384,6 +384,18 @@ router.delete('/organization/:id', async (req, res) => {
 router.post('/submitForm', async (req, res) => {
   let fullName = req.body.fullName
   let sex = req.body.sex
+  let birthDate = req.body.birthDate
+  let placceOfBirth = req.body.placceOfBirth
+  let civilStatus = req.body.civilStatus
+  let religion = req.body.religion
+  let address = req.body.address
+  let zip = req.body.zip
+  let email = req.body.email
+  let contactNum = req.body.contactNum
+  let employmentDetails = req.body.employmentDetails
+
+
+
 
   try {
       // Create a new Member instance with checkbox data
@@ -409,8 +421,23 @@ router.post('/createForm', async (req, res) => {
   try {
       // Create a new Member instance with checkbox data
       const newMembershipForm = new MemForm({
+        personalInfo: true,
         fullName: true,
         sex: false,
+        birthDate: true,
+        placceOfBirth : false,
+        civilStatus: false,
+        religion: false,
+        address: false,
+        zip: false,
+        email: true,
+        contactNum: false,
+        employmentDetails: false,
+        employer: false,
+        jobTitle: false,
+        employerAdd: false,
+        
+
         orgID:orgID,
       })
 
@@ -426,15 +453,16 @@ router.post('/createForm', async (req, res) => {
 
 //READ memform
 
-router.get('/myMemForm', async (req, res) => {
+router.get('/myMemForm/:id', async (req, res) => {
   try {
-    const memForm = await MemForm.find({orgID: '6537edcd943d6c4fdcb3b0df'});
+    const _id = req.params.id; 
+    const memForm = await MemForm.findOne({ orgID: _id });
     res.send(memForm);
   } catch (error) {
     res.status(400).send(error);
   }
-}  
-);
+});
+
 
 //READ specific org
 router.get('/thisOrg/:id', async (req, res) => {
