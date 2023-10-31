@@ -1,10 +1,9 @@
-$(document).ready(function () {
-  // Listen for changes in the state of individual checkboxes
-  $(":checkbox").on("change", function () {
-    // Check if any of the individual checkboxes are checked
-    var anyChecked = $(":checkbox:gt(0):checked").length > 0;
+var checkboxes = document.querySelectorAll("input[type='checkbox']");
 
-    // Update the state of the "Personal Information" checkbox
-    $("#personalInfo").prop("checked", anyChecked);
-  });
-});
+function checkAll(myCheckbox) {
+    var checkboxes = document.querySelectorAll("input[type='checkbox']");
+    checkboxes.forEach(function (checkbox) {
+      checkbox.checked = myCheckbox.checked;
+    });
+  }
+  
