@@ -19,15 +19,14 @@ export class OrgEventDetailsComponent implements OnInit{
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      const orgID = params['orgID'];
       const _id = params['id'];
-      this.getEventInfo(orgID, _id);
+      this.getEventInfo(_id);
     })
     
   }
 
-  getEventInfo(orgID: string, _id: string) {
-    this.http.get(`http://localhost:5000/api/event/${orgID}/${_id}`)
+  getEventInfo(_id: string) {
+    this.http.get(`http://localhost:5000/api/thisevent/${_id}`)
     .subscribe((resultData: any) => {
       console.log(resultData);
       this.eventInfo = [resultData];

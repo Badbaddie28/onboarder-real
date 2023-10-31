@@ -753,19 +753,18 @@ router.get('/events/:orgID', async (req, res) => {
 })
 
 // display org-event details
-router.get('/event/:orgID/:id', async (req, res) => {
+router.get('/thisevent/:id', async (req, res) => {
   try {
-    const orgID = req.params.orgID;
-    const id = req.params._id;
-    const orgEvent = await Events.findOne({ orgID: orgID, id: id});
-    if (!orgEvent) {
+    const eventID = req.params.id; // 
+    const thisOrg = await Events.findById(eventID);
+    if (!thisOrg) {
       return res.status(404).send({ error: 'Event not found' });
-      }
-      res.send(orgEvent);
+    }
+    res.send(thisOrg);
   } catch (error) {
     res.status(500).send({ error: 'Internal Server Error' });
   }
-})
+});
 
 module.exports = router
 
