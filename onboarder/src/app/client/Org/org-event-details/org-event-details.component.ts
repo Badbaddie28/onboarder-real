@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl  } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
@@ -14,7 +15,8 @@ export class OrgEventDetailsComponent implements OnInit{
   constructor (
     private http: HttpClient, 
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {}
 
   ngOnInit(): void {
@@ -31,5 +33,9 @@ export class OrgEventDetailsComponent implements OnInit{
       console.log(resultData);
       this.eventInfo = [resultData];
     })
+  }
+
+  getTrustedUrl(videoUrl: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
   }
 }

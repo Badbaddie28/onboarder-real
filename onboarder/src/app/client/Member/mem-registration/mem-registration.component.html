@@ -51,12 +51,10 @@
                     <iframe [src]="getTrustedUrl(event.video)" frameborder="0" allowfullscreen></iframe>
                 </div>
                   
-                
-        
-                <label class="form-label">Event Registration Price and Payment Process</label>
+                <label class="form-label">Event Registration Fee and Payment Process</label>
                 <div class="card-body">
-                    <h5 class="card-title-event">{{event.eventPrice}}</h5>
-                    <p class="card-text-event">{{event.eventPaymentDetails}}</p>
+                    <h5 class="card-title-event">Event Registration Fee: {{event.eventPrice}}</h5>
+                    <p class="card-text-event">Before proceeding with registration, please follow this steps: <br> {{event.eventPaymentDetails}}</p>
                 </div>
     
                 <div class="d-flex justify-content-center align-items-center">

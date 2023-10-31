@@ -4,78 +4,62 @@
             <app-org-navbar></app-org-navbar>
         </aside>
   
-        <div class="content" *ngFor="let EventItem of eventInfo">
-            <div class="card">
-              <h5 class="card-header">{{EventItem.orgName}}</h5>
+        <div class="content" *ngFor="let event of eventInfo">
               <div class="card-body">
+
                 <div class="img-square-wrapper">
-                    <img class="" [src]="EventItem.poster" width="100%" height="500" alt="Card image cap">
+                    <img class="" [src]="event.poster" width="100%" alt="Card image cap">
                 </div>
     
                 <div class="col-md-12">
-                    <div class="card border-dark mb-3">
-                        <div class="card-header">{{EventItem.eventTitle}}</div>
-                        <div class="card-body">
-                            <h5 class="card-title-event">{{EventItem.eventDesc}}</h5>
-                        </div>
+                    <h2 class="form-label mt-3 text-uppercase text-center">{{event.eventTitle}}</h2>
+                    <div class="card-body">
+                        <p class="card-event-deets text-center mb-5">{{event.eventDesc}}</p>
                     </div>
                 </div>
     
                 <div class="row g-3">
                     <div class="col-md-4">
-                        <div class="card border-danger mb-3">
-                            <div class="card-header text-center">Available Seats</div>
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{EventItem.eventSeats}}</h5>
-                                <p class="card-text text-center">SEATS LEFT SO GRAB YOURS NOW!</p>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-4">
-                        <div class="card border-success mb-3">
-                            <div class="card-header text-center">Date of the Event</div>
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{EventItem.eventDate}}</h5>
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="col-md-4">
-                        <div class="card border-success mb-3">
-                            <div class="card-header text-center">Time of the Event</div>
-                            <div class="card-body">
-                                <h5 class="card-title text-center">{{EventItem.eventTime}}</h5>
-                                <p class="card-text text-center">Philippine Standard Time</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-    
-                <label class="fieldlabels">Program Flow</label> 
-                <div class="img-square-wrapper">
-                    <img class="" [src]="EventItem.programme" width="100%" height="500" alt="Card image cap">
-                </div>
-    
-                <div class="card border-success mb-3 video-card">
-                    <div class="card-header video">Wanna know more: {{EventItem.video}}</div>
-                </div>
-    
-        
-                <div class="col-md-12">
-                    <div class="card border-dark mb-3">
-                        <div class="card-header">Event Registration Price and Process</div>
+                        <label class="form-label">Available Seats</label>
                         <div class="card-body">
-                            <h5 class="card-title-event">{{EventItem.eventPrice}}</h5>
-                            <p class="card-text-event">{{EventItem.eventPaymentDetails}}</p>
+                            <h5 class="card-title text-center">{{event.eventSeats}} SEATS LEFT</h5>
                         </div>
                     </div>
+    
+                    <div class="col-md-4">
+                        <label class="form-label">Date of the Event</label>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{event.eventDate}}</h5>
+                        </div>
+                    </div>
+    
+                    <div class="col-md-4">
+                        <label class="form-label">Time of the Event</label>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{event.eventTime}} (GMT +8)</h5>
+                        </div>
+                    </div>
+                </div>
+    
+                <label class="form-label">Program Flow</label> 
+                <div class="img-square-wrapper">
+                    <img class="" [src]="event.programme" width="100%" alt="Card image cap">
+                </div>
+
+                <label class="form-label">Video Teaser</label> 
+                <div class="iframe-container">
+                    <iframe [src]="getTrustedUrl(event.video)" frameborder="0" allowfullscreen></iframe>
+                </div>
+                  
+                <label class="form-label">Event Registration Fee and Payment Process</label>
+                <div class="card-body">
+                    <h5 class="card-title-event">Event Registration Fee: {{event.eventPrice}}</h5>
+                    <p class="card-text-event">Before proceeding with registration, please follow this steps: <br> {{event.eventPaymentDetails}}</p>
                 </div>
     
               </div>
             </div>
         </div>
-    </div>
   </body>
   
   

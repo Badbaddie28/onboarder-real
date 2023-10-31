@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+
 interface MemForm {
 orgID: string;
   personalInfo: boolean;
@@ -49,40 +50,15 @@ export class OrgMemformsComponent implements OnInit {
 
   memForm: MemForm | null = null;
 
-
-
-
-  selectedChapter: any;
-  newChapterName: string | undefined;
-  chapterService: any;
-
-  chapters: any[] = [
-    { id: 1, name: 'Chapter 1' },
-    { id: 2, name: 'Chapter 2' },
-    { id: 3, name: 'Chapter 3' }
-  ];
-  
-  addChapter() {
-    // Save the new chapter to the database
-    this.chapterService.addChapter(this.newChapterName).subscribe((chapter: any) => {
-      // Add the new chapter to the chapters array in the component
-      this.chapters.push(chapter);
-
-      // Clear the newChapterName input field
-      this.newChapterName = '';
-    });
-  }
-
   form!: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private router: Router
-  ) {}
+    private router: Router,
+  ) { }
 
 
-  
 
   ngOnInit(): void {
     this.getMemForm();
@@ -102,7 +78,24 @@ export class OrgMemformsComponent implements OnInit {
       employer: new FormControl(false),
       jobTitle: new FormControl(false),
       employerAdd: new FormControl(false),
-  
+    });
+
+    // Load and initialize the JavaScript file
+    this.loadScript('assets/js/checkbox-function.js').then(() => {
+      // The JavaScript file is loaded and initialized
+    }).catch(error => {
+      console.error('Error loading checkbox-function.js', error);
+    });   
+  }
+
+  private loadScript(scriptUrl: string): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      const scriptElement = document.createElement('script');
+      scriptElement.src = scriptUrl;
+      scriptElement.type = 'text/javascript';
+      scriptElement.onload = () => resolve(); // Change this line
+      scriptElement.onerror = (error) => reject(error); // Change this line
+      document.body.appendChild(scriptElement);
     });
   }
 
@@ -117,7 +110,6 @@ export class OrgMemformsComponent implements OnInit {
       });
   }
 
- 
   submit()  {
      const formData = {
       ...this.form.value,
@@ -139,4 +131,6 @@ export class OrgMemformsComponent implements OnInit {
       }
     );
   }
+
+  
 }
