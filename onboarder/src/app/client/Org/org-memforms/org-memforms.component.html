@@ -167,7 +167,7 @@
                   </div>
                 </div> 
                 
-                <!-- <div class="col-md-6 position-relative">
+                <div class="col-md-6 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="linkedIn" formControlName="linkedIn" [checked]="form.get('linkedIn')?.value" style="margin-right: 5px;" >
 
                   <label for="validationTooltip05" class="form-label">LinkedIn Account</label>
@@ -341,7 +341,7 @@
                 <div class="col-md-3 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label class="form-label" for="customFile">Diploma Photo</label>
-                  <input type="file" class="form-control" id="customFile" />
+                  <input type="file" class="form-control" id="customFile" disabled/>
                 </div>
 
                 <div class="col-md-3 position-relative">
@@ -374,7 +374,7 @@
                 <div class="col-md-3 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label class="form-label" for="customFile">Diploma Photo</label>
-                  <input type="file" class="form-control" id="customFile" />
+                  <input type="file" class="form-control" id="customFile" disabled/>
                 </div>
 
                 <div class="col-md-3 position-relative">
@@ -407,8 +407,8 @@
                 <div class="col-md-3 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label class="form-label" for="customFile">Diploma Photo</label>
-                  <input type="file" class="form-control" id="customFile" />
-                </div> -->
+                  <input type="file" class="form-control" id="customFile" disabled/>
+                </div>
 
                 <br>
                 <br>
@@ -464,25 +464,10 @@
                   </div>
                 </div>
 
-                <div class="col-md-12 position-relative">
-                  <div class="form-group">
-                    <input class="form-check-input" type="checkbox" value="" id="brithDate" style="margin-right: 5px;">
-                    <label for="chapter">Chapter</label>
-                    <select name="chapter" [(ngModel)]="selectedChapter" class="form-select">
-                      <option *ngFor="let chapter of chapters" [value]="chapter.id">{{ chapter.name }}</option>
-                    </select>
-                  
-                    <div class="input-group">
-                      <input type="text" id="newChapter" [(ngModel)]="newChapterName" class="form-control" placeholder="Enter new chapter name">
-                      <button type="button" class="btn btn-primary" (click)="addChapter()">Add Chapter</button>
-                    </div>
-                  </div>
-                </div>  
-
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">First Member Category</label>
-                  <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Regular Membership" disabled>
+                  <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Regular Membership">
                   <div class="invalid-tooltip">
                     Please enter the first category
                   </div>
@@ -491,7 +476,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Second Member Category</label>
-                  <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Associate Membership" disabled>
+                  <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Associate Membership">
                   <div class="invalid-tooltip">
                     Please enter the second category
                   </div>
@@ -500,7 +485,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Third Member Category</label>
-                  <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Lifetime Membership" disabled>
+                  <input type="text" class="form-control" id="validationTooltip03" placeholder="i.e. Lifetime Membership">
                   <div class="invalid-tooltip">
                     Please enter the third category
                   </div>
@@ -513,7 +498,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Qualification Details</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment required for this category" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment required for this category"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -522,7 +507,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Qualification Details</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment disabled for this category" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment disabled for this category"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -531,7 +516,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="birthDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Qualification Details</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment disabled for this category" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the qualifications, membership fee, inclusions and application attachment disabled for this category"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -540,7 +525,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Membership Fee Price</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -549,7 +534,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Membership Fee Price</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -558,7 +543,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Membership Fee Price</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the membership fee price"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -567,7 +552,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Payment Process</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the payment process" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the payment process"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -576,7 +561,7 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Payment Process</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the payment process" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the payment process"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
@@ -585,23 +570,29 @@
                 <div class="col-md-4 position-relative">
                   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
                   <label for="validationTooltip05" class="form-label">Payment Process</label>
-                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the payment process" disabled></textarea>
+                  <textarea class="form-control" id="validationTextarea" placeholder="Enter the payment process"></textarea>
                   <div class="invalid-feedback">
                     Please enter a message in the textarea.
                   </div>
                 </div>
 
-                <div class="col-md-4 position-relative align-items-center text-center">
-                  <input type="submit"  class=" btn btn-primary action-button"  value="Free"/>
+                <div class="col-md-4 position-relative">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                  <label class="form-label" for="customFile">Proof of Payment</label>
+                  <input type="file" class="form-control" id="customFile"/>
                 </div>
 
-                <div class="col-md-4 position-relative align-items-center text-center">
-                  <input type="submit"  class=" btn btn-primary action-button"  value="Free"/>
+                <div class="col-md-4 position-relative">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                  <label class="form-label" for="customFile">Proof of Payment</label>
+                  <input type="file" class="form-control" id="customFile"/>
                 </div>
 
-                <div class="col-md-4 position-relative align-items-center text-center">
-                  <input type="submit"  class=" btn btn-primary action-button"  value="Free"/>
-                </div> 
+                <div class="col-md-4 position-relative">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="brithDate" [checked]="form.get('brithDate')?.value" style="margin-right: 5px;">
+                  <label class="form-label" for="customFile">Proof of Payment</label>
+                  <input type="file" class="form-control" id="customFile"/>
+                </div>
                 
                 <div class="col-12">
                   <input type="submit"  class=" btn btn-success action-button"  />

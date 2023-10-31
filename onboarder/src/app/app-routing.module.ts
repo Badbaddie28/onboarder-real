@@ -9,7 +9,6 @@ import { DevelopersComponent } from './client/Landing_Page/developers/developers
 import { OrgLandingComponent } from './client/Org/org-landing/org-landing.component';
 import { OrgRegistrationComponent } from './client/Org/org-registration/org-registration.component';
 import { OrgEventsComponent } from './client/Org/org-events/org-events.component';
-import { OrgCommunityComponent } from './client/Org/org-community/org-community.component';
 import { OrgMemformsComponent } from './client/Org/org-memforms/org-memforms.component';
 import { OrgMemverificationComponent } from './client/Org/org-memverification/org-memverification.component';
 import { OrgMembersComponent } from './client/Org/org-members/org-members.component';
@@ -49,7 +48,6 @@ const routes: Routes = [
   { path: 'org-memforms', component: OrgMemformsComponent },
   { path: 'org-memverification', component: OrgMemverificationComponent },
   { path: 'org-members', component: OrgMembersComponent },
-  { path: 'org-community', component: OrgCommunityComponent },
   { path: 'org-events/:orgID', component: OrgEventsComponent},
   { path: 'org-profile', component: OrgProfileComponent },
   { path: 'org-create-event', component: OrgCreateEventComponent },
@@ -61,7 +59,7 @@ const routes: Routes = [
   { path: 'member-events', component: MemEventsComponent},
   { path: 'member-organization', component: MemOrganizationComponent},
   { path: 'member-profile', component: MemProfileComponent},
-  { path: 'member-event-registration', component: MemRegistrationComponent},
+  { path: 'member-event-details/:orgID/:id', component: MemRegistrationComponent},
   { path: 'member-event-regform', component: MemEventregformComponent},
   { path: 'member-orgprofile/:id', component: MemOrgprofileComponent},
   { path: 'member-orgprofile1/:orgCode', component: MemOrgprofileComponent},

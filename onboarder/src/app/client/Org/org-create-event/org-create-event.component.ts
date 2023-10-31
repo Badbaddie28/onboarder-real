@@ -183,7 +183,7 @@ export class OrgCreateEventComponent implements OnInit{
     }
 
     done(){
-      this.router.navigate(['org-events']);
+      this.router.navigate(['/org-profile']);
     }
     
   

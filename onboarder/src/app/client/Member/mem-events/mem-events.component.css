@@ -70,6 +70,7 @@ aside {
 
 .card {
     font-family: 'Fira Sans', sans-serif;
+    margin: 10px;
 }
 
 .card-date {
@@ -104,4 +105,9 @@ aside {
 
 button {
     margin-bottom: 0px;
+}
+
+.img-preview {
+    height: 180px;
+    width: 300px;
 }

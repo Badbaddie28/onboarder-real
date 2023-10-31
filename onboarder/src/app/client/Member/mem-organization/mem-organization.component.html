@@ -16,7 +16,7 @@
                 </div>
             </nav> 
 
-            <div class="row" >
+            <div class="row" *ngIf="OrganizationArray && OrganizationArray.length > 0; else loading">
               <div class="col-6 mt-3">
                   <div class="card" *ngFor="let OrganizationItem of OrganizationArray" >
                       <div class="card-horizontal">
@@ -44,6 +44,11 @@
 
          
             </div>
+
+            <ng-template #loading>
+              <!-- Display loading message -->
+              <p>Loading...</p>
+            </ng-template>  
         </div>
     </div>
 

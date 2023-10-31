@@ -6,10 +6,10 @@
   
         <div class="content" *ngFor="let EventItem of eventInfo">
             <div class="card">
-              <h5 class="card-header">{{EventItem.eventTitle}}</h5>
+              <h5 class="card-header">{{EventItem.orgName}}</h5>
               <div class="card-body">
                 <div class="img-square-wrapper">
-                    <img class="" [src]="EventItem.poster" width="100%" height="400" alt="Card image cap">
+                    <img class="" [src]="EventItem.poster" width="100%" height="500" alt="Card image cap">
                 </div>
     
                 <div class="col-md-12">
@@ -54,7 +54,7 @@
     
                 <label class="fieldlabels">Program Flow</label> 
                 <div class="img-square-wrapper">
-                    <img class="" [src]="EventItem.programme" width="100%" height="400" alt="Card image cap">
+                    <img class="" [src]="EventItem.programme" width="100%" height="500" alt="Card image cap">
                 </div>
     
                 <div class="card border-success mb-3 video-card">
