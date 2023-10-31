@@ -78,7 +78,9 @@ export class MemLoginComponent implements OnInit{
                   this.router.navigate(['/member-profile']);
                 } else if (userData.userType === 'organization') {
                   this.router.navigate(['/org-profile']);
-                } else {
+                } else if (userData.userType === 'admin') {
+                  this.router.navigate(['/admin-users']);
+                }else {
                   // Handle other user types or navigate to appropriate pages
                 }
               },
