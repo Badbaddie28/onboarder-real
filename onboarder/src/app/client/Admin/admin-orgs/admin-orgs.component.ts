@@ -22,6 +22,7 @@ export class AdminOrgsComponent {
   password = "";
   vision = "";
   orgCode = "";
+  
   logo: string | ArrayBuffer | null = null;
   imageObjectUrl: string = "";
 

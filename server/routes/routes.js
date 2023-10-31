@@ -381,6 +381,26 @@ router.delete('/organization/:id', async (req, res) => {
 
 });
 
+
+router.patch('/customizeForm/:orgID', async (req, res) => {
+  try {
+    const orgID = req.params.orgID;
+    const body = req.body;
+    const updateMemForm = await MemForm.findOneAndUpdate({ orgID }, body, { new: true });
+
+    if (!updateMemForm) {
+      return res.status(404).send();
+    }
+
+    return res.status(200).send(updateMemForm);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+
+
+
 router.post('/submitForm', async (req, res) => {
   let fullName = req.body.fullName
   let sex = req.body.sex
@@ -451,7 +471,7 @@ router.post('/createForm', async (req, res) => {
   }
 });
 
-//READ memform
+//READ memform - mem side
 
 router.get('/myMemForm/:id', async (req, res) => {
   try {
@@ -460,6 +480,31 @@ router.get('/myMemForm/:id', async (req, res) => {
     res.send(memForm);
   } catch (error) {
     res.status(400).send(error);
+  }
+});
+
+// READ memform - org side
+router.get('/memForm', async (req, res) => {
+  try{
+    const cookie = req.cookies['jwt']
+    const claims = jwt.verify(cookie,"secret")
+
+    if(!claims){
+      return res.status(401).send({
+        message: "unauthenticated"
+      })
+    }
+
+    const memForm = await MemForm.findOne({orgID:claims._id})
+    const {...data} = await memForm.toJSON()
+
+    res.send(data)
+
+  }
+  catch(err){
+    return res.status(401).send({
+      message:'not found'
+    })
   }
 });
 

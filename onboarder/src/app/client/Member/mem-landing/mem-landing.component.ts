@@ -17,6 +17,6 @@ export class MemLandingComponent implements OnInit {
   }
 
   navigatetoLogIn() {
-    this.router.navigate(['member-login']);
+    this.router.navigate(['auth-login']);
   }
 }

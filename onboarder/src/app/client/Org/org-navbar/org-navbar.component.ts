@@ -48,9 +48,16 @@ export class OrgNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('http://localhost:5000/api/logout', {withCredentials: true})
-      this.router.navigate(['/home']);
-      
+    this.http.post('http://localhost:5000/api/logout', null, { withCredentials: true }).subscribe(
+      (response) => {
+        // Handle the successful logout response here
+        this.router.navigate(['/auth-login']);
+      },
+      (error) => {
+        // Handle any errors that occur during the logout process
+      }
+    );
+   
   }
 
   private loadScript(scriptUrl: string): Promise<void> {

@@ -57,7 +57,7 @@ const routes: Routes = [
 
   { path: 'member-landing', component: MemLandingComponent },
   { path: 'member-signup', component: MemberSignupComponent },
-  { path: 'member-login', component: MemLoginComponent },
+  { path: 'auth-login', component: MemLoginComponent },
   { path: 'member-events', component: MemEventsComponent},
   { path: 'member-organization', component: MemOrganizationComponent},
   { path: 'member-profile', component: MemProfileComponent},

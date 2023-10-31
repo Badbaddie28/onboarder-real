@@ -3,12 +3,55 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
+interface MemForm {
+orgID: string;
+  personalInfo: boolean;
+  fullName: boolean;
+  sex: boolean;
+  birthDate: boolean,
+  placceOfBirth : boolean,
+  civilStatus: boolean,
+  religion: boolean,
+  address: boolean,
+  zip: boolean,
+  email: boolean,
+  contactNum: boolean,
+  employmentDetails: boolean,
+  employer: boolean,
+  jobTitle: boolean,
+  employerAdd: boolean,
+}
+
 @Component({
   selector: 'app-org-memforms',
   templateUrl: './org-memforms.component.html',
   styleUrls: ['./org-memforms.component.css']
 })
 export class OrgMemformsComponent implements OnInit {
+
+  // MemFormArray : any[] =[];
+  // personalInfo= "";
+  // fullName= "";
+  // sex= "";
+  // birthDate = "";
+  // placceOfBirth  = "";
+  // civilStatus = "";
+  // religion = "";
+  // address = "";
+  // zip = "";
+  // email = "";
+  // contactNum = "";
+  // employmentDetails = "";
+  // employer = "";
+  // jobTitle = "";
+  // employerAdd = "";
+  // orgID = "";
+
+  memForm: MemForm | null = null;
+
+
+
+
   selectedChapter: any;
   newChapterName: string | undefined;
   chapterService: any;
@@ -38,27 +81,60 @@ export class OrgMemformsComponent implements OnInit {
     private router: Router
   ) {}
 
+
+  
+
   ngOnInit(): void {
+    this.getMemForm();
     this.form = this.formBuilder.group({
-      fullName: new FormControl(false), // Initialize with false for unchecked
+      fullName: new FormControl(false),
       sex: new FormControl(false),
-      // Add more form controls for other checkboxes as needed
+      personalInfo: new FormControl(false),
+      birthDate: new FormControl(false),
+      placceOfBirth : new FormControl(false),
+      civilStatus: new FormControl(false),
+      religion: new FormControl(false),
+      address: new FormControl(false),
+      zip: new FormControl(false),
+      email: new FormControl(false),
+      contactNum: new FormControl(false),
+      employmentDetails: new FormControl(false),
+      employer: new FormControl(false),
+      jobTitle: new FormControl(false),
+      employerAdd: new FormControl(false),
+  
     });
   }
-  // Function to handle form submission
-  submit()  {
-    const formData = this.form.value;
 
-    // Send the form data to the backend API endpoint
-    this.http.post('http://localhost:5000/api/submitForm', formData).subscribe(
+  getMemForm(): void {
+    this.http.get<MemForm>('http://localhost:5000/api/memForm', { withCredentials: true })
+      .subscribe((resultData: MemForm) => {
+        console.log(resultData);
+        this.memForm = resultData;
+
+        // Populate the form controls with the received data
+        this.form.patchValue(resultData);
+      });
+  }
+
+ 
+  submit()  {
+     const formData = {
+      ...this.form.value,
+      orgID: this.memForm?.orgID 
+    };
+
+    console.log('orgID:', this.memForm?.orgID);
+
+    this.http.patch(`http://localhost:5000/api/customizeForm/${this.memForm?.orgID}`, formData, { withCredentials: true })
+    .subscribe(
       (response: any) => {
-        // Handle successful form submission response if needed
+        
         console.log(response);
-        // Redirect to a success page or perform other actions
+     
         this.router.navigate(['/org-profile']);
       },
       (error) => {
-        // Handle error response if needed
         console.error(error);
       }
     );
