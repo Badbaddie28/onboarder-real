@@ -67,6 +67,7 @@ aside {
 }
 
 .card {
+    margin: 10px;
     font-family: 'Fira Sans', sans-serif;
 }
 
