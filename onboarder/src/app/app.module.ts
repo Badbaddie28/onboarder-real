@@ -16,7 +16,6 @@ import { OrgLandingComponent } from './client/Org/org-landing/org-landing.compon
 import { OrgNavbarComponent } from './client/Org/org-navbar/org-navbar.component';
 import { OrgEventsComponent } from './client/Org/org-events/org-events.component';
 import { OrgProfileComponent } from './client/Org/org-profile/org-profile.component';
-import { OrgCommunityComponent } from './client/Org/org-community/org-community.component';
 import { OrgMemformsComponent } from './client/Org/org-memforms/org-memforms.component';
 import { OrgMemverificationComponent } from './client/Org/org-memverification/org-memverification.component';
 import { OrgMembersComponent } from './client/Org/org-members/org-members.component';
@@ -55,7 +54,6 @@ import { OrgEventDetailsComponent } from './client/Org/org-event-details/org-eve
     OrgNavbarComponent,
     OrgEventsComponent,
     OrgProfileComponent,
-    OrgCommunityComponent,
     OrgMemformsComponent,
     OrgMemverificationComponent,
     OrgMembersComponent,    
