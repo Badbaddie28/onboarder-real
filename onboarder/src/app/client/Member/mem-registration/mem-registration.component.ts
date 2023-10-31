@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-mem-registration',
@@ -8,12 +9,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./mem-registration.component.css']
 })
 export class MemRegistrationComponent implements OnInit {
+  videoUrl: string = 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID';
   eventInfo: any[] = [];
 
   constructor (
     private http: HttpClient, 
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sanitizer: DomSanitizer
   ) {}
  
   ngOnInit(): void {
@@ -29,5 +32,9 @@ export class MemRegistrationComponent implements OnInit {
       console.log(resultData);
       this.eventInfo = [resultData];
     })
+  }
+
+  getTrustedUrl(videoUrl: string): SafeResourceUrl {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
   }
 }
