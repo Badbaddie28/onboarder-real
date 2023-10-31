@@ -1,6 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Plus+Jakarta+Sans:ital,wght@0,400;1,700&family=Poppins&display=swap');
+
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
+    font-family: 'Poppins', sans-serif !important;
   }
   
   html {
@@ -13,8 +17,9 @@
   
   #heading {
     text-transform: uppercase;
-    color: #3676d7;
-    font-weight: normal
+    color: #007FE1;
+    font-weight: 600;
+    font-size: 35px;
   }
   
   #msform {
@@ -52,7 +57,7 @@
     width: 100%;
     box-sizing: border-box;
     font-family: montserrat;
-    color: #2C3E50;
+    color: #007FE1;
     background-color: #ECEFF1;
     font-size: 16px;
     letter-spacing: 1px
@@ -63,13 +68,13 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #3676d7;
+    border: 1px solid #007FE1;
     outline-width: 0
   }
   
   #msform .action-button {
     width: 100px;
-    background: #3676d7;
+    background: #007FE1;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -82,7 +87,7 @@
   
   #msform .action-button:hover,
   #msform .action-button:focus {
-    background-color: #3676d7
+    background-color: #007FE1
   }
   
   #msform .action-button-previous {
@@ -111,14 +116,14 @@
   
   .fs-title {
     font-size: 25px;
-    color: #3676d7;
+    color: #007FE1;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
   }
   
   .purple-text {
-    color: #3676d7;
+    color: #007FE1;
     font-weight: normal
   }
   
@@ -142,7 +147,7 @@
   }
   
   #progressbar .active {
-    color: #3676d7;
+    color: #007FE1;
   }
   
   #progressbar li {
@@ -204,7 +209,7 @@
   
   #progressbar li.active:before,
   #progressbar li.active:after {
-    background: #3676d7;
+    background: #007FE1;
   }
   
   .progress {
@@ -212,7 +217,7 @@
   }
   
   .progress-bar {
-    background-color: #3676d7;
+    background-color: #007FE1;
   }
   
   .fit-image {

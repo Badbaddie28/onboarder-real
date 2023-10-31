@@ -127,10 +127,6 @@ font-size: 18px;
 font-weight: 500;
 color: #FFF;
 }
-#Step .work-porcess-area {
-
-
-}
 
 #Step .work-porcess-area.white {
 background: #FFFFFF;
@@ -151,11 +147,11 @@ border-radius: 50%;
 padding-top: 53px;
 margin: 0 auto;
 background: #FFFFFF;
--webkit-box-shadow: 0 10px 30px 0 #000fe159;
--o-box-shadow: 0 10px 30px 0 #000fe159;
--moz-box-shadow: 0 10px 30px 0 #000fe159;
--ms-box-shadow: 0 10px 30px 0 #000fe159;
-box-shadow: 0 10px 30px 0 #000fe159;
+-webkit-box-shadow: 0 10px 30px 0 #007FE1;
+-o-box-shadow: 0 10px 30px 0 #007FE1;
+-moz-box-shadow: 0 10px 30px 0 #007FE1;
+-ms-box-shadow: 0 10px 30px 0 #007FE1;
+box-shadow: 0 10px 30px 0 #007FE1;
 position: relative;
 -webkit-transition: all 0.5s;
 -o-transition: all 0.5s;
@@ -166,11 +162,11 @@ cursor: pointer;
 }
 
 #Step .work-porcess-area .process-info .single-process:hover {
--webkit-box-shadow: 0 10px 30px 0 #000fe159;
--o-box-shadow: 0 10px 30px 0 #000fe159;
--moz-box-shadow: 0 10px 30px 0 #000fe159;
--ms-box-shadow: 0 10px 30px 0 #000fe159;
-box-shadow: 0 10px 30px 0 #000fe159;
+-webkit-box-shadow: 0 10px 30px 0 #007FE1;
+-o-box-shadow: 0 10px 30px 0 #007FE1;
+-moz-box-shadow: 0 10px 30px 0 #007FE1;
+-ms-box-shadow: 0 10px 30px 0 #007FE1;
+box-shadow: 0 10px 30px 0 #007FE1;
 }
 
 #Step .work-porcess-area .process-info .single-process:after {
@@ -209,6 +205,7 @@ color: #FFFFFF;
 
 #Step .work-porcess-area .process-info .single-process.thard h4 {
 color: #FFFFFF;
+padding: 0 15px;
 }
 
 #Step .work-porcess-area .process-info .single-process.last:after {

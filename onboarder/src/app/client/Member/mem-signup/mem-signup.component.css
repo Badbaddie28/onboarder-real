@@ -1,6 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lato&family=Plus+Jakarta+Sans:ital,wght@0,400;1,700&family=Poppins&display=swap');
+
 * {
     margin: 0;
-    padding: 0
+    padding: 0;
+    font-family: 'Poppins', sans-serif !important;
   }
   
   html {
@@ -13,9 +17,11 @@
   
   #heading {
     text-transform: uppercase;
-    color: #00E1D3;
-    font-weight: normal
+    color: #007FE1;
+    font-weight: 600;
+    font-size: 35px;
   }
+  
   
   #msform {
     text-align: center;
@@ -64,13 +70,13 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #00E1D3;
+    border: 1px solid #007FE1;
     outline-width: 0
   }
   
   #msform .action-button {
     width: 100px;
-    background: #00E1D3;
+    background: #007FE1;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -83,7 +89,7 @@
   
   #msform .action-button:hover,
   #msform .action-button:focus {
-    background-color: #311B92
+    background-color: #007FE1
   }
   
   #msform .action-button-previous {
@@ -112,7 +118,7 @@
   
   .fs-title {
     font-size: 25px;
-    color: #00E1D3;
+    color: #007FE1;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
@@ -120,13 +126,13 @@
 
   .fs-title1 {
     font-size: 25px;
-    color: #00E1D3;
+    color: #007FE1;
     font-weight: normal;
     text-align: left
   }
   
   .purple-text {
-    color: #00E1D3;
+    color: #007FE1;
     font-weight: normal
   }
   
@@ -139,18 +145,18 @@
   }
   
   .fieldlabels {
-    color: #00E1D3;
+    color: #007FE1;
     text-align: left
   }
   
   #progressbar {
     margin-bottom: 30px;
     overflow: hidden;
-    color: #00E1D3
+    color: #007FE1
   }
   
   #progressbar .active {
-    color: #00E1D3
+    color: #007FE1
   }
   
   #progressbar li {
@@ -199,7 +205,7 @@
     content: '';
     width: 100%;
     height: 2px;
-    background: #00E1D3;
+    background: #007FE1;
     position: absolute;
     left: 0;
     top: 25px;
@@ -208,7 +214,7 @@
   
   #progressbar li.active:before,
   #progressbar li.active:after {
-    background: #00E1D3
+    background: #007FE1
   }
   
   .progress {
@@ -216,7 +222,7 @@
   }
   
   .progress-bar {
-    background-color: #00E1D3
+    background-color: #007FE1
   }
   
   .fit-image {
