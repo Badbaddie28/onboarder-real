@@ -6,6 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 interface OrgEvent {
+  _id: string,
+  orgID: string,
   eventTitle: string;
   eventDesc: string;
   eventDate: Date;
@@ -60,6 +62,10 @@ export class OrgEventsComponent implements OnInit {
       // Update the length variable
       console.log('Organization Events:', data);
     });
+  }
+
+  redirecttoEventDetails(orgID: string, _id: string){
+    this.router.navigate(['/org-event-details', orgID, _id]);
   }
 
   showNavLinks = false;

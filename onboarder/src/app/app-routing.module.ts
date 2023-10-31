@@ -53,7 +53,7 @@ const routes: Routes = [
   { path: 'org-events/:orgID', component: OrgEventsComponent},
   { path: 'org-profile', component: OrgProfileComponent },
   { path: 'org-create-event', component: OrgCreateEventComponent },
-  { path: 'org-event-details', component: OrgEventDetailsComponent },
+  { path: 'org-event-details/:orgID/:id', component: OrgEventDetailsComponent },
 
   { path: 'member-landing', component: MemLandingComponent },
   { path: 'member-signup', component: MemberSignupComponent },

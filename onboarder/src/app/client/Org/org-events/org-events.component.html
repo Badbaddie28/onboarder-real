@@ -31,7 +31,7 @@
                         <h4 class="card-eventtitle">{{ event.eventTitle }}</h4>
                         <p class="card-text">{{ event.eventDesc }}</p>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                          <button class="btn btn-primary" routerLink="/org-create-event">Read More</button>
+                          <button class="btn btn-primary" (click)="redirecttoEventDetails(event.orgID, event._id)">Read More</button>
                         </div>
                       </div>
                     </div>
