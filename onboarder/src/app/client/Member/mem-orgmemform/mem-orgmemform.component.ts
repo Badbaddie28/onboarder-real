@@ -10,6 +10,7 @@ interface MemForm {
 
     personalInfo: boolean,
     fullName: boolean,
+    photo: boolean,
     sex: boolean,
     birthDate: boolean,
     placeOfBirth : boolean,
@@ -60,9 +61,6 @@ interface MemForm {
       memType2Fee: boolean,
       memType3Fee: boolean,
       memType1Process: boolean,
-
-
-
       memType1Input: String,
       memType2Input: String,
       memType3Input: String,
@@ -95,6 +93,8 @@ export class MemOrgmemformComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.formBuilder.group({
+      
+      photo: "",
     fullName: "",
     sex: null,
     birthDate: "",
@@ -178,7 +178,7 @@ export class MemOrgmemformComponent implements OnInit {
           const memApplicationData = {
             memID: memID,
             orgID : _id,
-  
+            photo: membershipApplication.photo,
             fullName: membershipApplication.fullName,
         sex: membershipApplication.sex,
         birthDate: membershipApplication.birthDate,

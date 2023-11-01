@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 interface MemForm {
 orgID: string;
+photo: string,
   personalInfo: boolean,
   fullName: boolean,
   sex: boolean,
@@ -72,6 +73,7 @@ export class OrgMemformsComponent implements OnInit {
   ngOnInit(): void {
     this.getMemForm();
     this.form = this.formBuilder.group({
+      photo: new FormControl(false),
       fullName: new FormControl(false),
       sex: new FormControl(false),
       personalInfo: new FormControl(false),

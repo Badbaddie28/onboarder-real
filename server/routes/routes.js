@@ -771,6 +771,7 @@ router.post('/membershipApplication', async (req, res) => {
   let memID = req.body.memID;
   let isVerified = req.body.isVerified
 
+  let photo = req.body.photo;
 
   let fullName = req.body.fullName;
   let sex = req.body.sex;
@@ -816,6 +817,7 @@ router.post('/membershipApplication', async (req, res) => {
       memID : memID,
        isVerified : isVerified,
 
+       photo: photo,
 
       fullName: fullName,
       sex: sex,

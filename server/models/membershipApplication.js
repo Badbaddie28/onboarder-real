@@ -26,6 +26,10 @@ const membershipApplicatioSchema = new mongoose.Schema ({
     
     },
 
+    photo: {
+      type: String,
+  },
+
     fullName: {
         type: String,
     },
