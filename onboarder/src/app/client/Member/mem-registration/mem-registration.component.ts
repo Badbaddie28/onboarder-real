@@ -37,4 +37,8 @@ export class MemRegistrationComponent implements OnInit {
   getTrustedUrl(videoUrl: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(videoUrl);
   }
+
+  redirecttoRegForm(orgName: string, _id: string){
+    this.router.navigate(['/member-event-regform', orgName, _id]);
+  }
 }
