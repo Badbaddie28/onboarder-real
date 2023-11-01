@@ -8,6 +8,7 @@ const Organization = require('../models/organization');
 const Events = require('../models/events');
 const MemForm = require('../models/membershipForm');
 const Admin = require('../models/admin')
+const EventRegForm = require('../models/eventregForm');
 const ObjectId = mongoose.Types.ObjectId;
 
 
@@ -764,6 +765,37 @@ router.get('/thisevent/:id', async (req, res) => {
     res.status(500).send({ error: 'Internal Server Error' });
   }
 });
+
+// create event reg form 
+router.post('/createRegForm', async (req, res) => {
+  let orgID = req.body.orgID;
+  let orgName = req.body.orgName;
+  let eventID = req.body.eventID;
+  let memID = req.body.memID;
+  let memName = req.body.memName;
+  let memType = req.body.memType;
+  let proofofPayment = req.body.proofofPayment;
+  let emailAddress = req.body.emailAddress;
+  let contactno = req.body.contactno;
+  try {
+    const eventRegForm = new EventRegForm({
+      orgID: orgID,
+      orgName: orgName,
+      eventID: eventID,
+      memID: memID,
+      memName: memName,
+      memType: memType,
+      proofofPayment: proofofPayment,
+      emailAddress: emailAddress,
+      contactno: contactno
+    });
+
+    await eventRegForm.save();
+    res.status(201).json({ eventRegForm });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+})
 
 module.exports = router
 
