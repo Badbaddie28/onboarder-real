@@ -11,6 +11,7 @@ body {
 .container {
     display: flex;
     margin: 0;
+    
 }
 
 aside {
@@ -70,11 +71,18 @@ aside {
 
 .card {
     font-family: 'Fira Sans', sans-serif;
+    
+    
+
 }
 
 .card-text {
     margin-bottom: 3px;
     margin-top: 0;
+    height: 6rem;
+    overflow: auto;
+    
+
 }
 
 .card-eventtitle {

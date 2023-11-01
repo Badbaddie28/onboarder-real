@@ -213,6 +213,6 @@ makeRandomCode(lengthOfCode: number, possible: string) {
     }
   }
   done(){
-    this.router.navigate(['member-login']);
+    this.router.navigate(['auth-login']);
   }
 }

@@ -6,9 +6,9 @@ import { Router } from '@angular/router';
 
 interface MemForm {
 orgID: string;
-  personalInfo: boolean;
-  fullName: boolean;
-  sex: boolean;
+  personalInfo: boolean,
+  fullName: boolean,
+  sex: boolean,
   birthDate: boolean,
   placceOfBirth : boolean,
   civilStatus: boolean,
@@ -17,10 +17,35 @@ orgID: string;
   zip: boolean,
   email: boolean,
   contactNum: boolean,
+  facebook: boolean,
+  skype: boolean,
+  zoom: boolean,
+  idLicense: boolean,
+  prcNo : boolean,
+  prcDate: boolean,
+  prcExpiration: boolean,
+  studentID: boolean,
+  aviation: boolean,
+  caap: boolean,
+  taxID: boolean,
+  EducAttainment: boolean,
+  tertiary: boolean,
+  tertiaryDegree: boolean,
+  tertiaryYear: boolean,
+  tertiaryDiploma : boolean,
+  masteral: boolean,
+  masteralDegree: boolean,
+  masteralYear: boolean,
+  masteralDiploma: boolean,
+  doctoral: boolean,
+  doctoralDegree: boolean,
+  doctoralYear: boolean,
+  doctoralDiploma: boolean,
   employmentDetails: boolean,
   employer: boolean,
   jobTitle: boolean,
   employerAdd: boolean,
+  membership: boolean,
 }
 
 @Component({
@@ -30,23 +55,7 @@ orgID: string;
 })
 export class OrgMemformsComponent implements OnInit {
 
-  // MemFormArray : any[] =[];
-  // personalInfo= "";
-  // fullName= "";
-  // sex= "";
-  // birthDate = "";
-  // placceOfBirth  = "";
-  // civilStatus = "";
-  // religion = "";
-  // address = "";
-  // zip = "";
-  // email = "";
-  // contactNum = "";
-  // employmentDetails = "";
-  // employer = "";
-  // jobTitle = "";
-  // employerAdd = "";
-  // orgID = "";
+  
 
   memForm: MemForm | null = null;
 
@@ -67,17 +76,69 @@ export class OrgMemformsComponent implements OnInit {
       sex: new FormControl(false),
       personalInfo: new FormControl(false),
       birthDate: new FormControl(false),
-      placceOfBirth : new FormControl(false),
+      placeOfBirth : new FormControl(false),
       civilStatus: new FormControl(false),
       religion: new FormControl(false),
       address: new FormControl(false),
       zip: new FormControl(false),
       email: new FormControl(false),
       contactNum: new FormControl(false),
+      facebook: new FormControl(false),
+      linkedIn: new FormControl(false),
+      skype: new FormControl(false),
+      zoom: new FormControl(false),
+      idLicense: new FormControl(false),
+      prcNo : new FormControl(false),
+      prcDate: new FormControl(false),
+      prcExpiration: new FormControl(false),
+      studentID: new FormControl(false),
+      aviation: new FormControl(false),
+      caap: new FormControl(false),
+      taxID: new FormControl(false),
+      EducAttainment: new FormControl(false),
+      tertiary: new FormControl(false),
+      tertiaryDegree: new FormControl(false),
+      tertiaryYear: new FormControl(false),
+      tertiaryDiploma : new FormControl(false),
+      masteral: new FormControl(false),
+      masteralDegree: new FormControl(false),
+      masteralYear: new FormControl(false),
+      masteralDiploma: new FormControl(false),
+      doctoral: new FormControl(false),
+      doctoralDegree: new FormControl(false),
+      doctoralYear: new FormControl(false),
+      doctoralDiploma: new FormControl(false),
       employmentDetails: new FormControl(false),
       employer: new FormControl(false),
       jobTitle: new FormControl(false),
       employerAdd: new FormControl(false),
+      membership: new FormControl(false),
+      memType1: new FormControl(false),
+      memType2: new FormControl(false),
+      memType3: new FormControl(false),
+      memType1Details: new FormControl(false),
+      memType2Details: new FormControl(false),
+      memType3Details: new FormControl(false),
+      memType1Fee: new FormControl(false),
+      memType2Fee: new FormControl(false),
+      memType3Fee: new FormControl(false),
+      memType1Process: new FormControl(false),
+    
+      payment: new FormControl(false),
+
+      memType1Input: [''],
+      memType2Input: [''],
+      memType3Input: [''],
+      memType1DetailsInput: [''],
+      memType2DetailsInput: [''],
+      memType3DetailsInput: [''],
+      memType1FeeInput: [''],
+      memType2FeeInput: [''],
+      memType3FeeInput: [''],
+      memType1ProcessInput: [''],
+     
+      
+
     });
 
     // Load and initialize the JavaScript file

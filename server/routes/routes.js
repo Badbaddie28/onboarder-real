@@ -510,68 +510,67 @@ router.patch('/customizeForm/:orgID', async (req, res) => {
 
 
 
-
-router.post('/submitForm', async (req, res) => {
-  let fullName = req.body.fullName
-  let sex = req.body.sex
-  let birthDate = req.body.birthDate
-  let placceOfBirth = req.body.placceOfBirth
-  let civilStatus = req.body.civilStatus
-  let religion = req.body.religion
-  let address = req.body.address
-  let zip = req.body.zip
-  let email = req.body.email
-  let contactNum = req.body.contactNum
-  let employmentDetails = req.body.employmentDetails
-
-
-
-
-  try {
-      // Create a new Member instance with checkbox data
-      const newMembershipForm = new MemForm({
-        fullName:fullName,
-        sex:sex
-      })
-
-      // Save the new member to the database
-      await newMembershipForm.save();
-
-      res.status(201).json({ message: 'Or created successfully' });
-  } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
 router.post('/createForm', async (req, res) => {
   let orgID = req.body.orgID
-
+  let memType1Input = req.body.memType1Input
+  let memType2Input = req.body.memType2Input
+  let memType3Input = req.body.memType3Input
+  let memType1DetailsInput = req.body.memType1DetailsInput
+  let memType2DetailsInput = req.body.memType2DetailsInput
+  let memType3DetailsInput = req.body.memType3DetailsInput
+  let memType1FeeInput = req.body.memType1FeeInput
+  let memType2FeeInput = req.body.memType2FeeInput
+  let memType3FeeInput = req.body.memType3FeeInput
+  let memType1ProcessInput = req.body.memType1ProcessInput
+ 
 
   try {
       // Create a new Member instance with checkbox data
       const newMembershipForm = new MemForm({
+
         personalInfo: true,
-        fullName: true,
-        sex: false,
-        birthDate: true,
-        placceOfBirth : false,
-        civilStatus: false,
-        religion: false,
-        address: false,
-        zip: false,
-        email: true,
-        contactNum: false,
-        employmentDetails: false,
-        employer: false,
-        jobTitle: false,
-        employerAdd: false,
+        fullName: true, sex: false,
+        birthDate: true, placceOfBirth : false,
+        civilStatus: false, religion: false,
+        address: false, zip: false,
+        email: true, contactNum: false,
+        facebook: false, linkedIn:false,
+        skype: false, zoom: false,
+        idLicense: false, prcNo : false,
+        prcDate: false, prcExpiration: false,
+        studentID: false, aviation: false,
+        caap: false, taxID: false, EducAttainment: false,
+        tertiary: false, tertiaryDegree: false,
+        tertiaryYear: false, tertiaryDiploma : false,
+        masteral: false, masteralDegree: false,
+        masteralYear: false, masteralDiploma: false,
+        doctoral: false, doctoralDegree: false,
+        doctoralYear: false, employmentDetails: false,
+        employer: false, jobTitle: false,
+        employerAdd: false, membership: false,
+        memType1: false, memType2: false,
+        memType3: false,
+        memType1Details: false, memType2Details: false,
+        memType3Details: false, memType1Fee: false,
+        memType2Fee: false, memType3Fee: false,
+        memType1Process: false, memType2Process: false,
+        memType3Process: false, payment: false,
+        
+        memType1Input : memType1Input,
+        memType2Input : memType2Input,
+        memType3Input : memType3Input,
+        memType1DetailsInput : memType1DetailsInput,
+        memType2DetailsInput : memType2DetailsInput,
+        memType3DetailsInput : memType3DetailsInput,
+        memType1FeeInput : memType1FeeInput,
+        memType2FeeInput : memType2FeeInput,
+        memType3FeeInput : memType3FeeInput,
+        memType1ProcessInput : memType1ProcessInput,
+        orgID:orgID,     
         
 
-        orgID:orgID,
       })
 
-      // Save the new member to the database
       await newMembershipForm.save();
 
       res.status(201).json({ message: 'Member created successfully' });
