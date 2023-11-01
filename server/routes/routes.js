@@ -797,6 +797,20 @@ router.post('/createRegForm', async (req, res) => {
   }
 })
 
+// Display registered members for a specific event
+router.get('/myEventForm/:eventID', async (req, res) => {
+  try {
+    const eventID = req.params.eventID;
+    const eventForms = await EventRegForm.find({ eventID: eventID });
+    if (!eventForms || eventForms.length === 0) {
+      return res.status(404).send({ error: 'Members not found for the specified event' });
+    }
+    res.send(eventForms);
+  } catch (error) {
+    res.status(500).send({ error: 'Internal Server Error' });
+  }
+});
+
 module.exports = router
 
 
