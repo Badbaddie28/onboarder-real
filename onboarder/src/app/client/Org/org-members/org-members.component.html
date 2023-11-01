@@ -58,8 +58,8 @@
                                     <td>Student</td>
                                     <td>0939-------</td>
                                     <td>
-                                        <a href="#acceptMemberModal" class="accept" data-toggle="modal"><i class="fa-solid fa-square-check"></i></a>
-                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa-solid fa-square-xmark"></i></a>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#renewMemberModal"><i class="fa-solid fa-square-check"></i></button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteMemberModal"><i class="fa-solid fa-square-xmark"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -69,6 +69,36 @@
             </div>
         </div>
     </div>
+
+<!-- Renew Modal -->
+<div class="modal fade" id="renewMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center center">
+            <img src="../../../../assets/img/success.png">
+            <h2>Do you really want to renew the member?</h2>          
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="deleteMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center center">
+            <img src="../../../../assets/img/failed.png">
+            <h2>Do you really want to delete the member?</h2>          
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
 </body>
 
 

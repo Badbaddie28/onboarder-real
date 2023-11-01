@@ -58,8 +58,8 @@
                                         <a><i class="fa-solid fa-eye"></i></a>
                                     </td>
                                     <td>
-                                        <a href="#acceptMemberModal" class="accept" data-toggle="modal"><i class="fa-solid fa-square-check"></i></a>
-                                        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa-solid fa-square-xmark"></i></a>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#acceptMemberModal"><i class="fa-solid fa-square-check"></i></button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectMemberModal"><i class="fa-solid fa-square-xmark"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -69,6 +69,36 @@
             </div>
         </div>
     </div>
+
+<!-- Accept Modal -->
+<div class="modal fade" id="acceptMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center center">
+            <img src="../../../../assets/img/success.png">
+            <h2>Do you really want to accept the member?</h2>          
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+<!-- Reject Modal -->
+<div class="modal fade" id="rejectMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body text-center center">
+            <img src="../../../../assets/img/failed.png">
+            <h2>Do you really want to reject the member?</h2>          
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Yes</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
 </body>
 
 
