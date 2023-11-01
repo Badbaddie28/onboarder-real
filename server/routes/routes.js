@@ -7,12 +7,14 @@ const Member = require('../models/member');
 const Organization = require('../models/organization');
 const Events = require('../models/events');
 const MemForm = require('../models/membershipForm');
-const Admin = require('../models/admin')
+const Admin = require('../models/admin');
+const MembershipApplication = require('../models/membershipApplication');
 const ObjectId = mongoose.Types.ObjectId;
 
 
 const router = Router()
 
+//CREATE ADMIN
 router.post('/admin', async (req, res) => {
   let firstName = req.body.firstName
   let lastName = req.body.lastName
@@ -253,7 +255,7 @@ router.post('/login', async (req, res) => {
 }
 });
 
-
+// LOGIN VERIFICATION
       router.get('/current', async (req, res) => {
         try {
             const cookie = req.cookies['jwt'];
@@ -290,7 +292,8 @@ router.post('/login', async (req, res) => {
             });
         }
     });
-    
+   
+  // TO GET DETAILS FOR LOGGED IN MEMBER
     router.get('/member', async (req, res) => {
       try{
         const cookie = req.cookies['jwt']
@@ -315,7 +318,8 @@ router.post('/login', async (req, res) => {
       }
   });
   
-    
+  // TO GET DETAILS FOR LOGGED IN ORGANIZATION
+
 router.get('/organization', async (req, res) => {
   try{
     const cookie = req.cookies['jwt']
@@ -339,6 +343,8 @@ router.get('/organization', async (req, res) => {
     })
   }
 });
+
+  // TO GET DETAILS FOR LOGGED IN ADMIN
 
 router.get('/admin', async (req, res) => {
   try{
@@ -372,7 +378,6 @@ router.post('/logout', (req,res) =>{
     message:"success"
   });
 });
-
 
 
 //ORGANIZATION REGISTRATION
@@ -418,20 +423,6 @@ router.post('/orgRegister', async (req, res) => {
   })
 
   const result = await organization.save();
-
-  // //JWT 
-
-  // const { _id } = await result.toJSON();
-
-  // const token = jwt.sign({ _id: _id }, "secret");
-
-  // res.cookie("jwt", token, {
-  //   httpOnly: true,
-  //   maxAge: 24 * 60 * 60 * 1000, // 1 day
-  // });
-
-
-
   res.status(201).json({ orgID: result._id, message: 'Organization created successfully' });
 }
 
@@ -491,7 +482,7 @@ router.delete('/organization/:id', async (req, res) => {
 
 });
 
-
+// CUSTOMIZE MEMBERSHIP FORM
 router.patch('/customizeForm/:orgID', async (req, res) => {
   try {
     const orgID = req.params.orgID;
@@ -509,7 +500,7 @@ router.patch('/customizeForm/:orgID', async (req, res) => {
 });
 
 
-
+// AUTOMATICALLY CREATE FORM UPON ORG REG
 router.post('/createForm', async (req, res) => {
   let orgID = req.body.orgID
   let memType1Input = req.body.memType1Input
@@ -530,7 +521,7 @@ router.post('/createForm', async (req, res) => {
 
         personalInfo: true,
         fullName: true, sex: false,
-        birthDate: true, placceOfBirth : false,
+        birthDate: true, placeOfBirth : false,
         civilStatus: false, religion: false,
         address: false, zip: false,
         email: true, contactNum: false,
@@ -618,7 +609,7 @@ router.get('/memForm', async (req, res) => {
 });
 
 
-//READ specific org
+//READ specific org via card
 router.get('/thisOrg/:id', async (req, res) => {
   try {
     const orgId = req.params.id; // 
@@ -632,6 +623,7 @@ router.get('/thisOrg/:id', async (req, res) => {
   }
 });
 
+//READ specific org via orgCode
 router.get('/thisOrg1/:orgCode', async (req, res) => {
   try {
     const orgCode = req.params.orgCode; 
@@ -666,6 +658,7 @@ router.post('/createEvent', async (req, res) => {
   try {
     const events = new Events({
       orgID: orgID,
+
       orgName: orgName,
       eventTitle: eventTitle,
       eventDesc: eventDesc,
@@ -764,6 +757,158 @@ router.get('/thisevent/:id', async (req, res) => {
     res.status(500).send({ error: 'Internal Server Error' });
   }
 });
+
+//MEMBERSHIP APPLICATION
+router.post('/membershipApplication', async (req, res) => {
+  let orgID = req.body.orgID;
+  let memID = req.body.memID;
+  let isVerified = req.body.isVerified
+
+
+  let fullName = req.body.fullName;
+  let sex = req.body.sex;
+  let birthDate = req.body.birthDate;
+  let placeOfBirth = req.body.placeOfBirth;
+  let civilStatus = req.body.civilStatus;
+  let religion = req.body.religion;
+  let address = req.body.address;
+  let zip = req.body.zip;
+  let email = req.body.email;
+  let contactNum = req.body.contactNum;
+  let facebook = req.body.facebook;
+  let linkedIn = req.body.linkedIn;
+  let skype = req.body.skype;
+  let zoom = req.body.zoom;
+  let prcNo = req.body.prcNo;
+  let prcDate = req.body.prcDate;
+  let prcExpiration = req.body.prcExpiration;
+  let studentID = req.body.studentID;
+  let aviation = req.body.aviation;
+  let caap = req.body.caap;
+  let taxID = req.body.taxID;
+  let tertiary = req.body.tertiary;
+  let tertiaryDegree = req.body.tertiaryDegree;
+  let tertiaryYear = req.body.tertiaryYear;
+  let tertiaryDiploma = req.body.tertiaryDiploma;
+  let masteral = req.body.masteral;
+  let masteralDegree = req.body.masteralDegree;
+  let masteralYear = req.body.masteralYear;
+  let masteralDiploma = req.body.masteralDiploma;
+  let doctoral = req.body.doctoral;
+  let doctoralDegree = req.body.doctoralDegree;
+  let doctoralYear = req.body.doctoralYear;
+  let employer = req.body.employer;
+  let jobTitle = req.body.jobTitle;
+  let employerAdd = req.body.employerAdd;
+  let payment = req.body.payment;
+  let chooseMem = req.body.chooseMem;
+
+  try {
+    const membershipApplication = new MembershipApplication({
+      orgID: orgID,
+      memID : memID,
+       isVerified : isVerified,
+
+
+      fullName: fullName,
+      sex: sex,
+      birthDate: birthDate,
+      placeOfBirth: placeOfBirth,
+      civilStatus: civilStatus,
+      religion: religion,
+      address: address,
+      zip: zip,
+      email: email,
+      contactNum: contactNum,
+      facebook: facebook,
+      linkedIn : linkedIn,
+      skype : skype,
+      zoom : zoom,
+      prcNo : prcNo,
+      prcDate : prcDate,
+      prcExpiration : prcExpiration,
+      studentID : studentID,
+      aviation : aviation,
+      caap : caap,
+      taxID : taxID,
+      tertiary : tertiary,
+      tertiaryDegree : tertiaryDegree,
+      tertiaryYear : tertiaryYear,
+      tertiaryDiploma : tertiaryDiploma,
+      masteral : masteral,
+      masteralDegree : masteralDegree,
+      masteralYear : masteralYear,
+      masteralDiploma : masteralDiploma,
+      doctoral : doctoral,
+      doctoralDegree : doctoralDegree,
+      doctoralYear : doctoralYear,
+      employer : employer,
+      jobTitle : jobTitle,
+      employerAdd : employerAdd,
+      chooseMem: chooseMem,
+      payment : payment,
+    });
+
+    await membershipApplication.save();
+    res.status(201).json({ membershipApplication});
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+// MEMBERSHIP APPLICATION DISPLAY NOT VERIFIED
+router.get('/verification', async (req, res) => {
+  try {
+    const cookie = req.cookies['jwt'];
+    const claims = jwt.verify(cookie, "secret");
+
+    if (!claims) {
+      return res.status(401).send({
+        message: 'unauthenticated'
+      });
+    }
+
+    const membershipApplication = await MembershipApplication.find({
+      $and: [{ orgID: claims._id },{ isVerified: false }]
+    });
+
+    res.send(membershipApplication);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      message: 'Internal Server Error'
+    });
+  }
+});
+
+// MEMBERSHIP APPLICATION DISPLAY VERIFIED
+router.get('/myMembers', async (req, res) => {
+  try {
+    const cookie = req.cookies['jwt'];
+    const claims = jwt.verify(cookie, "secret");
+
+    if (!claims) {
+      return res.status(401).send({
+        message: 'unauthenticated'
+      });
+    }
+
+    const membershipApplication = await MembershipApplication.find({
+      $and: [{ orgID: claims._id },{ isVerified: true }]
+    });
+
+    res.send(membershipApplication);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      message: 'Internal Server Error'
+    });
+  }
+});
+
+
 
 module.exports = router
 

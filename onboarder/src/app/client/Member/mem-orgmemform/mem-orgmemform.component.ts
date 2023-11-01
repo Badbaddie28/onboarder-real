@@ -1,23 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
+import Swal from 'sweetalert2';
 
 interface MemForm {
 
-  personalInfo: boolean;
-  fullName: boolean;
-  sex: boolean;
-  birthDate: boolean,
-  placeOfBirth : boolean,
-  civilStatus: boolean,
-  religion: boolean,
-  address: boolean,
-  zip: boolean,
-  email: boolean,
-  contactNum: boolean,
-  facebook: boolean,
+    personalInfo: boolean,
+    fullName: boolean,
+    sex: boolean,
+    birthDate: boolean,
+    placeOfBirth : boolean,
+    civilStatus: boolean,
+    religion: boolean,
+    address: boolean,
+    zip: boolean,
+    email: boolean,
+    contactNum: boolean,
+    facebook: boolean,
       linkedIn: boolean,
       skype: boolean,
       zoom: boolean,
@@ -42,13 +44,13 @@ interface MemForm {
       doctoralDegree: boolean,
       doctoralYear: boolean,
       doctoralDiploma: boolean,
-  employmentDetails: boolean,
-  employer: boolean,
-  jobTitle: boolean,
-  employerAdd: boolean,
-  membership: boolean,
-  payment: boolean,
-  memType1: boolean,
+      employmentDetails: boolean,
+      employer: boolean,
+      jobTitle: boolean,
+      employerAdd: boolean,
+      membership: boolean,
+      payment: boolean,
+      memType1: boolean,
       memType2: boolean,
       memType3: boolean,
       memType1Details: boolean,
@@ -61,7 +63,7 @@ interface MemForm {
 
 
 
-  memType1Input: String,
+      memType1Input: String,
       memType2Input: String,
       memType3Input: String,
       memType1DetailsInput: String,
@@ -71,9 +73,6 @@ interface MemForm {
       memType2FeeInput: String,
       memType3FeeInput: String,
       memType1ProcessInput: String,
-      
-
-
 }
 
 @Component({
@@ -84,26 +83,167 @@ interface MemForm {
 })
 export class MemOrgmemformComponent implements OnInit {
   memForm$: Observable<MemForm> | undefined;
+  form!:FormGroup
+
 
   constructor(private http: HttpClient,
+    private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute,
     ) {}
 
   ngOnInit(): void {
 
+    this.form = this.formBuilder.group({
+    fullName: "",
+    sex: null,
+    birthDate: "",
+    placeOfBirth : "",
+    civilStatus: "",
+    religion: "",
+    address: "",
+    zip: "",
+    email: "",
+    contactNum: "",
+    facebook: "",
+      linkedIn: "",
+      skype: "",
+      zoom: "",
+      prcNo : "",
+      prcDate: "",
+      prcExpiration: "",
+      studentID: "",
+      aviation: "",
+      caap: "",
+      taxID: "",
+      tertiary: "",
+      tertiaryDegree: "",
+      tertiaryYear: "",
+      // tertiaryDiploma : "",
+      masteral: "",
+      masteralDegree: "",
+      masteralYear: "",
+      // masteralDiploma: "",
+      doctoral: "",
+      doctoralDegree: "",
+      doctoralYear: "",
+      // doctoralDiploma: "",
+      employer: "",
+      jobTitle: "",
+      employerAdd: "",
+      chooseMem: "",
+      // payment: "",
+      
+
+
+    })
+
     this.route.params.subscribe(params => {
       const _id = params['id'];
       this.getMemForm(_id);
      });
+
     
   }
+
   getMemForm(_id: string) {
     this.memForm$ = this.http.get<MemForm>(`http://localhost:5000/api/myMemForm/${_id}`);
     this.memForm$.subscribe(data => {
       console.log('API Response:', data);
     });
+
+    
   }
+
+  submit() {
+    // Get the event data from the form
+    
+    this.route.params.subscribe(params => {
+      const _id = params['id'];
+
+      const membershipApplication = this.form.getRawValue();
+      // Fetch organization details
+      this.http.get('http://localhost:5000/api/member', {
+        withCredentials: true
+      }).subscribe(
+        (memResponse: any) => {
+          console.log('Mem Response:', memResponse, membershipApplication);
+    
+          // Extract organization ID from the response
+          const memID = memResponse._id;
+          
+          
+    
+          // Create an object with organization ID and event data
+          const memApplicationData = {
+            memID: memID,
+            orgID : _id,
+  
+            fullName: membershipApplication.fullName,
+        sex: membershipApplication.sex,
+        birthDate: membershipApplication.birthDate,
+        placeOfBirth: membershipApplication.placeOfBirth,
+        civilStatus: membershipApplication.civilStatus,
+        religion: membershipApplication.religion,
+        address: membershipApplication.address,
+        zip: membershipApplication.zip,
+        email: membershipApplication.email,
+        contactNum: membershipApplication.contactNum,
+        facebook: membershipApplication.facebook,
+        linkedIn : membershipApplication.linkedIn,
+        skype : membershipApplication.skype,
+        zoom : membershipApplication.zoom,
+        prcNo : membershipApplication.prcNo,
+        prcDate : membershipApplication.prcDate,
+        prcExpiration : membershipApplication.prcExpiration,
+        studentID : membershipApplication.studentID,
+        aviation : membershipApplication.aviation,
+        caap : membershipApplication.caap,
+        taxID : membershipApplication.taxID,
+        tertiary : membershipApplication.tertiary,
+        tertiaryDegree : membershipApplication.tertiaryDegree,
+        tertiaryYear : membershipApplication.tertiaryYear,
+        tertiaryDiploma : membershipApplication.tertiaryDiploma,
+        masteral : membershipApplication.masteral,
+        masteralDegree : membershipApplication.masteralDegree,
+        masteralYear : membershipApplication.masteralYear,
+        masteralDiploma : membershipApplication.masteralDiploma,
+        doctoral : membershipApplication.doctoral,
+        doctoralDegree : membershipApplication.doctoralDegree,
+        doctoralYear : membershipApplication.doctoralYear,
+        employer : membershipApplication.employer,
+        jobTitle : membershipApplication.jobTitle,
+        employerAdd : membershipApplication.employerAdd,
+        chooseMem :membershipApplication.chooseMem,
+        payment : membershipApplication.payment,
+          };          
+    
+          // Post the event data to the createEvent API endpoint
+          this.http.post('http://localhost:5000/api/membershipApplication', memApplicationData, {
+            withCredentials: true
+          }).subscribe(
+            (memResponse: any) => {
+              console.log('Event created successfully', memResponse)
+              const successEvent = new Event('postRequestSuccess');
+              document.dispatchEvent(successEvent);
+              this.router.navigate([`/member-orgprofile/${_id}`]);
+            },
+            (err) => {
+              console.log(err);
+            }
+          );
+        },
+        (orgError) => {
+          console.error('Error fetching organization details:', orgError);
+        }
+      );
+
+     });
+
+   
+  }
+
+ 
   
 
    

@@ -36,29 +36,37 @@
                                             <label for="selectAll"></label>
                                         </span>
                                     </th>
-                                    <th>Chapter <i class="fa-solid fa-sort"></i></th>
                                     <th>Full Name</th>
                                     <th>Email</th>
+                                    <th>Registration Date</th>
                                     <th>Review</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let ApplicationItem of membershipApplicationDetails" >
                                     <td>
                                         <span class="custom-checkbox">
                                             <input type="checkbox" id="checkbox1" name="options[]" value="1">
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td>Rizal Chapter</td>
-                                    <td>Juan Dela Cruz</td>
-                                    <td>juandelacruz@mail.com</td>
+                                    
+                                    <td>{{ApplicationItem.fullName}}</td>
+                                    <td>{{ApplicationItem.email}}</td>
+                                    <td>{{ApplicationItem.dateCreated}}</td>
+                                    
                                     <td>
                                         <a><i class="fa-solid fa-eye"></i></a>
                                     </td>
                                     <td>
-                                        <a href="#acceptMemberModal" class="accept" data-toggle="modal"><i class="fa-solid fa-square-check"></i></a>
+                                        <a 
+
+                                        href="#acceptModal" class="accept" data-toggle="modal" data-target="#acceptModal"><i class="fa-solid fa-square-check"></i>
+                                        
+                                        </a>
+
+                                        
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa-solid fa-square-xmark"></i></a>
                                     </td>
                                 </tr>
@@ -67,8 +75,25 @@
                     </div>
                 </div>        
             </div>
+            
         </div>
     </div>
+
+    <div class="modal fade" id="acceptModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body text-center center">
+            
+              <p>By clicking Verify, you are confirming that you have reviewed all the provided information and that you are accepting this application.</p>
+
+                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Verify</button>
+      
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+               
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
 
 

@@ -2,9 +2,13 @@ const mongoose = require('mongoose')
 const Organization = require('../models/organization');
 
 
-
-
 const membershipFormSchema = new mongoose.Schema ({
+
+    dateCreated:{
+        type: Date,
+        default :Date,
+    
+    },
 
     orgID:{
         type: mongoose.Schema.ObjectId, 

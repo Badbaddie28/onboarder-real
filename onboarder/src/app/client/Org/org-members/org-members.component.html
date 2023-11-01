@@ -36,27 +36,26 @@
                                             <label for="selectAll"></label>
                                         </span>
                                     </th>
-                                    <th>Chapter <i class="fa-solid fa-sort"></i></th>
+                                   
                                     <th>Full Name</th>
                                     <th>Email</th>
-                                    <th>Category</th>
-                                    <th>Contacts</th>
+                                    <th>Membership Type</th>
+                                    
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let MemberItem of membersDetails" >
                                     <td>
                                         <span class="custom-checkbox">
                                             <input type="checkbox" id="checkbox1" name="options[]" value="1">
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    <td>Rizal Chapter</td>
-                                    <td>Juan Dela Cruz</td>
-                                    <td>juandelacruz@mail.com</td>
-                                    <td>Student</td>
-                                    <td>0939-------</td>
+                                    <td>{{MemberItem.fullName}}</td>
+                                    <td>{{MemberItem.email}}</td>
+                                    <td>{{MemberItem.chooseMem}}</td>
+                                   
                                     <td>
                                         <a href="#acceptMemberModal" class="accept" data-toggle="modal"><i class="fa-solid fa-square-check"></i></a>
                                         <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa-solid fa-square-xmark"></i></a>
