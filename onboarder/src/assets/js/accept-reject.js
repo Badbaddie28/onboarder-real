@@ -1,6 +1,6 @@
 // Event handler for the "Delete" button click
-$(document).on('click', '.btn-danger', function() {
-    $('#acceptMember').modal('show');
+$(document).on('click', '.btn-accept', function() {
+    $('#acceptModal').modal('show');
 });
 
 // Event handler for the "Edit" button click
