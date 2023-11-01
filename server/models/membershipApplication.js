@@ -98,9 +98,9 @@ const membershipApplicatioSchema = new mongoose.Schema ({
       tertiaryYear: {
         type: String,
       },
-    //   tertiaryDiploma : {
-    //     type: String,
-    //   },
+      tertiaryDiploma : {
+       type: String,
+      },
       masteral: {
         type: String,
       },
@@ -110,9 +110,9 @@ const membershipApplicatioSchema = new mongoose.Schema ({
       masteralYear: {
         type: String,
       },
-    //   // masteralDiploma: {
-    //     type: String,
-    //   },
+     masteralDiploma: {
+       type: String,
+    },
       doctoral: {
         type: String,
       },
@@ -122,9 +122,9 @@ const membershipApplicatioSchema = new mongoose.Schema ({
       doctoralYear: {
         type: String,
       },
-    //   // doctoralDiploma: {
-    //     type: String,
-    //   },
+      doctoralDiploma: {
+         type: String,
+      },
       employer: {
         type: String,
       },
@@ -137,9 +137,9 @@ const membershipApplicatioSchema = new mongoose.Schema ({
       chooseMem: {
         type: String,
       },
-    //   // payment: {
-    //     type: String,
-    //   },
+      payment: {
+        type: String,
+    },
    
 })
 
