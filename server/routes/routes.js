@@ -9,9 +9,12 @@ const Events = require('../models/events');
 const MemForm = require('../models/membershipForm');
 
 const Admin = require('../models/admin');
+const EventRegForm = require('../models/eventregForm');
 const MembershipApplication = require('../models/membershipApplication');
 
-const EventRegForm = require('../models/eventregForm');
+
+
+
 
 const ObjectId = mongoose.Types.ObjectId;
 
