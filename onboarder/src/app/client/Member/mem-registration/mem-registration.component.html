@@ -47,8 +47,8 @@
                 </div>
 
                 <label class="form-label">Video Teaser</label> 
-                <div class="iframe-container">
-                    <iframe [src]="getTrustedUrl(event.video)" frameborder="0" allowfullscreen></iframe>
+                <div class="card-body">
+                    <a [href]="event.video">{{event.video}}</a>
                 </div>
                   
                 <label class="form-label">Event Registration Fee and Payment Process</label>
@@ -58,7 +58,7 @@
                 </div>
     
                 <div class="d-flex justify-content-center align-items-center">
-                    <button type="submit" class="btn btn-success" routerLink="/member-event-regform">Register</button>
+                    <button type="submit" class="btn btn-success" (click)="redirecttoRegForm(event.orgName, event._id)">Register</button>
                 </div>
               </div>
             </div>
