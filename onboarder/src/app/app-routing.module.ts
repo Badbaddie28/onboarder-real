@@ -32,6 +32,7 @@ import { MemEventregformComponent } from './client/Member/mem-eventregform/mem-e
 import { MemOrgprofileComponent } from './client/Member/mem-orgprofile/mem-orgprofile.component';
 import { MemOrgmemformComponent } from './client/Member/mem-orgmemform/mem-orgmemform.component';
 import { OrgEventDetailsComponent } from './client/Org/org-event-details/org-event-details.component';
+import { MemRejectComponent } from './client/Org/mem-reject/mem-reject.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'org-registration', component: OrgRegistrationComponent },
   { path: 'org-memforms', component: OrgMemformsComponent },
   { path: 'org-memverification', component: OrgMemverificationComponent },
+  { path: 'org-memreject', component: MemRejectComponent },
   { path: 'org-members', component: OrgMembersComponent },
   { path: 'org-events/:orgID', component: OrgEventsComponent},
   { path: 'org-profile', component: OrgProfileComponent },
