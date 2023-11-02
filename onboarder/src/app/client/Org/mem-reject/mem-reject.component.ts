@@ -17,11 +17,22 @@ constructor(
     this.getAllApplication();
   }
 
+  photo: any;
+  tertiaryDiploma: any;
+  masteralDiploma: any;
+  doctoralDiploma: any;
+  payment: any;
+
   getAllApplication(): void {
     this.http.get("http://localhost:5000/api/rejected", {withCredentials: true})
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.rejectedApplicationDetails = resultData;
+        this.photo = resultData.photo;
+        this.tertiaryDiploma = resultData.tertiaryDiploma1;
+        this.masteralDiploma = resultData.masteralDiploma1;
+        this.doctoralDiploma = resultData.doctoralDiploma1;
+        this.payment = resultData.payment1;
       });
 
 

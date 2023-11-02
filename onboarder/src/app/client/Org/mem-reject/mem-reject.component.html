@@ -80,7 +80,7 @@
 
 
 <!-- Reject Modal -->
-<div class="modal fade" id="rejectMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+<div class="modal fade" id="rejectMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-body text-center center">
@@ -106,7 +106,7 @@
 </div>
 
 <!-- View Modal -->
-<div class="modal fade" id="viewMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+<div class="modal fade" id="viewMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" *ngFor="let ApplicationItems of rejectedApplicationDetails" >
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-body text-center center">
@@ -124,7 +124,10 @@
                 <div class="col-md-12 position-relative">
   
                   <label class="form-label" for="customFile" readonly>2x2 Photo</label>
-                  <input type="file" class="form-control" id="customFile" />
+                  <div>
+                    <p *ngIf="!ApplicationItems.photo">2x2 upload is not included in membership form or the applicant did not submit.</p>
+                    <img [src]="ApplicationItems.photo">
+                  </div>
   
                 </div>
   
@@ -277,7 +280,10 @@
   
                   <div class="col-md-12 position-relative">
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
-                    <input type="file" class="form-control" id="customFile" readonly/>
+                    <div>
+                        <p *ngIf="!ApplicationItems.tertiaryDiploma">Diploma upload is not included in membership form or the applicant did not submit.</p>
+                        <img [src]="ApplicationItems.tertiaryDiploma">
+                      </div>
                   </div>
   
                   <div class="col-md-12 position-relative">
@@ -297,7 +303,10 @@
   
                   <div class="col-md-12 position-relative">
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
-                    <input type="file" class="form-control" id="customFile" readonly/>
+                    <div>
+                        <p *ngIf="!ApplicationItems.masteralDiploma">Diploma upload is not included in membership form or the applicant did not submit.</p>
+                        <img [src]="ApplicationItems.masteralDiploma">
+                      </div>
                   </div>
   
                   <div class="col-md-12 position-relative">
@@ -317,7 +326,10 @@
   
                   <div class="col-md-12 position-relative">
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
-                    <input type="file" class="form-control" id="customFile" readonly/>
+                    <div>
+                        <p *ngIf="!ApplicationItems.doctoralDiploma">Diploma upload is not included in membership form or the applicant did not submit.</p>
+                        <img [src]="ApplicationItems.doctoralDiploma">
+                      </div>
                   </div>
 
                   <br> 
@@ -363,7 +375,10 @@
     
                   <div class="col-md-15 position-relative">
                     <label class="form-label" for="customFile" readonly>Proof of Payment</label>
-                    <input type="file" class="form-control" id="customFile"/>
+                    <div>
+                        <p *ngIf="!ApplicationItems.payment">Diploma upload is not included in membership form or the applicant did not submit.</p>
+                        <img [src]="ApplicationItems.payment">
+                      </div>
                   </div>
                 </form>
 

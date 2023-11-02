@@ -22,7 +22,7 @@
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="photo" [checked]="form.get('photo')?.value" style="margin-right: 5px;">
 
                 <label class="form-label" for="customFile">2x2 Photo</label>
-                <input type="file" class="form-control" id="customFile" formControlName="photo1" (change)="onChange($event, 'photo1')"/>
+                <input type="file" class="form-control" id="customFile" formControlName="photo1" (change)="onChange($event, 'photo1')" accept="image/*"/>
 
               </div>
 
@@ -254,7 +254,7 @@
 
                 <div class="col-md-3 position-relative" *ngIf="memForm.tertiaryDiploma">
                   <label class="form-label" for="customFile">Diploma Photo</label>
-                  <input type="file" class="form-control" id="customFile" formControlName="tertiaryDiploma1" (change)="onChange($event, 'tertiaryDiploma1')"/>
+                  <input type="file" class="form-control" id="customFile" formControlName="tertiaryDiploma1" (change)="onChange($event, 'tertiaryDiploma1')" accept="image/*"/>
                 </div>
 
                 <div class="col-md-3 position-relative" *ngIf="memForm.masteral">
@@ -283,7 +283,7 @@
 
                 <div class="col-md-3 position-relative" *ngIf="memForm.masteralDiploma">
                   <label class="form-label" for="customFile">Diploma Photo</label>
-                  <input type="file" class="form-control" id="customFile" formControlName="masteralDiploma1" (change)="onChange($event, 'masteralDiploma1')"/>
+                  <input type="file" class="form-control" id="customFile" formControlName="masteralDiploma1" (change)="onChange($event, 'masteralDiploma1')" accept="image/*"/>
                 </div>
 
                 <div class="col-md-3 position-relative" *ngIf="memForm.doctoral">
@@ -312,7 +312,7 @@
 
                 <div class="col-md-3 position-relative" *ngIf="memForm.doctoralDiploma">
                   <label class="form-label" for="customFile">Diploma Photo</label>
-                  <input type="file" class="form-control" id="customFile" formControlName="doctoralDiploma1" (change)="onChange($event, 'doctoralDiploma1')"/>
+                  <input type="file" class="form-control" id="customFile" formControlName="doctoralDiploma1" (change)="onChange($event, 'doctoralDiploma1')" accept="image/*"/>
                 </div>
 
                 <br>
@@ -431,7 +431,7 @@
 
                 <div class="col-md-12 position-relative" *ngIf="memForm.payment">
                   <label class="form-label text-primary" for="customFile">Proof of Payment</label>
-                  <input type="file" class="form-control" id="customFile" formControlName="payment1" (change)="onChange($event, 'payment1')"/>
+                  <input type="file" class="form-control" id="customFile" formControlName="payment1" (change)="onChange($event, 'payment1')" accept="image/*"/>
                 </div>
 
                
