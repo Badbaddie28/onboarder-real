@@ -95,6 +95,7 @@ export class MemOrgmemformComponent implements OnInit {
     this.form = this.formBuilder.group({
       
       photo: "",
+      photo1: "",
     fullName: "",
     sex: null,
     birthDate: "",
@@ -119,21 +120,24 @@ export class MemOrgmemformComponent implements OnInit {
       tertiary: "",
       tertiaryDegree: "",
       tertiaryYear: "",
-      // tertiaryDiploma : "",
+      tertiaryDiploma : "",
+      tertiaryDiploma1: "",
       masteral: "",
       masteralDegree: "",
       masteralYear: "",
-      // masteralDiploma: "",
+      masteralDiploma: "",
+      masteralDiploma1: "",
       doctoral: "",
       doctoralDegree: "",
       doctoralYear: "",
-      // doctoralDiploma: "",
+      doctoralDiploma: "",
+      doctoralDiploma1: "",
       employer: "",
       jobTitle: "",
       employerAdd: "",
       chooseMem: "",
-      // payment: "",
-      
+      payment: "",
+      payment1: ""
 
 
     })
@@ -144,6 +148,41 @@ export class MemOrgmemformComponent implements OnInit {
      });
 
     
+  }
+
+  onChange = ($event: Event, controlName: string) => {
+    const target = $event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+
+    this.convertfiletobase64(file, (base64String) => {
+        // Set the base64 string to the appropriate form control
+        if (controlName === 'photo1') {
+            this.form.patchValue({ photo: base64String });
+        } else if (controlName === 'tertiaryDiploma1') {
+            this.form.patchValue({ tertiaryDiploma: base64String });
+        }
+        else if (controlName === 'masteralDiploma1') {
+          this.form.patchValue({ masteralDiploma : base64String})
+        }
+        else if (controlName === 'doctoralDiploma1') {
+          this.form.patchValue({ doctoralDiploma : base64String})
+        }
+        else if (controlName === 'payment1') {
+          this.form.patchValue({ payment : base64String})
+        }
+    });
+}
+
+
+  
+  // Your convertfiletobase64 function
+  convertfiletobase64(file: File, callback: (base64string: string) => void) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      let base64string = reader.result as string;
+      callback(base64string);
+    };
+    reader.readAsDataURL(file);
   }
 
   getMemForm(_id: string) {
