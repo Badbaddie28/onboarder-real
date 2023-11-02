@@ -105,6 +105,276 @@
     </div>
 </div>
 
+<!-- View Modal -->
+<div class="modal fade" id="viewMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body text-center center">
+            
+            <form class="row g-3 needs-validation">
+
+                <div class="row">
+                  <div class="col-md-12 position-relative">
+                    <h5 class="card-title">
+                      <label for="categorytitle">Personal Information</label> 
+                    </h5>
+                  </div>
+                </div>
+  
+                <div class="col-md-12 position-relative">
+  
+                  <label class="form-label" for="customFile" readonly>2x2 Photo</label>
+                  <input type="file" class="form-control" id="customFile" />
+  
+                </div>
+  
+                <br>
+
+                  <div class="col-md-12 position-relative">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="ex. Dela Cruz, Juan R." readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="sex" class="form-label">Sex</label>
+                    <select class="form-select" id="validationTooltip04" readonly>
+                      <option selected readonly value="">Choose...</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>          
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="birthDate" class="form-label">Date of Birth</label>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Date of Birth" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="placeOfBirth" class="form-label">Place of Birth</label>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="City of Birth" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+  
+                    <label for="civilStatus" class="form-label">Civil Status</label>
+                    <select class="form-select" id="validationTooltip04" readonly>
+                      <option selected readonly value="">Choose...</option>
+                    </select>         
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="religion" class="form-label">Religion</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your religion" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="address" class="form-label">Full Address</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your full address" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="zip" class="form-label">Zip</label>
+                    <input type="text" class="form-control" id="validationTooltip05" placeholder="Please enter your zip code" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your email address" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="contactNum" class="form-label">Contact Number</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your contact number" readonly>
+                  </div> 
+                  
+                  <div class="col-md-12 position-relative">
+                    <label for="linkedIn" class="form-label">LinkedIn Account</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your LinkedIn account name" readonly>
+                  </div>   
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="facebook" class="form-label">Facebook Name</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Facebook name" readonly>
+                  </div>   
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="skype" class="form-label">Skype Username</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Skype name" readonly>
+                  </div> 
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="zoom" class="form-label">Zoom Username</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Zoom name" readonly>
+                  </div> 
+  
+                  <br>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12 position-relative">
+                      <h5 class="card-title">ID Card and Licenses</h5>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip04" class="form-label">PRC License No.</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip04" class="form-label">PRC Registration Date</label>
+                    <input type="date" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip04" class="form-label">PRC Expiration Date</label>
+                    <input type="date" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip04" class="form-label">Student ID No.</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip04" class="form-label">Aviation License No.</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip04" class="form-label">CAAP ID No.</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip04" class="form-label">Tax ID No.</label>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                  </div>
+
+                  <br>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12 position-relative">
+                      <h5 class="card-title"> Educational Attainment</h5>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Tertiary University / College</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your undergraduate university" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Degree</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Year of Graduation</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label class="form-label" for="customFile" readonly>Diploma Photo</label>
+                    <input type="file" class="form-control" id="customFile" readonly/>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Masteral University / College</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your masteral university" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Degree</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Year of Graduation</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label class="form-label" for="customFile" readonly>Diploma Photo</label>
+                    <input type="file" class="form-control" id="customFile" readonly/>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Doctoral University / College</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your doctoral university" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Degree</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Year of Graduation</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label class="form-label" for="customFile" readonly>Diploma Photo</label>
+                    <input type="file" class="form-control" id="customFile" readonly/>
+                  </div>
+
+                  <br> 
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-12 position-relative">
+                      <h5 class="card-title">Employment Details</h5>
+                    </div>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Current Employer</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your current employer" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Job Title</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your job title" readonly>
+                  </div>
+  
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip05" class="form-label">Employer Address</label>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your employer address" readonly>
+                  </div>
+
+                  <br>
+                  <br>
+
+                  <div class="row">
+                    <div class="col-md-15 position-relative">
+                      <h5 class="card-title">Membership Details and Categories</h5>
+                    </div>
+                  </div>
+
+                  <div class="col-md-12 position-relative">
+                    <label for="validationTooltip03" class="form-label">Membership Type</label>
+                    <select class="form-select" id="validationTooltip04" formControlName="chooseMem" >
+                      <option selected  value="">Choose...</option>
+                    </select>         
+                  </div>
+  
+    
+                  <div class="col-md-15 position-relative">
+                    <label class="form-label" for="customFile" readonly>Proof of Payment</label>
+                    <input type="file" class="form-control" id="customFile"/>
+                  </div>
+                </form>
+
+
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+
 
 </body>
 
