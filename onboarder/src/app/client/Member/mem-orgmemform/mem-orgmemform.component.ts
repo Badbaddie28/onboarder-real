@@ -208,7 +208,7 @@ export class MemOrgmemformComponent implements OnInit {
       }).subscribe(
         (memResponse: any) => {
           console.log('Mem Response:', memResponse, membershipApplication);
-    
+          Swal.fire("Success", "You have submitted your membership form to the organization")
           // Extract organization ID from the response
           const memID = memResponse._id;
           
