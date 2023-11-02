@@ -71,7 +71,7 @@ export class MemberSignupComponent implements OnInit {
   }
 
   done(){
-    this.router.navigate(['member-login']);
+    this.router.navigate(['auth-login']);
   }
   
   submit() {
