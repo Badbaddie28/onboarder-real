@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -20,13 +21,19 @@ export class OrgMemverificationComponent {
   isVerified = "";
   isRejected = "";
   remarks="";
+  photo: any;
+  tertiaryDiploma: any;
+  masteralDiploma: any;
+  doctoralDiploma: any;
+  payment: any;
 
 
 constructor(
   private http: HttpClient, 
   private route: ActivatedRoute,
   private router: Router,
-  private formBuilder: FormBuilder
+  private formBuilder: FormBuilder,
+  private sanitizer:DomSanitizer
   ) {
     this.getAllMembershipApplication();
   }
@@ -38,7 +45,6 @@ constructor(
     }).catch(error => {
       console.error('Error loading accept-reject.js', error);
     });   
-
 
     this.form = this.formBuilder.group({
       remarks: ['', Validators.required],
@@ -107,10 +113,10 @@ constructor(
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.membershipApplicationDetails = resultData;
+        this.photo = resultData.photo;
+        this.tertiaryDiploma = resultData.tertiaryDiploma1;
       });
   }
-
- 
 
   setAcceptModalId(id: string): void {
     this.acceptModalId = id;
@@ -169,9 +175,45 @@ constructor(
         });
     }
   }
-  
-  
 
+  onChange = ($event: Event, controlName: string) => {
+    const target = $event.target as HTMLInputElement;
+    const file: File = (target.files as FileList)[0];
+
+    this.convertfiletobase64(file, (base64String) => {
+      this.form.patchValue({ photo: base64String });
+      this.form.patchValue({ masteralDiploma: base64String });
+      this.form.patchValue({ doctoralDiploma: base64String });
+      this.form.patchValue({ payment: base64String });
+        // Set the base64 string to the appropriate form control
+        if (controlName === 'photo') {
+            this.photo = base64String;
+        } else if (controlName === 'tertiaryDiploma') {
+            this.tertiaryDiploma = base64String;
+        }
+        else if (controlName === 'masteralDiploma') {
+          this.masteralDiploma = base64String;
+        }
+        else if (controlName === 'doctoralDiploma') {
+          this.doctoralDiploma = base64String;
+        }
+        else if (controlName === 'payment') {
+          this.payment = base64String;
+      }
+    });
+  }
+
+  // Your convertfiletobase64 function
+  convertfiletobase64(file: File, callback: (base64string: string) => void) {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      let base64string = reader.result as string;
+      callback(base64string);
+    };
+    reader.readAsDataURL(file);
+  }
+  
+  
   private loadScript(scriptUrl: string): Promise<void> {
     return new Promise<void>((resolve, reject) => {
       const scriptElement = document.createElement('script');

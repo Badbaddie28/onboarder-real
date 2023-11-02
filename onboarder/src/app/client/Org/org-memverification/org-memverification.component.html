@@ -127,8 +127,10 @@
                 <div class="col-md-12 position-relative">
   
                   <label class="form-label" for="customFile" readonly>2x2 Photo</label>
-                  <input type="file" class="form-control" id="customFile" />
-  
+                  <div>
+                    <p *ngIf="!OrganizationItem.photo">2x2 upload is not included in membership form or the applicant did not submit.</p>
+                    <img [src]="OrganizationItem.photo">
+                  </div>
                 </div>
   
                 <br>
@@ -165,6 +167,11 @@
                     <label for="civilStatus" class="form-label">Civil Status</label>
                     <select class="form-select" id="validationTooltip04" [(ngModel)]="OrganizationItem.civilStatus" [ngModelOptions]="{standalone: true}" readonly>
                       <option selected readonly value="">Choose...</option>
+                      <option>Single</option>
+                      <option>Married</option>
+                      <option>Divorced</option>
+                      <option>Widowed</option>
+                      <option>In Civil Partnership</option>
                     </select>         
                   </div>
   
@@ -283,7 +290,10 @@
   
                   <div class="col-md-12 position-relative">
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
-                    <input type="file" class="form-control" id="customFile" readonly/>
+                    <div>
+                        <p *ngIf="!OrganizationItem.tertiaryDiploma">Diploma upload is not included in membership form  or the applicant did not submit.</p>
+                        <img [src]="OrganizationItem.tertiaryDiploma">
+                      </div>
                   </div>
   
                   <div class="col-md-12 position-relative">
@@ -303,7 +313,10 @@
   
                   <div class="col-md-12 position-relative">
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
-                    <input type="file" class="form-control" id="customFile" readonly/>
+                    <div>
+                        <p *ngIf="!OrganizationItem.masteralDiploma">Diploma upload is not included in membership form  or the applicant did not submit.</p>
+                        <img [src]="OrganizationItem.masteralDiploma">
+                      </div>
                   </div>
   
                   <div class="col-md-12 position-relative">
@@ -323,7 +336,10 @@
   
                   <div class="col-md-12 position-relative">
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
-                    <input type="file" class="form-control" id="customFile" readonly/>
+                    <div>
+                        <p *ngIf="!OrganizationItem.doctoralDiploma">Diploma upload is not included in membership form  or the applicant did not submit.</p>
+                        <img *ngIf="OrganizationItem.doctoralDiploma" [src]="OrganizationItem.doctoralDiploma">
+                      </div>
                   </div>
 
                   <br> 
@@ -373,7 +389,10 @@
     
                   <div class="col-md-15 position-relative">
                     <label class="form-label" for="customFile" readonly>Proof of Payment</label>
-                    <input type="file" class="form-control" id="customFile"/>
+                    <div>
+                        <p *ngIf="!OrganizationItem.photo">Proof of payment upload is not included in membership form  or the applicant did not submit.</p>
+                        <img *ngIf="OrganizationItem.photo" [src]="OrganizationItem.photo">
+                      </div>
                   </div>
                 </form>
 
