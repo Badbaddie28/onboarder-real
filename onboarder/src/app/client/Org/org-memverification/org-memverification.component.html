@@ -57,12 +57,11 @@
                                     <td>{{ApplicationItem.dateCreated}}</td>
                                     
                                     <td>
-                                        <a><i class="fa-solid fa-eye"></i></a>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewMemberModal"><i class="fa-solid fa-eye"></i></button>
                                     </td>
                                     <td>
-                                        <button type="button" data-target="#acceptModal" class="btn btn-accept" data-bs-toggle="modal"><i class="fa-solid fa-square-check"></i></button>
-                                        <a data-target="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="fa-solid fa-square-xmark"></i></a>
-                                    </td>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#acceptMemberModal"><i class="fa-solid fa-square-check"></i></button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectMemberModal"><i class="fa-solid fa-square-xmark"></i></button>                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -72,21 +71,34 @@
         </div>
     </div>
 
-    <div class="modal fade" id="acceptModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body text-center center">
-            
-              <p>By clicking Verify, you are confirming that you have reviewed all the provided information and that you are accepting this application.</p>
 
-                <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Verify</button>
-      
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-               
-            </div>
-          </div>
+<!-- Reject Modal -->
+<div class="modal fade" id="rejectMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body text-center center">
+            <p>By clicking Reject, you are confirming that you have reviewed all the provided information and that you are rejecting this application for certain reasons.</p>
+            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+        </div>
         </div>
     </div>
+</div>
+
+<!-- Accept Modal -->
+<div class="modal fade" id="acceptMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body text-center center">
+            <p>By clicking Verify, you are confirming that you have reviewed all the provided information and that you are accepting this application.</p>
+            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Verify</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 
 

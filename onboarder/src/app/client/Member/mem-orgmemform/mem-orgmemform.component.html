@@ -360,7 +360,7 @@
                   </div>
                 </div>
 
-                <div class="col-md-10 position-relative" *ngIf="memForm.membership">
+                <div class="col-md-12 position-relative" *ngIf="memForm.membership">
                   <label for="validationTooltip03" class="form-label">Membership Type</label>
                   <select class="form-select" id="validationTooltip04" formControlName="chooseMem" >
                     <option selected  value="">Choose...</option>
@@ -421,7 +421,7 @@
                 </div>
              
 
-                <div class="col-md-4 position-relative" *ngIf="memForm.memType1Process">
+                <div class="col-md-12 position-relative" *ngIf="memForm.memType1Process">
                   <label for="validationTooltip05" class="form-label text-primary">Payment Process</label>
                   <textarea class="form-control" disabled>{{memForm.memType1ProcessInput}}></textarea>
                   
@@ -429,7 +429,7 @@
                 </div>
 
 
-                <div class="col-md-4 position-relative" *ngIf="memForm.payment">
+                <div class="col-md-12 position-relative" *ngIf="memForm.payment">
                   <label class="form-label text-primary" for="customFile">Proof of Payment</label>
                   <input type="file" class="form-control" id="customFile" formControlName="payment1" (change)="onChange($event, 'payment1')"/>
                 </div>
