@@ -963,7 +963,27 @@ router.get('/myEventForm/:eventID', async (req, res) => {
 });
 
 
+
+router.patch('/membershipApplication/:id', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const body = req.body;
+    const updateApplication = await MembershipApplication.findByIdAndUpdate(_id, body, { new: true });
+
+    if (!updateApplication) {
+      return res.status(404).send('Membership application not found');
+    }
+
+    return res.status(200).send(updateApplication);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+
+
 module.exports = router
+
 
 
 //   const salt = await bcrypt.genSalt(10);

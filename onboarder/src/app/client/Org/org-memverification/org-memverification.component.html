@@ -36,6 +36,7 @@
                                             <label for="selectAll"></label>
                                         </span>
                                     </th>
+                                    <th>ApplicationID</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
                                     <th>Registration Date</th>
@@ -51,7 +52,7 @@
                                             <label for="checkbox1"></label>
                                         </span>
                                     </td>
-                                    
+                                    <td>{{ApplicationItem._id}}</td>
                                     <td>{{ApplicationItem.fullName}}</td>
                                     <td>{{ApplicationItem.email}}</td>
                                     <td>{{ApplicationItem.dateCreated}}</td>
@@ -60,7 +61,8 @@
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewMemberModal"><i class="fa-solid fa-eye"></i></button>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#acceptMemberModal"><i class="fa-solid fa-square-check"></i></button>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#acceptMemberModal" (click)="setAcceptModalId(ApplicationItem._id)"><i class="fa-solid fa-square-check"></i></button>
+
                                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectMemberModal"><i class="fa-solid fa-square-xmark"></i></button>                                    </td>
                                 </tr>
                             </tbody>
@@ -86,14 +88,15 @@
 </div>
 
 <!-- Accept Modal -->
-<div class="modal fade" id="acceptMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+<div class="modal fade" id="acceptMemberModal" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-body text-center center">
-            <p>By clicking Verify, you are confirming that you have reviewed all the provided information and that you are accepting this application.</p>
-            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Verify</button>
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-        </div>
+            <div class="modal-body text-center center">
+                <p>By clicking Verify, you are confirming that you have reviewed all the provided information and that you are accepting this application.</p>
+                <!-- Button to trigger accept action -->
+                <button type="button" class="btn btn-success" (click)="accept(acceptModalId)" data-bs-dismiss="modal">Verify</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+            </div>
         </div>
     </div>
 </div>
