@@ -96,6 +96,7 @@ export class MemOrgmemformComponent implements OnInit {
       
       photo: "",
       photo1: "",
+      remarks:"",
     fullName: "",
     sex: null,
     birthDate: "",
@@ -215,9 +216,12 @@ export class MemOrgmemformComponent implements OnInit {
     
           // Create an object with organization ID and event data
           const memApplicationData = {
+
             memID: memID,
             orgID : _id,
             photo: membershipApplication.photo,
+            remarks: membershipApplication.remarks,
+
             fullName: membershipApplication.fullName,
         sex: membershipApplication.sex,
         birthDate: membershipApplication.birthDate,

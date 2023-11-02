@@ -15,9 +15,18 @@ const membershipApplicatioSchema = new mongoose.Schema ({
         ref: "Member"
     },
 
+    isRejected:{
+      type:Boolean,
+      default: false,
+    },
+
     isVerified:{
         type: Boolean, 
         default : false,
+    },
+
+    remarks:{
+      type: String,
     },
 
     dateCreated:{

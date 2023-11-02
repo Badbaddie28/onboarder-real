@@ -769,7 +769,10 @@ router.get('/thisevent/:id', async (req, res) => {
 router.post('/membershipApplication', async (req, res) => {
   let orgID = req.body.orgID;
   let memID = req.body.memID;
-  let isVerified = req.body.isVerified
+  let isVerified = req.body.isVerified;
+  let isRejected = req.body.isRejected;
+  let remarks = req.body.remarks;
+
 
   let photo = req.body.photo;
 
@@ -816,6 +819,9 @@ router.post('/membershipApplication', async (req, res) => {
       orgID: orgID,
       memID : memID,
        isVerified : isVerified,
+       isRejected : isRejected,
+       remarks : remarks,
+
 
        photo: photo,
 
@@ -878,7 +884,7 @@ router.get('/verification', async (req, res) => {
     }
 
     const membershipApplication = await MembershipApplication.find({
-      $and: [{ orgID: claims._id },{ isVerified: false }]
+      $and: [{ orgID: claims._id },{ isVerified: false },{isRejected: false}]
     });
 
     res.send(membershipApplication);
@@ -904,7 +910,7 @@ router.get('/myMembers', async (req, res) => {
     }
 
     const membershipApplication = await MembershipApplication.find({
-      $and: [{ orgID: claims._id },{ isVerified: true }]
+      $and: [{ orgID: claims._id },{ isVerified: true }, {isRejected: false}]
     });
 
     res.send(membershipApplication);
@@ -914,6 +920,51 @@ router.get('/myMembers', async (req, res) => {
     res.status(500).send({
       message: 'Internal Server Error'
     });
+  }
+});
+
+
+//REJECTED APPLICATIONS
+router.get('/rejected', async (req, res) => {
+  try {
+    const cookie = req.cookies['jwt'];
+    const claims = jwt.verify(cookie, "secret");
+
+    if (!claims) {
+      return res.status(401).send({
+        message: 'unauthenticated'
+      });
+    }
+
+    const membershipApplication = await MembershipApplication.find({
+      $and: [{ orgID: claims._id },{ isVerified: false },{isRejected: true}]
+    });
+
+    res.send(membershipApplication);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      message: 'Internal Server Error'
+    });
+  }
+});
+
+
+//ACCEPT AND REJECT APPLICATION
+router.patch('/membershipApplication/:id', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const body = req.body;
+    const updateApplication = await MembershipApplication.findByIdAndUpdate(_id, body, { new: true });
+
+    if (!updateApplication) {
+      return res.status(404).send('Membership application not found');
+    }
+
+    return res.status(200).send(updateApplication);
+  } catch (error) {
+    res.status(400).send(error);
   }
 });
 
@@ -963,22 +1014,6 @@ router.get('/myEventForm/:eventID', async (req, res) => {
 });
 
 
-
-router.patch('/membershipApplication/:id', async (req, res) => {
-  try {
-    const _id = req.params.id;
-    const body = req.body;
-    const updateApplication = await MembershipApplication.findByIdAndUpdate(_id, body, { new: true });
-
-    if (!updateApplication) {
-      return res.status(404).send('Membership application not found');
-    }
-
-    return res.status(200).send(updateApplication);
-  } catch (error) {
-    res.status(400).send(error);
-  }
-});
 
 
 

@@ -2,11 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 interface MemForm {
 orgID: string;
-photo: string,
+photo: boolean,
+
+
   personalInfo: boolean,
   fullName: boolean,
   sex: boolean,
@@ -186,8 +189,9 @@ export class OrgMemformsComponent implements OnInit {
       (response: any) => {
         
         console.log(response);
-     
-        this.router.navigate(['/org-profile']);
+        Swal.fire('Changes to Membership Form has been saved.')
+
+        // this.router.navigate(['/org-profile']);
       },
       (error) => {
         console.error(error);

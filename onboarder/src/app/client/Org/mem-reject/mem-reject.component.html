@@ -29,22 +29,24 @@
                         </div>
                         <table class="table table-striped table-hover">
                             <thead>
-                                <tr>
+                                <tr >
                                     <th>
                                         <span class="custom-checkbox">
                                             <input type="checkbox" id="selectAll">
                                             <label for="selectAll"></label>
                                         </span>
                                     </th>
+                                    <th>Application Id</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
                                     <th>Registration Date</th>
+                                    <th>Remarks</th>
                                     <th>Review</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr *ngFor="let ApplicationItems of rejectedApplicationDetails">
                                     <td>
                                         <span class="custom-checkbox">
                                             <input type="checkbox" id="checkbox1" name="options[]" value="1">
@@ -52,9 +54,14 @@
                                         </span>
                                     </td>
                                     
-                                    <td>Putpuripuriput</td>
-                                    <td>Sakit na ng tewup ko anteh</td>
-                                    <td>ggggrrrrr</td>
+                                    <td>{{ApplicationItems._id}}</td>
+
+                                    <td>{{ApplicationItems.fullName}}</td>
+                                    <td>{{ApplicationItems.email}}</td>
+                                    
+                                    <td>{{ApplicationItems.dateCreated}}</td>
+                                    <td>{{ApplicationItems.remarks}}</td>
+
                                     
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewMemberModal"><i class="fa-solid fa-eye"></i></button>

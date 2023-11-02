@@ -63,7 +63,7 @@
                                     <td>
                                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#acceptMemberModal" (click)="setAcceptModalId(ApplicationItem._id)"><i class="fa-solid fa-square-check"></i></button>
 
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectMemberModal"><i class="fa-solid fa-square-xmark"></i></button>                                    </td>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectMemberModal" (click)="setRejectModalId(ApplicationItem._id)"><i class="fa-solid fa-square-xmark"></i></button>                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -80,8 +80,15 @@
         <div class="modal-content">
         <div class="modal-body text-center center">
             <p>By clicking Reject, you are confirming that you have reviewed all the provided information and that you are rejecting this application for certain reasons.</p>
-            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
-            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+            <form [formGroup]="form">
+              <div class="form-group">
+                <textarea type="text" class="form-control" id="editUserEmail" placeholder="Remarks" formControlName="remarks" required=""></textarea>
+              </div>
+            
+              <button type="submit" (click)="reject(rejectModalId)" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+              <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+            </form>
+            
         </div>
         </div>
     </div>
@@ -102,8 +109,8 @@
 </div>
 
 <!-- View Modal -->
-<div class="modal fade" id="viewMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-    <div class="modal-dialog">
+<div class="modal fade" id="viewMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"  *ngFor = "let OrganizationItem of membershipApplicationDetails">
+    <div class="modal-dialog" >
         <div class="modal-content">
         <div class="modal-body text-center center">
             
@@ -128,12 +135,15 @@
 
                   <div class="col-md-12 position-relative">
                     <label for="fullName" class="form-label">Full Name</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="ex. Dela Cruz, Juan R." readonly>
+
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="ex. Dela Cruz, Juan R." [(ngModel)]="OrganizationItem.fullName" [ngModelOptions]="{standalone: true}"readonly>
+                    
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="sex" class="form-label">Sex</label>
-                    <select class="form-select" id="validationTooltip04" readonly>
+
+                    <select class="form-select" id="validationTooltip04" [(ngModel)]="OrganizationItem.sex" [ngModelOptions]="{standalone: true}" readonly>
                       <option selected readonly value="">Choose...</option>
                       <option>Male</option>
                       <option>Female</option>
@@ -142,65 +152,65 @@
   
                   <div class="col-md-12 position-relative">
                     <label for="birthDate" class="form-label">Date of Birth</label>
-                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Date of Birth" readonly>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Date of Birth" [(ngModel)]="OrganizationItem.birthDate" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="placeOfBirth" class="form-label">Place of Birth</label>
-                    <input type="text" class="form-control" id="validationTooltip02" placeholder="City of Birth" readonly>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="City of Birth" [(ngModel)]="OrganizationItem.placeOfBirth" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
   
                     <label for="civilStatus" class="form-label">Civil Status</label>
-                    <select class="form-select" id="validationTooltip04" readonly>
+                    <select class="form-select" id="validationTooltip04" [(ngModel)]="OrganizationItem.civilStatus" [ngModelOptions]="{standalone: true}" readonly>
                       <option selected readonly value="">Choose...</option>
                     </select>         
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="religion" class="form-label">Religion</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your religion" readonly>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Please enter your religion" [(ngModel)]="OrganizationItem.religion" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="address" class="form-label">Full Address</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your full address" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your full address" [(ngModel)]="OrganizationItem.address" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="zip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="validationTooltip05" placeholder="Please enter your zip code" readonly>
+                    <input type="text" class="form-control" id="validationTooltip05" placeholder="Please enter your zip code" [(ngModel)]="OrganizationItem.zip" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="email" class="form-label">Email Address</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your email address" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your email address" [(ngModel)]="OrganizationItem.email" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="contactNum" class="form-label">Contact Number</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your contact number" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your contact number" [(ngModel)]="OrganizationItem.contactNum" [ngModelOptions]="{standalone: true}" readonly>
                   </div> 
                   
                   <div class="col-md-12 position-relative">
                     <label for="linkedIn" class="form-label">LinkedIn Account</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your LinkedIn account name" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your LinkedIn account name" [(ngModel)]="OrganizationItem.linkedIn" [ngModelOptions]="{standalone: true}" readonly>
                   </div>   
   
                   <div class="col-md-12 position-relative">
                     <label for="facebook" class="form-label">Facebook Name</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Facebook name" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Facebook name" [(ngModel)]="OrganizationItem.facebook" [ngModelOptions]="{standalone: true}" readonly>
                   </div>   
   
                   <div class="col-md-12 position-relative">
                     <label for="skype" class="form-label">Skype Username</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Skype name" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Skype name" [(ngModel)]="OrganizationItem.skype" [ngModelOptions]="{standalone: true}" readonly>
                   </div> 
   
                   <div class="col-md-12 position-relative">
                     <label for="zoom" class="form-label">Zoom Username</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Zoom name" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your Zoom name" [(ngModel)]="OrganizationItem.zoom" [ngModelOptions]="{standalone: true}" readonly>
                   </div> 
   
                   <br>
@@ -214,37 +224,37 @@
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">PRC License No.</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" [(ngModel)]="OrganizationItem.prcNo" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">PRC Registration Date</label>
-                    <input type="date" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                    <input type="date" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" [(ngModel)]="OrganizationItem.prcDate" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">PRC Expiration Date</label>
-                    <input type="date" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                    <input type="date" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" [(ngModel)]="OrganizationItem.prcExpiration" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">Student ID No.</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" [(ngModel)]="OrganizationItem.studentID" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">Aviation License No.</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" [(ngModel)]="OrganizationItem.aviation" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">CAAP ID No.</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" [(ngModel)]="OrganizationItem.caap" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip04" class="form-label">Tax ID No.</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" readonly>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="Type N/A if not applicable" [(ngModel)]="OrganizationItem.taxID" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
 
                   <br>
@@ -258,17 +268,17 @@
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Tertiary University / College</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your undergraduate university" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your undergraduate university" [(ngModel)]="OrganizationItem.tertiary" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Degree</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" [(ngModel)]="OrganizationItem.tertiaryDegree" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Year of Graduation</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" [(ngModel)]="OrganizationItem.tertiaryYear" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
@@ -278,17 +288,17 @@
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Masteral University / College</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your masteral university" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your masteral university" [(ngModel)]="OrganizationItem.masteral" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Degree</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" [(ngModel)]="OrganizationItem.masteralDegree" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Year of Graduation</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" [(ngModel)]="OrganizationItem.masteralYear" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
@@ -298,17 +308,17 @@
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Doctoral University / College</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your doctoral university" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your doctoral university" [(ngModel)]="OrganizationItem.doctoral" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Degree</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your degree" [(ngModel)]="OrganizationItem.doctoralDegree" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Year of Graduation</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your year of graduation" [(ngModel)]="OrganizationItem.doctoralYear" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
@@ -327,18 +337,20 @@
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Current Employer</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your current employer" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your current employer" [(ngModel)]="OrganizationItem.employer" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
   
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Job Title</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your job title" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your job title" [(ngModel)]="OrganizationItem.jobTitle" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
-  
+
                   <div class="col-md-12 position-relative">
                     <label for="validationTooltip05" class="form-label">Employer Address</label>
-                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your employer address" readonly>
+                    <input type="text" class="form-control" id="validationTooltip03" placeholder="Please enter your job title" [(ngModel)]="OrganizationItem.employerAdd" [ngModelOptions]="{standalone: true}" readonly>
                   </div>
+  
+    
 
                   <br>
                   <br>
@@ -350,10 +362,12 @@
                   </div>
 
                   <div class="col-md-12 position-relative">
-                    <label for="validationTooltip03" class="form-label">Membership Type</label>
-                    <select class="form-select" id="validationTooltip04" formControlName="chooseMem" >
-                      <option selected  value="">Choose...</option>
-                    </select>         
+                    <label for="sex" class="form-label">Membership Type</label>
+
+                    <select class="form-select" id="validationTooltip04" [(ngModel)]="OrganizationItem.sex" [ngModelOptions]="{standalone: true}" readonly>
+                      <option selected readonly value="">Choose...</option>
+          
+                    </select>          
                   </div>
   
     

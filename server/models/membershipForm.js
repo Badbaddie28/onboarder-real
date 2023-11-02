@@ -15,6 +15,10 @@ const membershipFormSchema = new mongoose.Schema ({
         ref: "Organization"
     },
 
+    photo:{
+        type: Boolean,
+    },
+
     personalInfo:{
         type: Boolean,
     },
