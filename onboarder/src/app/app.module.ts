@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +44,12 @@ import { MemOrgprofileComponent } from './client/Member/mem-orgprofile/mem-orgpr
 import { MemOrgmemformComponent } from './client/Member/mem-orgmemform/mem-orgmemform.component';
 import { OrgEventDetailsComponent } from './client/Org/org-event-details/org-event-details.component';
 import { MemRejectComponent } from './client/Org/mem-reject/mem-reject.component';
+import { NotfoundpageComponent } from './client/extrapages/notfoundpage/notfoundpage.component';
+
+
+export function playerFactory(): any {  
+  return import('lottie-web');
+}
 
 @NgModule({
   declarations: [
@@ -77,7 +85,8 @@ import { MemRejectComponent } from './client/Org/mem-reject/mem-reject.component
     MemOrgprofileComponent,
     MemOrgmemformComponent,
     OrgEventDetailsComponent,
-    MemRejectComponent
+    MemRejectComponent,
+    NotfoundpageComponent
   ],
   imports: [
   
@@ -86,6 +95,7 @@ import { MemRejectComponent } from './client/Org/mem-reject/mem-reject.component
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    LottieModule.forRoot({ player: playerFactory }),  
     
   ],
   providers: [],

@@ -33,6 +33,7 @@ import { MemOrgprofileComponent } from './client/Member/mem-orgprofile/mem-orgpr
 import { MemOrgmemformComponent } from './client/Member/mem-orgmemform/mem-orgmemform.component';
 import { OrgEventDetailsComponent } from './client/Org/org-event-details/org-event-details.component';
 import { MemRejectComponent } from './client/Org/mem-reject/mem-reject.component';
+import { NotfoundpageComponent } from './client/extrapages/notfoundpage/notfoundpage.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -71,6 +72,9 @@ const routes: Routes = [
   { path: 'admin-orgs', component: AdminOrgsComponent},
   { path: 'admin-users', component: AdminUsersComponent},
   { path: 'admin-events', component: AdminEventsComponent},
+
+  //Wild Card Route for 404 request 
+  { path: '**', pathMatch: 'full', component: NotfoundpageComponent }, 
 ];
 
 @NgModule({
