@@ -1,0 +1,106 @@
+<body>
+    <div class="container">
+        <aside>
+            <app-org-navbar></app-org-navbar>
+        </aside>
+
+        <div class="content">
+            <nav class="navbar navbar-expand-lg  rounded" aria-label="Thirteenth navbar example">
+                <div class="container-fluid">          
+                  <div class="collapse navbar-collapse d-lg-flex" id="navbarsExample11">
+                    <a class="navbar-brand col-lg-9 me-0">Rejected Application Panel</a>
+                  </div>
+                </div>
+            </nav>  
+    
+
+            <div class="container-xl">
+                <div class="table-responsive">
+                    <div class="table-wrapper">
+                        <div class="table-title">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h2><b>Rejected Application</b></h2>
+                                </div>
+                                <div class="col-sm-6">
+                                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><span>Delete</span></a>						
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="selectAll">
+                                            <label for="selectAll"></label>
+                                        </span>
+                                    </th>
+                                    <th>Full Name</th>
+                                    <th>Email</th>
+                                    <th>Registration Date</th>
+                                    <th>Review</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="custom-checkbox">
+                                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                                            <label for="checkbox1"></label>
+                                        </span>
+                                    </td>
+                                    
+                                    <td>Putpuripuriput</td>
+                                    <td>Sakit na ng tewup ko anteh</td>
+                                    <td>ggggrrrrr</td>
+                                    
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewMemberModal"><i class="fa-solid fa-eye"></i></button>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#acceptMemberModal"><i class="fa-solid fa-square-check"></i></button>
+                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectMemberModal"><i class="fa-solid fa-square-xmark"></i></button>                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </div>
+
+
+<!-- Reject Modal -->
+<div class="modal fade" id="rejectMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body text-center center">
+            <p>By clicking Reject, you are confirming that you have reviewed all the provided information and that you are rejecting this application for certain reasons.</p>
+            <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Reject</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Accept Modal -->
+<div class="modal fade" id="acceptMemberModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-body text-center center">
+            <p>By clicking Verify, you are confirming that you have reviewed all the provided information and that you are accepting this application.</p>
+            <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Verify</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+
+

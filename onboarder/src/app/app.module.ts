@@ -41,6 +41,7 @@ import { MemEventregformComponent } from './client/Member/mem-eventregform/mem-e
 import { MemOrgprofileComponent } from './client/Member/mem-orgprofile/mem-orgprofile.component';
 import { MemOrgmemformComponent } from './client/Member/mem-orgmemform/mem-orgmemform.component';
 import { OrgEventDetailsComponent } from './client/Org/org-event-details/org-event-details.component';
+import { MemRejectComponent } from './client/Org/mem-reject/mem-reject.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { OrgEventDetailsComponent } from './client/Org/org-event-details/org-eve
     MemEventregformComponent,
     MemOrgprofileComponent,
     MemOrgmemformComponent,
-    OrgEventDetailsComponent
+    OrgEventDetailsComponent,
+    MemRejectComponent
   ],
   imports: [
   
