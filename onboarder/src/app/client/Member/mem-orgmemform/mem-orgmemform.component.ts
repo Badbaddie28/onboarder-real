@@ -143,6 +143,8 @@ export class MemOrgmemformComponent implements OnInit {
 
     })
 
+    
+
     this.route.params.subscribe(params => {
       const _id = params['id'];
       this.getMemForm(_id);

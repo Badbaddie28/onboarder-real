@@ -21,12 +21,27 @@ export class MemOrganizationComponent implements OnInit{
   }
 
   getAllOrganization() {
-    this.http.get("http://localhost:5000/api/vieworganization")
-      .subscribe((resultData: any) => {
-        console.log(resultData);
-        this.OrganizationArray = resultData;
-      });
+    this.http.get('http://localhost:5000/api/member', {
+      withCredentials: true
+    }).subscribe(
+      (memResponse: any) => {
+        const memID = memResponse._id;
+  
+        this.http.get(`http://localhost:5000/api/myOrganizations/${memID}`, {
+          withCredentials: true
+        }).subscribe((resultData: any) => {
+          console.log(resultData);
+          this.OrganizationArray = resultData;
+        });
+      },
+      error => {
+        console.error(error);
+        // Handle errors from the first request if necessary
+      }
+    );
   }
+  
+  
 
   redirectToOrgProfile(orgId: string) {
     this.router.navigate(['/member-orgprofile', orgId]);

@@ -1,13 +1,14 @@
 const mongoose = require('mongoose')
 const MemForm = require('../models/membershipForm')
 const Member = require('../models/member')
+const Organization = require('../models/organization')
 
 
 const membershipApplicatioSchema = new mongoose.Schema ({
 
     orgID:{
         type: mongoose.Schema.ObjectId, 
-        ref: "MemForm"
+        ref: "Organization"
     },
 
     memID:{

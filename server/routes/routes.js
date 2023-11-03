@@ -1,6 +1,5 @@
 const {Router} = require('express')
 const mongoose = require('mongoose');
-
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const Member = require('../models/member');
@@ -11,9 +10,6 @@ const MemForm = require('../models/membershipForm');
 const Admin = require('../models/admin');
 const EventRegForm = require('../models/eventRegForm');
 const MembershipApplication = require('../models/membershipApplication');
-
-
-
 
 
 const ObjectId = mongoose.Types.ObjectId;
@@ -779,8 +775,6 @@ router.post('/membershipApplication', async (req, res) => {
   let isVerified = req.body.isVerified;
   let isRejected = req.body.isRejected;
   let remarks = req.body.remarks;
-
-
   let photo = req.body.photo;
 
   let fullName = req.body.fullName;
@@ -822,14 +816,14 @@ router.post('/membershipApplication', async (req, res) => {
   let chooseMem = req.body.chooseMem;
 
   try {
+
+    
     const membershipApplication = new MembershipApplication({
       orgID: orgID,
       memID : memID,
        isVerified : isVerified,
        isRejected : isRejected,
        remarks : remarks,
-
-
        photo: photo,
 
       fullName: fullName,
@@ -1019,6 +1013,68 @@ router.get('/myEventForm/:eventID', async (req, res) => {
     res.status(500).send({ error: 'Internal Server Error' });
   }
 });
+
+//READ Organization
+
+router.get('/myOrganizations/:memID', async (req, res) => {
+  const memID = req.params.memID;
+
+  try {
+    const membershipApplications = await MembershipApplication.find({ memID: memID });
+
+    if (membershipApplications.length === 0) {
+      return res.status(404).send('No membership applications found');
+    }
+
+    const orgIDs = membershipApplications.map(application => application.orgID);
+
+    const organizations = await Organization.find({ _id: { $in: orgIDs } });
+
+    console.log('orgIDs:', orgIDs);
+
+    if (organizations.length === 0) {
+      return res.status(404).send('No organizations found for the given membership applications');
+    }
+
+    res.send(organizations);
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+router.get('/myEvents/:memID', async (req, res) => {
+  const memID = req.params.memID;
+
+  try {
+    const membershipApplications = await MembershipApplication.find({ memID: memID });
+
+    if (membershipApplications.length === 0) {
+      return res.status(404).send('No membership applications found');
+    }
+
+    const orgIDs = membershipApplications.map(application => application.orgID);
+
+    const events = await Events.find({ orgID: { $in: orgIDs } });
+
+    console.log('orgIDs:', orgIDs);
+
+    if (events.length === 0) {
+      return res.status(404).send('No organizations found for the given membership applications');
+    }
+
+    res.send(events);
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
+
 
 
 
