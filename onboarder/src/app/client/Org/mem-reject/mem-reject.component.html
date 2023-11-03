@@ -39,7 +39,6 @@
                                     <th>Registration Date</th>
                                     <th>Remarks</th>
                                     <th>Review</th>
-                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -63,9 +62,6 @@
                                     <td>
                                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewMemberModal"><i class="fa-solid fa-eye"></i></button>
                                     </td>
-                                    <td>
-                                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#acceptMemberModal"><i class="fa-solid fa-square-check"></i></button>
-                                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#rejectMemberModal"><i class="fa-solid fa-square-xmark"></i></button>                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -123,7 +119,7 @@
                   <label class="form-label" for="customFile" readonly>2x2 Photo</label>
                   <div>
                     <p *ngIf="!ApplicationItems.photo">2x2 upload is not included in membership form or the applicant did not submit.</p>
-                    <img [src]="ApplicationItems.photo">
+                    <img [src]="ApplicationItems.photo" class="img">
                   </div>
   
                 </div>
@@ -279,7 +275,7 @@
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
                     <div>
                         <p *ngIf="!ApplicationItems.tertiaryDiploma">Diploma upload is not included in membership form or the applicant did not submit.</p>
-                        <img [src]="ApplicationItems.tertiaryDiploma">
+                        <img [src]="ApplicationItems.tertiaryDiploma" class="diploma">
                       </div>
                   </div>
   
@@ -302,7 +298,7 @@
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
                     <div>
                         <p *ngIf="!ApplicationItems.masteralDiploma">Diploma upload is not included in membership form or the applicant did not submit.</p>
-                        <img [src]="ApplicationItems.masteralDiploma">
+                        <img [src]="ApplicationItems.masteralDiploma" class="diploma">
                       </div>
                   </div>
   
@@ -325,7 +321,7 @@
                     <label class="form-label" for="customFile" readonly>Diploma Photo</label>
                     <div>
                         <p *ngIf="!ApplicationItems.doctoralDiploma">Diploma upload is not included in membership form or the applicant did not submit.</p>
-                        <img [src]="ApplicationItems.doctoralDiploma">
+                        <img [src]="ApplicationItems.doctoralDiploma" class="diploma">
                       </div>
                   </div>
 
@@ -374,7 +370,7 @@
                     <label class="form-label" for="customFile" readonly>Proof of Payment</label>
                     <div>
                         <p *ngIf="!ApplicationItems.payment">Diploma upload is not included in membership form or the applicant did not submit.</p>
-                        <img [src]="ApplicationItems.payment">
+                        <img [src]="ApplicationItems.payment" class="payment">
                       </div>
                   </div>
                 </form>

@@ -285,3 +285,16 @@ table.table .avatar {
     border-bottom: 1px solid #007FE1;
 }
 
+.img, .payment {
+	display: block;
+	margin: auto;
+	width: 200px;
+	height: 200px;
+}
+
+.diploma {
+	display: block;
+	margin: auto;
+	width: 400px;
+	height: 400px;
+}
