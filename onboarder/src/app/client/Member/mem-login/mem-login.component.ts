@@ -8,9 +8,6 @@ interface ServerResponse {
   userType: string;
   // You can add other properties received from the server if needed
 }
-
-
-
 @Component({
   selector: 'app-mem-login',
   templateUrl: './mem-login.component.html',

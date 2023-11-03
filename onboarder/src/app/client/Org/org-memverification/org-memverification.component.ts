@@ -4,6 +4,55 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import Swal from 'sweetalert2';
+import { Observable } from 'rxjs/internal/Observable';
+
+interface MemForm {
+
+  personalInfo: boolean,
+  fullName: boolean,
+  photo: boolean,
+  sex: boolean,
+  birthDate: boolean,
+  placeOfBirth : boolean,
+  civilStatus: boolean,
+  religion: boolean,
+  address: boolean,
+  zip: boolean,
+  email: boolean,
+  contactNum: boolean,
+  facebook: boolean,
+    linkedIn: boolean,
+    skype: boolean,
+    zoom: boolean,
+    idLicense: boolean,
+    prcNo : boolean,
+    prcDate: boolean,
+    prcExpiration: boolean,
+    studentID: boolean,
+    aviation: boolean,
+    caap: boolean,
+    taxID: boolean,
+    EducAttainment: boolean,
+    tertiary: boolean,
+    tertiaryDegree: boolean,
+    tertiaryYear: boolean,
+    tertiaryDiploma : boolean,
+    masteral: boolean,
+    masteralDegree: boolean,
+    masteralYear: boolean,
+    masteralDiploma: boolean,
+    doctoral: boolean,
+    doctoralDegree: boolean,
+    doctoralYear: boolean,
+    doctoralDiploma: boolean,
+    employmentDetails: boolean,
+    employer: boolean,
+    jobTitle: boolean,
+    employerAdd: boolean,
+    membership: boolean,
+    payment: boolean,
+    memType1: boolean,
+}
 
 @Component({
   selector: 'app-org-memverification',
@@ -11,6 +60,8 @@ import Swal from 'sweetalert2';
   styleUrls: ['./org-memverification.component.css']
 })
 export class OrgMemverificationComponent {
+  memForm$: Observable<MemForm> | undefined;
+
   form!:FormGroup
 
   membershipApplicationDetails: any[] = [];
@@ -49,64 +100,23 @@ constructor(
     this.form = this.formBuilder.group({
       remarks: ['', Validators.required],
       
-      photo: new FormControl(false),
-      fullName: new FormControl(false),
-      sex: new FormControl(false),
-      personalInfo: new FormControl(false),
-      birthDate: new FormControl(false),
-      placeOfBirth : new FormControl(false),
-      civilStatus: new FormControl(false),
-      religion: new FormControl(false),
-      address: new FormControl(false),
-      zip: new FormControl(false),
-      email: new FormControl(false),
-      contactNum: new FormControl(false),
-      facebook: new FormControl(false),
-      linkedIn: new FormControl(false),
-      skype: new FormControl(false),
-      zoom: new FormControl(false),
-      idLicense: new FormControl(false),
-      prcNo : new FormControl(false),
-      prcDate: new FormControl(false),
-      prcExpiration: new FormControl(false),
-      studentID: new FormControl(false),
-      aviation: new FormControl(false),
-      caap: new FormControl(false),
-      taxID: new FormControl(false),
-      EducAttainment: new FormControl(false),
-      tertiary: new FormControl(false),
-      tertiaryDegree: new FormControl(false),
-      tertiaryYear: new FormControl(false),
-      tertiaryDiploma : new FormControl(false),
-      masteral: new FormControl(false),
-      masteralDegree: new FormControl(false),
-      masteralYear: new FormControl(false),
-      masteralDiploma: new FormControl(false),
-      doctoral: new FormControl(false),
-      doctoralDegree: new FormControl(false),
-      doctoralYear: new FormControl(false),
-      doctoralDiploma: new FormControl(false),
-      employmentDetails: new FormControl(false),
-      employer: new FormControl(false),
-      jobTitle: new FormControl(false),
-      employerAdd: new FormControl(false),
-      membership: new FormControl(false),
-      memType1: new FormControl(false),
-      memType2: new FormControl(false),
-      memType3: new FormControl(false),
-      memType1Details: new FormControl(false),
-      memType2Details: new FormControl(false),
-      memType3Details: new FormControl(false),
-      memType1Fee: new FormControl(false),
-      memType2Fee: new FormControl(false),
-      memType3Fee: new FormControl(false),
-      memType1Process: new FormControl(false),
     
-      payment: new FormControl(false),
 
       
     })
+    this.http.get('http://localhost:5000/api/organization', {
+          withCredentials: true
+        }).subscribe(
+          (memResponse: any) => {
+            const _id = memResponse._id;
+          this.getMemFormat(_id);
+          })
+
+
+    
   }
+
+
 
   getAllMembershipApplication(): void {
     this.http.get("http://localhost:5000/api/verification", {withCredentials: true})
@@ -140,6 +150,15 @@ constructor(
         console.error('Error verifying application:', error);
       });
 
+  }
+
+  getMemFormat(_id: string) {
+    this.memForm$ = this.http.get<MemForm>(`http://localhost:5000/api/myMemForm/${_id}`);
+    this.memForm$.subscribe(data => {
+      console.log('API Response:', data);
+    });
+
+    
   }
 
   getMemForm(_id: string): void {
