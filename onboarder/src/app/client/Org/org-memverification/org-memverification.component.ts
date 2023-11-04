@@ -157,8 +157,6 @@ constructor(
     this.memForm$.subscribe(data => {
       console.log('API Response:', data);
     });
-
-    
   }
 
   getMemForm(_id: string): void {
