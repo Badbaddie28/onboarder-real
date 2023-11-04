@@ -110,4 +110,6 @@ button {
 .img-preview {
     height: 180px;
     width: 300px;
+    border-bottom-left-radius: .3rem;
+    border-top-left-radius:.3rem ;
 }

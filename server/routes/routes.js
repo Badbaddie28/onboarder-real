@@ -969,6 +969,48 @@ router.patch('/membershipApplication/:id', async (req, res) => {
   }
 });
 
+router.patch('/membershipApplication/:id', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const body = req.body;
+    const updateApplication = await MembershipApplication.findByIdAndUpdate(_id, body, { new: true });
+
+    if (!updateApplication) {
+      return res.status(404).send('Membership application not found');
+    }
+
+    return res.status(200).send(updateApplication);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+router.get('/applicationStatus/:id/:memID', async (req, res) => {
+  try {
+    const _id = req.params.id;
+    const memID = req.params.memID;
+    const thisApplication  = await MembershipApplication.find({
+      $and: [{
+         memID: memID
+      }, {
+         orgID: _id
+      }]
+   }).sort({
+      dateCreated: -1
+   }).limit(1);
+
+    if (!thisApplication) {
+      return res.status(404).send('Membership application not found');
+    }
+
+    return res.status(200).send(thisApplication);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
+
+
 // create event reg form 
 router.post('/createRegForm', async (req, res) => {
   let orgID = req.body.orgID;
@@ -1071,13 +1113,6 @@ router.get('/myEvents/:memID', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-
-
-
-
-
-
-
 
 
 module.exports = router

@@ -9,10 +9,20 @@
                 <div class="img-square-wrapper">
                     <img class="img-logo" [src]="OrganizationItem.logo" alt="Card image cap">
                 </div>
-                <div class="card-body" >
+                <div class="card-body" *ngFor="let status of membershipStatus" >
                     <h4 class="card-eventtitle">{{OrganizationItem.orgName}}</h4>
                     <p class="card-text">{{OrganizationItem.about}}</p>
-                    <button class="btn btn-primary" (click)="redirectToMemOrMemForm(OrganizationItem._id)">Register</button>
+
+                    <!-- <p class="card-text"*ngIf="status[0]?.isVerified">Your Membership Expires on: <span style="color: blue;">{{OrganizationItem.dateCreated}}</span></p>  -->
+
+                    <button class="btn btn-primary"  style="background-color: green; border:none;" *ngIf="status[0]?.isVerified">MEMBER</button>
+
+                    <button class="btn btn-primary" style="background-color: green; border:none;"  *ngIf="status.length > 0 && !status[0]?.isVerified && !status[0]?.isRejected">WAITING FOR VERIFICATION</button> 
+
+                     <button class="btn btn-primary" style="background-color: green; border:none;" (click)="redirectToMemOrMemForm(OrganizationItem._id)" *ngIf="status.length === 0 || 
+                     (status[0]?.isRejected && !status[0]?.isVerified)">REGISTER</button>
+
+                    <p class="card-text" *ngIf="status.length > 0 && !status[0]?.isVerified && !status[0]?.isRejected">If the Register button appears the next time you visit, it means that your membership application was rejected. Email this organization for clarifications and register again. Here's your reference number: <span style="color: blue;"> {{status[0]._id}}</span></p>
                 </div>
             </div>
 
