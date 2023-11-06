@@ -72,11 +72,48 @@ export class OrgMemverificationComponent {
   isVerified = "";
   isRejected = "";
   remarks="";
-  photo: any;
-  tertiaryDiploma: any;
-  masteralDiploma: any;
-  doctoralDiploma: any;
+  chooseMem: any;
   payment: any;
+  membership: any;
+  employerAdd: any;
+  jobTitle: any;
+  employer: any;
+  doctoralDiploma: any;
+  doctoralYear: any;
+  doctoralDegree: any;
+  doctoral: any;
+  masteralDiploma: any;
+  masteralYear: any;
+  masteralDegree: any;
+  masteral: any;
+  tertiaryDiploma: any;
+  tertiaryYear: any;
+  tertiaryDegree: any;
+  tertiary: any;
+  taxID: any;
+  caap: any;
+  aviation: any;
+  studentID: any;
+  prcExpiration: any;
+  prcDate: any;
+  prcNo: any;
+  idLicense: any;
+  zoom: any;
+  skype: any;
+  linkedIn: any;
+  facebook: any;
+  contactNum: any;
+  email: any;
+  zip: any;
+  address: any;
+  religion: any;
+  civilStatus: any;
+  placeOfBirth: any;
+  birthDate: any;
+  sex: any;
+  photo: any;
+  fullName: any;
+
 
 
 constructor(
@@ -99,6 +136,50 @@ constructor(
 
     this.form = this.formBuilder.group({
       remarks: ['', Validators.required],
+      personalInfo: ['', Validators.required],
+  fullName: ['', Validators.required],
+  photo: ['', Validators.required],
+  sex: ['', Validators.required],
+  birthDate: ['', Validators.required],
+  placeOfBirth : ['', Validators.required],
+  civilStatus: ['', Validators.required],
+  religion: ['', Validators.required],
+  address: ['', Validators.required],
+  zip: ['', Validators.required],
+  email: ['', Validators.required],
+  contactNum: ['', Validators.required],
+  facebook: ['', Validators.required],
+    linkedIn: ['', Validators.required],
+    skype: ['', Validators.required],
+    zoom: ['', Validators.required],
+    idLicense: ['', Validators.required],
+    prcNo : ['', Validators.required],
+    prcDate: ['', Validators.required],
+    prcExpiration: ['', Validators.required],
+    studentID: ['', Validators.required],
+    aviation: ['', Validators.required],
+    caap: ['', Validators.required],
+    taxID: ['', Validators.required],
+    EducAttainment: ['', Validators.required],
+    tertiary: ['', Validators.required],
+    tertiaryDegree: ['', Validators.required],
+    tertiaryYear: ['', Validators.required],
+    tertiaryDiploma : ['', Validators.required],
+    masteral: ['', Validators.required],
+    masteralDegree: ['', Validators.required],
+    masteralYear: ['', Validators.required],
+    masteralDiploma: ['', Validators.required],
+    doctoral: ['', Validators.required],
+    doctoralDegree: ['', Validators.required],
+    doctoralYear: ['', Validators.required],
+    doctoralDiploma: ['', Validators.required],
+    employmentDetails: ['', Validators.required],
+    employer: ['', Validators.required],
+    jobTitle: ['', Validators.required],
+    employerAdd: ['', Validators.required],
+    membership: ['', Validators.required],
+    payment: ['', Validators.required],
+    chooseMem: ['', Validators.required]
       
     
 
@@ -123,8 +204,7 @@ constructor(
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.membershipApplicationDetails = resultData;
-        this.photo = resultData.photo;
-        this.tertiaryDiploma = resultData.tertiaryDiploma1;
+
       });
   }
 
@@ -134,6 +214,51 @@ constructor(
 
   setRejectModalId(id: string): void {
     this.rejectModalId = id;
+  }
+
+  setView(data: any){
+    this._id = data._id;
+    this.fullName = data.fullName;
+    this.photo = data.photo;
+    this.sex = data.sex;
+    this.birthDate = data.birthDate;
+    this.placeOfBirth = data.placeOfBirth;
+    this.civilStatus = data.civilStatus;
+    this.religion = data.religion;
+    this.address = data.address;
+    this.zip = data.zip;
+    this.email = data.email;
+    this.contactNum = data.contactNum;
+    this.facebook = data.facebook;
+    this.linkedIn = data.linkedIn;
+    this.skype = data.skype;
+    this.zoom = data.zoom;
+    this.idLicense = data.idLicense;
+    this.prcNo = data.prcNo;
+    this.prcDate = data.prcDate;
+    this.prcExpiration = data.prcExpiration;
+    this.studentID = data.studentID;
+    this.aviation = data.aviation;
+    this.caap = data.caap;
+    this.taxID = data.taxID;
+    this.tertiary = data.tertiary;
+    this.tertiaryDegree = data.tertiaryDegree;
+    this.tertiaryYear = data.tertiaryYear;
+    this.tertiaryDiploma = data.tertiaryDiploma;
+    this.masteral = data.masteral;
+    this.masteralDegree = data.masteralDegree;
+    this.masteralYear = data.masteralYear;
+    this.masteralDiploma = data.masteralDiploma;
+    this.doctoral = data.doctoral;
+    this.doctoralDegree = data.doctoralDegree;
+    this.doctoralYear = data.doctoralYear;
+    this.doctoralDiploma = data.doctoralDiploma;
+    this.employer = data.employer;
+    this.jobTitle = data.jobTitle;
+    this.employerAdd = data.employerAdd;
+    this.membership = data.membership;
+    this.payment = data.payment;
+    this.chooseMem = data.chooseMem;
   }
 
   accept(_id: string): void{
@@ -191,33 +316,6 @@ constructor(
           console.error('Error rejecting application:', error);
         });
     }
-  }
-
-  onChange = ($event: Event, controlName: string) => {
-    const target = $event.target as HTMLInputElement;
-    const file: File = (target.files as FileList)[0];
-
-    this.convertfiletobase64(file, (base64String) => {
-      this.form.patchValue({ photo: base64String });
-      this.form.patchValue({ masteralDiploma: base64String });
-      this.form.patchValue({ doctoralDiploma: base64String });
-      this.form.patchValue({ payment: base64String });
-        // Set the base64 string to the appropriate form control
-        if (controlName === 'photo') {
-            this.photo = base64String;
-        } else if (controlName === 'tertiaryDiploma') {
-            this.tertiaryDiploma = base64String;
-        }
-        else if (controlName === 'masteralDiploma') {
-          this.masteralDiploma = base64String;
-        }
-        else if (controlName === 'doctoralDiploma') {
-          this.doctoralDiploma = base64String;
-        }
-        else if (controlName === 'payment') {
-          this.payment = base64String;
-      }
-    });
   }
 
   // Your convertfiletobase64 function

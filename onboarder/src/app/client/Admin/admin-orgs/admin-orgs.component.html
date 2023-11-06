@@ -126,7 +126,7 @@
                             <div class="form-group" id="editEventPoster">
                                 <div>
                                     <label style="margin-top: 10px;">Organization's Logo </label>
-                                    <input class="form-control" type="file" id="formFile" onchange="preview('frame')" onchange="preview('frame')" (change)="onChange($event)" [value]="logo" [(ngModel)]="logo" [ngModelOptions]="{standalone: true}">
+                                    <input class="form-control" type="file" id="formFile" onchange="preview('frame')" onchange="preview('frame')" (change)="onChange($event)" [value]="logo" [(ngModel)]="logo" [ngModelOptions]="{standalone: true}"  accept="image/*">
                                 </div>
                                 <img id="frame" src="" class="img-fluid" />
                             </div>
@@ -191,7 +191,8 @@
                             <div class="form-group" id="editEventPoster">
                                 <div>
                                     <label style="margin-top: 10px;">Organization's Logo </label>
-                                    <input class="form-control" type="file" id="formFile" onchange="preview('frame')">
+                                    <br>
+                                    <img [src]="logo" style="width: 100px; height: 100px; border-radius: 20px; display: block; margin: auto;">
                                 </div>
                                 <img id="frame" src="" class="img-fluid" />
                             </div>
