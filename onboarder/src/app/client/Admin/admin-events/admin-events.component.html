@@ -127,7 +127,7 @@
                     <div class="form-group" id="editEventPoster">
                         <div>
                             <label style="margin-top: 10px;">Official Poster of the Event: </label>
-                            <input class="form-control" type="file" id="formFile" onchange="preview('frame')" (change)="onChange($event)" [value]="poster" [(ngModel)]="poster" [ngModelOptions]="{standalone: true}">
+                            <input class="form-control" type="file" id="formFile" onchange="preview('frame')" (change)="onChange($event)" [value]="poster" [(ngModel)]="poster" [ngModelOptions]="{standalone: true}" accept="image/*">
                             <label>Recommended image size: 2160 x 1080px | Maximum file size: 10MB | Supported image files: JPEG or PNG</label>
                         </div>
                         <img id="frame" src="" class="img-fluid" />
@@ -136,7 +136,7 @@
                     <div class="form-group" id="editEventProgramme">
                         <div>
                             <label style="margin-top: 10px;">Programme: </label>
-                            <input class="form-control" type="file" id="formFile1" onchange="preview('frame1')" (change)="onChange($event)" [value]="programme" [(ngModel)]="programme" [ngModelOptions]="{standalone: true}">
+                            <input class="form-control" type="file" id="formFile1" onchange="preview('frame1')" (change)="onChange($event)" [value]="programme" [(ngModel)]="programme" [ngModelOptions]="{standalone: true}"  accept="image/*">
                             <label>Recommended image size: 2160 x 1080px | Maximum file size: 10MB | Supported image files: JPEG or PNG</label>
                         </div>
                         <img id="frame1" src="" class="img-fluid" />
