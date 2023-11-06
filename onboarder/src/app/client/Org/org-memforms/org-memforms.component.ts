@@ -166,7 +166,7 @@ export class OrgMemformsComponent implements OnInit {
   }
 
   getMemForm(): void {
-    this.http.get<MemForm>('http://localhost:5000/api/memForm', { withCredentials: true })
+    this.http.get<MemForm>('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/memForm', { withCredentials: true })
       .subscribe((resultData: MemForm) => {
         console.log(resultData);
         this.memForm = resultData;
@@ -184,7 +184,7 @@ export class OrgMemformsComponent implements OnInit {
 
     console.log('orgID:', this.memForm?.orgID);
 
-    this.http.patch(`http://localhost:5000/api/customizeForm/${this.memForm?.orgID}`, formData, { withCredentials: true })
+    this.http.patch(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/customizeForm/${this.memForm?.orgID}`, formData, { withCredentials: true })
     .subscribe(
       (response: any) => {
         

@@ -93,7 +93,7 @@ export class MemberSignupComponent implements OnInit {
   else {
 
   this.http
-    .post('http://localhost:5000/api/register', member, {
+    .post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/register', member, {
       withCredentials: true,
       
     })

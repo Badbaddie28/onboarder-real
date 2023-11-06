@@ -27,13 +27,13 @@ export class MemEventsComponent implements OnInit {
   }
 
   getAllEvents() {
-    this.http.get('http://localhost:5000/api/member', {
+    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
       withCredentials: true
     }).subscribe(
       (memResponse: any) => {
         const memID = memResponse._id;
   
-        this.http.get(`http://localhost:5000/api/myEvents/${memID}`, {
+        this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/myEvents/${memID}`, {
           withCredentials: true
         }).subscribe((resultData: any) => {
           console.log(resultData);

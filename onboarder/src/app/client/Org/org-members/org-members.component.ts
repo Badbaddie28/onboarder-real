@@ -72,7 +72,7 @@ export class OrgMembersComponent {
     }
 
     ngOnInit():void{
-      this.http.get('http://localhost:5000/api/organization', {
+      this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization', {
         withCredentials: true
       }).subscribe(
         (memResponse: any) => {
@@ -83,14 +83,14 @@ export class OrgMembersComponent {
 
     getMemFormat(_id: string) {
 
-      this.memForm$ = this.http.get<MemForm>(`http://localhost:5000/api/myMemForm/${_id}`);
+      this.memForm$ = this.http.get<MemForm>(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/myMemForm/${_id}`);
       this.memForm$.subscribe(data => {
         console.log('API Response:', data);
       });
     }
   
     getMemForm(_id: string): void {
-      this.http.get(`http://localhost:5000/api/membershipApplication/${_id}`, { withCredentials: true })
+      this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/membershipApplication/${_id}`, { withCredentials: true })
         .subscribe((resultData) => {
           console.log(resultData);
           
@@ -101,7 +101,7 @@ export class OrgMembersComponent {
     }
 
     getAllMembers(): void {
-      this.http.get("http://localhost:5000/api/myMembers", {withCredentials: true})
+      this.http.get("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/myMembers", {withCredentials: true})
         .subscribe((resultData: any) => {
           console.log(resultData);
           this.membersDetails = resultData;

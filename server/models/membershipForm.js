@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const Organization = require('../models/organization');
+const Organization = require('./organization');
 
 
 const membershipFormSchema = new mongoose.Schema ({

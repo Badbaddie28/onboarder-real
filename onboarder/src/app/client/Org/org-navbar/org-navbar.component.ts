@@ -23,7 +23,7 @@ export class OrgNavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:5000/api/organization', {
+    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization', {
       withCredentials: true
     }).subscribe(
       (res:any) => {
@@ -48,7 +48,7 @@ export class OrgNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('http://localhost:5000/api/logout', null, { withCredentials: true }).subscribe(
+    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/logout', null, { withCredentials: true }).subscribe(
       (response) => {
         // Handle the successful logout response here
         this.router.navigate(['/auth-login']);

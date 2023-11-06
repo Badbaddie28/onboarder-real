@@ -19,7 +19,7 @@ constructor(private http: HttpClient){
 }
 
 getAllMember(){
-  this.http.get("http://localhost:5000/api/viewmember")
+  this.http.get("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/viewmember")
   .subscribe((resultData: any)=>
   {
     console.log(resultData);
@@ -45,7 +45,7 @@ updateMember(){
     "dateCreated" : this.dateCreated
   };
 
-  this.http.patch("http://localhost:5000/api/member" + "/" + this._id, memberData).subscribe((resultData:any)=>
+  this.http.patch("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member" + "/" + this._id, memberData).subscribe((resultData:any)=>
   {
     console.log(resultData);
     this.getAllMember();
@@ -69,7 +69,7 @@ deleteMember(){
     "dateCreated" : this.dateCreated
   };
 
-  this.http.delete("http://localhost:5000/api/member" + "/" + this._id).subscribe((resultData:any)=>
+  this.http.delete("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member" + "/" + this._id).subscribe((resultData:any)=>
   {
     console.log(resultData);
     this.getAllMember();

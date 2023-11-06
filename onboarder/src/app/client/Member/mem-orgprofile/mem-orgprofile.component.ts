@@ -30,21 +30,21 @@ export class MemOrgprofileComponent implements OnInit {
   }
 
   getAllOrganization(orgId: string) {
-    this.http.get(`http://localhost:5000/api/thisOrg/${orgId}`)
+    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisOrg/${orgId}`)
       .subscribe(
         (resultData: any) => {
           console.log(resultData);
           this.orgInfo = [resultData];
           const id = resultData._id;
   
-          this.http.get('http://localhost:5000/api/member', {
+          this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
             withCredentials: true
           })
           .subscribe(
             (memResponse: any) => {
               const memID = memResponse._id;
   
-              this.http.get(`http://localhost:5000/api/applicationStatus/${id}/${memID}`, {
+              this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/applicationStatus/${id}/${memID}`, {
                 withCredentials: true
               })
               .subscribe(
@@ -69,21 +69,21 @@ export class MemOrgprofileComponent implements OnInit {
   }
 
   getOrganization(orgCode: string) {
-    this.http.get(`http://localhost:5000/api/thisOrg1/${orgCode}`)
+    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisOrg1/${orgCode}`)
       .subscribe(
         (resultData: any) => {
           console.log(resultData);
           this.orgInfo = [resultData];
           const id = resultData._id;
   
-          this.http.get('http://localhost:5000/api/member', {
+          this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
             withCredentials: true
           })
           .subscribe(
             (memResponse: any) => {
               const memID = memResponse._id;
   
-              this.http.get(`http://localhost:5000/api/applicationStatus/${id}/${memID}`, {
+              this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/applicationStatus/${id}/${memID}`, {
                 withCredentials: true
               })
               .subscribe(

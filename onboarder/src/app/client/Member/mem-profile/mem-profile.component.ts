@@ -24,7 +24,7 @@ export class MemProfileComponent implements OnInit {
   }
 
   private fetchMemberInfo(): void {
-    this.http.get('http://localhost:5000/api/member', {
+    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
       withCredentials: true
     }).subscribe(
       (res: any) => {
@@ -57,7 +57,7 @@ export class MemProfileComponent implements OnInit {
       "email": this.memberemail
     };
   
-    this.http.patch('http://localhost:5000/api/member' + '/' + this.member_id, memberData, {
+    this.http.patch('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member' + '/' + this.member_id, memberData, {
       withCredentials: true
     }).subscribe(
       (updatedData: any) => {

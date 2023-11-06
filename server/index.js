@@ -7,10 +7,14 @@ const bodyParser = require("body-parser")
 const app = express()
 
 app.use(cookieParser());
+
+// Allow requests from 'https://onboarder.site'
 app.use(cors({
-    credentials: true,
-    origin: ['http://localhost:4200'],
-}))
+    origin: 'https://onboarder.site',
+    methods: 'GET,POST',
+    allowedHeaders: 'Access-Control-Allow-Origin',
+    credentials: true
+}));
 
 app.use(bodyParser.json({limit: '50mb' }));
 app.use(bodyParser.urlencoded({extended:true, limit: '50mb', parameterLimit:50000}))
@@ -28,9 +32,36 @@ mongoose.connect("mongodb+srv://superAdmin:comSuperAdmin@cluster0.2ecyphf.mongod
 .then(()=>{
     console.log("connected to db")
 
-    app.listen(5000, ()=> {
-        console.log("app is listening on port 5000")
-    })
+    const port = process.env.PORT || 5000;
+
+
+    // Middleware to set the CORS headers
+    app.use((req, res, next) => {
+    // Allow requests from 'https://onboarder.site'
+    res.header('Access-Control-Allow-Origin', 'https://onboarder.site');
+    // You can also use a wildcard to allow requests from any origin:
+    // res.header('Access-Control-Allow-Origin', '*');
+  
+    // Define the HTTP methods you want to allow
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  
+    // Define the headers you want to allow
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
+    // Allow credentials, if needed
+    res.header('Access-Control-Allow-Credentials', 'true');
+  
+    // Handle preflight requests
+    if (req.method === 'OPTIONS') {
+      res.sendStatus(204);
+    } else {
+      next();
+    }
+  });
+  
+    app.listen(port, () => {
+        console.log(`App is listening on port ${port}`);
+    });
 })
 
 

@@ -52,7 +52,7 @@ export class AdminOrgsComponent {
   }
   
   getAllOrganization(): void {
-    this.http.get("http://localhost:5000/api/vieworganization")
+    this.http.get("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/vieworganization")
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.OrganizationArray = resultData;
@@ -91,7 +91,7 @@ export class AdminOrgsComponent {
       "orgCode" : this.orgCode
     }
 
-    this.http.patch("http://localhost:5000/api/organization" + "/" + this._id, orgData).subscribe((resultData:any)=>
+    this.http.patch("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization" + "/" + this._id, orgData).subscribe((resultData:any)=>
     {
       console.log(resultData);
       this.getAllOrganization();
@@ -129,7 +129,7 @@ export class AdminOrgsComponent {
       "orgCode" : this.orgCode
     }
 
-    this.http.delete("http://localhost:5000/api/organization" + "/" + this._id).subscribe((resultData:any)=>
+    this.http.delete("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization" + "/" + this._id).subscribe((resultData:any)=>
     {
       console.log(resultData);
       this.getAllOrganization();
