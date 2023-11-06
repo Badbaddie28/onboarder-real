@@ -56,8 +56,8 @@ export class OrgEventDetailsComponent implements OnInit{
     })
   }
 
-  openImage(proofOfPayment: string) {
-    this.proofofPayment = proofOfPayment;
+  openImage(data:any) {
+    this.proofofPayment = data.proofOfPayment;
 }
 
   getregMem(eventID: string){

@@ -274,3 +274,17 @@ table.table .avatar {
 	padding: 2px;
 }
 
+.img, .payment {
+	display: block;
+	margin: auto;
+	width: 200px;
+	height: 200px;
+}
+
+.diploma {
+	display: block;
+	margin: auto;
+	width: 400px;
+	height: 400px;
+}
+

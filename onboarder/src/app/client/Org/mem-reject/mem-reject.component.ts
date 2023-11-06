@@ -70,6 +70,47 @@ export class MemRejectComponent {
   isVerified = "";
   isRejected = "";
   remarks="";
+  chooseMem: any;
+  payment: any;
+  membership: any;
+  employerAdd: any;
+  jobTitle: any;
+  employer: any;
+  doctoralDiploma: any;
+  doctoralYear: any;
+  doctoralDegree: any;
+  doctoral: any;
+  masteralDiploma: any;
+  masteralYear: any;
+  masteralDegree: any;
+  masteral: any;
+  tertiaryDiploma: any;
+  tertiaryYear: any;
+  tertiaryDegree: any;
+  tertiary: any;
+  taxID: any;
+  caap: any;
+  aviation: any;
+  studentID: any;
+  prcExpiration: any;
+  prcDate: any;
+  prcNo: any;
+  idLicense: any;
+  zoom: any;
+  skype: any;
+  linkedIn: any;
+  facebook: any;
+  contactNum: any;
+  email: any;
+  zip: any;
+  address: any;
+  religion: any;
+  civilStatus: any;
+  placeOfBirth: any;
+  birthDate: any;
+  sex: any;
+  photo: any;
+  fullName: any;
   
 
 constructor(
@@ -90,26 +131,59 @@ constructor(
       })
   }
 
-  photo: any;
-  tertiaryDiploma: any;
-  masteralDiploma: any;
-  doctoralDiploma: any;
-  payment: any;
-
   getAllApplication(): void {
     this.http.get("http://localhost:5000/api/rejected", {withCredentials: true})
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.rejectedApplicationDetails = resultData;
-        this.photo = resultData.photo;
-        this.tertiaryDiploma = resultData.tertiaryDiploma1;
-        this.masteralDiploma = resultData.masteralDiploma1;
-        this.doctoralDiploma = resultData.doctoralDiploma1;
-        this.payment = resultData.payment1;
-        this.rejectedApplicationDetails =resultData;
       });
 
 
+  }
+
+  setView(data: any){
+    this._id = data._id;
+    this.fullName = data.fullName;
+    this.photo = data.photo;
+    this.sex = data.sex;
+    this.birthDate = data.birthDate;
+    this.placeOfBirth = data.placeOfBirth;
+    this.civilStatus = data.civilStatus;
+    this.religion = data.religion;
+    this.address = data.address;
+    this.zip = data.zip;
+    this.email = data.email;
+    this.contactNum = data.contactNum;
+    this.facebook = data.facebook;
+    this.linkedIn = data.linkedIn;
+    this.skype = data.skype;
+    this.zoom = data.zoom;
+    this.idLicense = data.idLicense;
+    this.prcNo = data.prcNo;
+    this.prcDate = data.prcDate;
+    this.prcExpiration = data.prcExpiration;
+    this.studentID = data.studentID;
+    this.aviation = data.aviation;
+    this.caap = data.caap;
+    this.taxID = data.taxID;
+    this.tertiary = data.tertiary;
+    this.tertiaryDegree = data.tertiaryDegree;
+    this.tertiaryYear = data.tertiaryYear;
+    this.tertiaryDiploma = data.tertiaryDiploma;
+    this.masteral = data.masteral;
+    this.masteralDegree = data.masteralDegree;
+    this.masteralYear = data.masteralYear;
+    this.masteralDiploma = data.masteralDiploma;
+    this.doctoral = data.doctoral;
+    this.doctoralDegree = data.doctoralDegree;
+    this.doctoralYear = data.doctoralYear;
+    this.doctoralDiploma = data.doctoralDiploma;
+    this.employer = data.employer;
+    this.jobTitle = data.jobTitle;
+    this.employerAdd = data.employerAdd;
+    this.membership = data.membership;
+    this.payment = data.payment;
+    this.chooseMem = data.chooseMem;
   }
 
   getMemFormat(_id: string) {
