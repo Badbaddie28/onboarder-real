@@ -5,6 +5,7 @@ const cors = require('cors')
 const cookieParser = require('cookie-parser')
 const bodyParser = require("body-parser")
 const app = express()
+require('dotenv').config();
 
 app.use(cookieParser());
 
@@ -24,7 +25,7 @@ app.use("/api", routes)
 
 
  
-mongoose.connect("mongodb+srv://superAdmin:comSuperAdmin@cluster0.2ecyphf.mongodb.net/onboarder?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true 
 })
@@ -32,7 +33,7 @@ mongoose.connect("mongodb+srv://superAdmin:comSuperAdmin@cluster0.2ecyphf.mongod
 .then(()=>{
     console.log("connected to db")
 
-    const port = process.env.PORT || 5000;
+    const port = process.env.PORT || 3000;
 
 
   //   // Middleware to set the CORS headers
