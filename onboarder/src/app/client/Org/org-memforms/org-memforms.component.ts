@@ -9,7 +9,6 @@ interface MemForm {
 orgID: string;
 photo: boolean,
 
-
   personalInfo: boolean,
   fullName: boolean,
   sex: boolean,
@@ -166,15 +165,29 @@ export class OrgMemformsComponent implements OnInit {
   }
 
   getMemForm(): void {
-    this.http.get<MemForm>('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/memForm', { withCredentials: true })
-      .subscribe((resultData: MemForm) => {
-        console.log(resultData);
-        this.memForm = resultData;
-
-        // Populate the form controls with the received data
-        this.form.patchValue(resultData);
-      });
+    this.http.get<MemForm>('https://onboarder-site.onrender.com/api/memForm', { withCredentials: true })
+      .subscribe(
+        (resultData: MemForm) => {
+          console.log(resultData);
+          this.memForm = resultData;
+  
+          // Check if orgID is present in the memForm object
+          if (this.memForm && this.memForm.orgID) {
+            // Populate the form controls with the received data
+            this.form.patchValue(resultData);
+            
+            // Access orgID and perform operations dependent on it here
+            console.log('orgID:', this.memForm.orgID);
+          } else {
+            console.error('orgID not found in the API response.');
+          }
+        },
+        (error) => {
+          console.error('Error occurred during API call:', error);
+        }
+      );
   }
+  
 
   submit()  {
      const formData = {
@@ -184,7 +197,7 @@ export class OrgMemformsComponent implements OnInit {
 
     console.log('orgID:', this.memForm?.orgID);
 
-    this.http.patch(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/customizeForm/${this.memForm?.orgID}`, formData, { withCredentials: true })
+    this.http.patch(`https://onboarder-site.onrender.com/api/customizeForm/${this.memForm?.orgID}`, formData, { withCredentials: true })
     .subscribe(
       (response: any) => {
         

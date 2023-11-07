@@ -189,7 +189,7 @@ export class MemOrgmemformComponent implements OnInit {
   }
 
   getMemForm(_id: string) {
-    this.memForm$ = this.http.get<MemForm>(`http://localhost:5000/api/myMemForm/${_id}`);
+    this.memForm$ = this.http.get<MemForm>(`https://onboarder-site.onrender.com/api/myMemForm/${_id}`);
     this.memForm$.subscribe(data => {
       console.log('API Response:', data);
     });
@@ -205,7 +205,7 @@ export class MemOrgmemformComponent implements OnInit {
 
       const membershipApplication = this.form.getRawValue();
       // Fetch organization details
-      this.http.get('http://localhost:5000/api/member', {
+      this.http.get('https://onboarder-site.onrender.com/api/member', {
         withCredentials: true
       }).subscribe(
         (memResponse: any) => {
@@ -264,7 +264,7 @@ export class MemOrgmemformComponent implements OnInit {
           };          
     
           // Post the event data to the createEvent API endpoint
-          this.http.post('http://localhost:5000/api/membershipApplication', memApplicationData, {
+          this.http.post('https://onboarder-site.onrender.com/api/membershipApplication', memApplicationData, {
             withCredentials: true
           }).subscribe(
             (memResponse: any) => {

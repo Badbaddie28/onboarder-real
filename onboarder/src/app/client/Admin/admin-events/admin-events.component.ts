@@ -51,7 +51,7 @@ export class AdminEventsComponent implements OnInit{
   }
 
   getAllEvents(){
-    this.http.get("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/viewevent")
+    this.http.get("https://onboarder-site.onrender.com/api/viewevent")
     .subscribe((resultData:any) => {
       console.log(resultData);
       this.EventArray = resultData;
@@ -90,7 +90,7 @@ export class AdminEventsComponent implements OnInit{
       "eventPaymentDetails" : this.eventPaymentDetails
     }
 
-    this.http.patch("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/event" + "/" + this._id, eventData).subscribe(
+    this.http.patch("https://onboarder-site.onrender.com/api/event" + "/" + this._id, eventData).subscribe(
       (resultData: any) => {
         console.log(resultData);
         this.getAllEvents();
@@ -133,7 +133,7 @@ export class AdminEventsComponent implements OnInit{
       "eventPaymentDetails" : this.eventPaymentDetails
     }
 
-    this.http.delete("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/event" + "/" + this._id).subscribe(
+    this.http.delete("https://onboarder-site.onrender.com/api/event" + "/" + this._id).subscribe(
       (resultData: any) => {
         console.log(resultData);
         this.getAllEvents();

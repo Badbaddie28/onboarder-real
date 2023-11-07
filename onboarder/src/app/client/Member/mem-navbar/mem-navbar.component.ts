@@ -18,7 +18,7 @@ export class MemNavbarComponent implements OnInit {
 
     
 
-    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
+    this.http.get('https://onboarder-site.onrender.com/api/member', {
       withCredentials: true
     }).subscribe(
       (res:any) => {
@@ -43,7 +43,7 @@ export class MemNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/logout', null, { withCredentials: true }).subscribe(
+    this.http.post('https://onboarder-site.onrender.com/api/logout', null, { withCredentials: true }).subscribe(
       (response) => {
         // Handle the successful logout response here
         this.router.navigate(['/auth-login']);

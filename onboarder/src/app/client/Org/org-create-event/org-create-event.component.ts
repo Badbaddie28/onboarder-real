@@ -132,7 +132,7 @@ export class OrgCreateEventComponent implements OnInit{
       // Get the event data from the form
       const event = this.form.getRawValue();
       // Fetch organization details
-      this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization', {
+      this.http.get('https://onboarder-site.onrender.com/api/organization', {
         withCredentials: true
       }).subscribe(
         (orgResponse: any) => {
@@ -163,7 +163,7 @@ export class OrgCreateEventComponent implements OnInit{
           };          
     
           // Post the event data to the createEvent API endpoint
-          this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/createEvent', eventData, {
+          this.http.post('https://onboarder-site.onrender.com/api/createEvent', eventData, {
             withCredentials: true
           }).subscribe(
             (eventResponse: any) => {

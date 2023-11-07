@@ -56,7 +56,7 @@ export class OrgEventsComponent implements OnInit {
   }
 
   getOrgEvent(orgID: string) {
-    this.orgEvent$ = this.http.get<OrgEvent[]>(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/events/${orgID}`);
+    this.orgEvent$ = this.http.get<OrgEvent[]>(`https://onboarder-site.onrender.com/api/events/${orgID}`);
     this.orgEvent$.subscribe((data) => {
       this.orgEventArray = data;
       // Update the length variable
