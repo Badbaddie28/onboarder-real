@@ -18,7 +18,7 @@ export class AdminNavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('https://onboarder-site.onrender.com/api/admin', {
+    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/admin', {
       withCredentials: true
     }).subscribe(
       (res:any) => {
@@ -47,7 +47,7 @@ export class AdminNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('https://onboarder-site.onrender.com/api/logout', null, { withCredentials: true }).subscribe(
+    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/logout', null, { withCredentials: true }).subscribe(
       (response) => {
         // Handle the successful logout response here
         this.router.navigate(['/auth-login']);

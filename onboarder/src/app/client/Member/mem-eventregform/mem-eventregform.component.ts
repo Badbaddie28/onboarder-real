@@ -59,11 +59,11 @@ export class MemEventregformComponent implements OnInit{
   submit(){
     const regForm = this.form.getRawValue();
     
-    this.http.get(`https://onboarder-site.onrender.com/api/thisevent/${this.eventID}`, {
+    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisevent/${this.eventID}`, {
               withCredentials: true
             }).subscribe(
               (event: any) => {
-                this.http.get('https://onboarder-site.onrender.com/api/member', {
+                this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
           withCredentials: true
         }).subscribe(
           (memberRes: any) => {
@@ -85,7 +85,7 @@ export class MemEventregformComponent implements OnInit{
               contactno: regForm.contactno
             };
 
-            this.http.post('https://onboarder-site.onrender.com/api/createRegForm', regFormData, {
+            this.http.post('http://localhost:5000/api/createRegForm', regFormData, {
               withCredentials: true
             }).subscribe(
               (regFormResponse: any) => {

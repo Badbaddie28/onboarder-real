@@ -26,25 +26,25 @@ export class MemOrgprofileComponent implements OnInit {
     this.getOrganization(orgCode)
     });
 
-    
   }
 
+
   getAllOrganization(orgId: string) {
-    this.http.get(`https://onboarder-site.onrender.com/api/thisOrg/${orgId}`)
+    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisOrg/${orgId}`)
       .subscribe(
         (resultData: any) => {
           console.log(resultData);
           this.orgInfo = [resultData];
           const id = resultData._id;
   
-          this.http.get('https://onboarder-site.onrender.com/api/member', {
+          this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
             withCredentials: true
           })
           .subscribe(
             (memResponse: any) => {
               const memID = memResponse._id;
   
-              this.http.get(`https://onboarder-site.onrender.com/api/applicationStatus/${id}/${memID}`, {
+              this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/applicationStatus/${id}/${memID}`, {
                 withCredentials: true
               })
               .subscribe(
@@ -69,21 +69,21 @@ export class MemOrgprofileComponent implements OnInit {
   }
 
   getOrganization(orgCode: string) {
-    this.http.get(`https://onboarder-site.onrender.com/api/thisOrg1/${orgCode}`)
+    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisOrg1/${orgCode}`)
       .subscribe(
         (resultData: any) => {
           console.log(resultData);
           this.orgInfo = [resultData];
           const id = resultData._id;
   
-          this.http.get('https://onboarder-site.onrender.com/api/member', {
+          this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com//member', {
             withCredentials: true
           })
           .subscribe(
             (memResponse: any) => {
               const memID = memResponse._id;
   
-              this.http.get(`https://onboarder-site.onrender.com/api/applicationStatus/${id}/${memID}`, {
+              this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/applicationStatus/${id}/${memID}`, {
                 withCredentials: true
               })
               .subscribe(
@@ -106,11 +106,6 @@ export class MemOrgprofileComponent implements OnInit {
         }
       );
   }
-  
-  
-  
-  
-
   redirectToMemOrMemForm(_id: string) {
     this.router.navigate(['/member-orgmemform', _id]);
   }

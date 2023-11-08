@@ -10,7 +10,10 @@ require('dotenv').config();
 app.use(cookieParser());
 
 // Allow requests from 'https://onboarder.site'
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin:['http://localhost:4200']
+}));
 
 app.use(bodyParser.json({limit: '50mb' }));
 app.use(bodyParser.urlencoded({extended:true, limit: '50mb', parameterLimit:50000}))
@@ -28,13 +31,13 @@ mongoose.connect(process.env.MONGODB_URI, {
 .then(()=>{
     console.log("connected to db")
 
-    const port = process.env.PORT || 3000;
+  //   const port = process.env.PORT || 3000;
 
 
   //   // Middleware to set the CORS headers
   //   app.use((req, res, next) => {
   //   // Allow requests from 'https://onboarder.site'
-  //   res.header('Access-Control-Allow-Origin', 'https://onboarder.site');
+  //   res.header('Access-Control-Allow-Origin', 'https://onboarder.site.');
   //   // You can also use a wildcard to allow requests from any origin:
   //   // res.header('Access-Control-Allow-Origin', '*');
   
@@ -55,8 +58,8 @@ mongoose.connect(process.env.MONGODB_URI, {
   //   }
   // });
   
-    app.listen(port, () => {
-        console.log(`App is listening on port ${port}`);
+    app.listen(5000, () => {
+        console.log("App is listening on port 5000");
     });
 })
 

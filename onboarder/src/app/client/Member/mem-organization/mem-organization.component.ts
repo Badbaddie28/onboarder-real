@@ -21,13 +21,13 @@ export class MemOrganizationComponent implements OnInit{
   }
 
   getAllOrganization() {
-    this.http.get('https://onboarder-site.onrender.com/api/member', {
+    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
       withCredentials: true
     }).subscribe(
       (memResponse: any) => {
         const memID = memResponse._id;
   
-        this.http.get(`https://onboarder-site.onrender.com/api/myOrganizations/${memID}`, {
+        this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/myOrganizations/${memID}`, {
           withCredentials: true
         }).subscribe((resultData: any) => {
           console.log(resultData);

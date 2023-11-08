@@ -43,7 +43,7 @@ export class OrgProfileComponent implements OnInit {
   }
 
   fetchOrgInfo(): void {
-    this.http.get('https://onboarder-site.onrender.com/api/organization', {
+    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization', {
       withCredentials: true
     }).subscribe(
       (res: any) => {
@@ -93,7 +93,7 @@ export class OrgProfileComponent implements OnInit {
       "logo": this.logo
     };
 
-    this.http.patch('https://onboarder-site.onrender.com/api/organization' + '/' + this._id, orgData, {
+    this.http.patch('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization' + '/' + this._id, orgData, {
       withCredentials: true
     }).subscribe(
       (updatedData: any) => {

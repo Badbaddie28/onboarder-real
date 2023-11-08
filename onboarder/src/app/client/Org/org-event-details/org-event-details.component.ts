@@ -49,7 +49,7 @@ export class OrgEventDetailsComponent implements OnInit{
   }
 
   getEventInfo(_id: string) {
-    this.http.get(`https://onboarder-site.onrender.com/api/thisevent/${_id}`)
+    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisevent/${_id}`)
     .subscribe((resultData: any) => {
       console.log(resultData);
       this.eventInfo = [resultData];
@@ -61,7 +61,7 @@ export class OrgEventDetailsComponent implements OnInit{
 }
 
   getregMem(eventID: string){
-    this.regMem$ = this.http.get<regForm[]>(`https://onboarder-site.onrender.com/api/myEventForm/${eventID}`);
+    this.regMem$ = this.http.get<regForm[]>(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/myEventForm/${eventID}`);
     this.regMem$.subscribe((data) => {
       this.regMemArray = data;
       console.log('Registered Members:', data);

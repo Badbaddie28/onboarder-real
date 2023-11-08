@@ -27,7 +27,7 @@ export class MemRegistrationComponent implements OnInit {
   }
 
   getEventInfo(_id: string) {
-    this.http.get(`https://onboarder-site.onrender.com/api/thisevent/${_id}`)
+    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisevent/${_id}`)
     .subscribe((resultData: any) => {
       console.log(resultData);
       this.eventInfo = [resultData];
