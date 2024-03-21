@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -10,6 +11,7 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
   styleUrls: ['./admin-navbar.component.css']
 })
 export class AdminNavbarComponent implements OnInit {
+  private apiUrl = environment.apiUrl;
   admin!: string;
 
   constructor(
@@ -18,7 +20,7 @@ export class AdminNavbarComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/admin', {
+    this.http.get(`${this.apiUrl}api/admin`, {
       withCredentials: true
     }).subscribe(
       (res:any) => {
@@ -47,7 +49,7 @@ export class AdminNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/logout', null, { withCredentials: true }).subscribe(
+    this.http.post(`${this.apiUrl}api/logout`, null, { withCredentials: true }).subscribe(
       (response) => {
         // Handle the successful logout response here
         this.router.navigate(['/auth-login']);

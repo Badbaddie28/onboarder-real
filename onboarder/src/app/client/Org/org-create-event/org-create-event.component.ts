@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -20,6 +21,7 @@ export class OrgCreateEventComponent implements OnInit{
     private http:HttpClient,
     private router: Router
   ) {}
+  private apiUrl = environment.apiUrl;
   form!: FormGroup
   activeButton: number = 1; // Default to Button 1 active state
   isSmallScreen = false;
@@ -132,7 +134,7 @@ export class OrgCreateEventComponent implements OnInit{
       // Get the event data from the form
       const event = this.form.getRawValue();
       // Fetch organization details
-      this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization', {
+      this.http.get(`${this.apiUrl}api/organization`, {
         withCredentials: true
       }).subscribe(
         (orgResponse: any) => {
@@ -163,7 +165,7 @@ export class OrgCreateEventComponent implements OnInit{
           };          
     
           // Post the event data to the createEvent API endpoint
-          this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/createEvent', eventData, {
+          this.http.post(`${this.apiUrl}api/createEvent`, eventData, {
             withCredentials: true
           }).subscribe(
             (eventResponse: any) => {

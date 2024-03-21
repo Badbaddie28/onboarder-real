@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mem-organization',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class MemOrganizationComponent implements OnInit{
   form!:FormGroup
+  private apiUrl = environment.apiUrl;
 
   OrganizationArray: any[] = [];
 
@@ -21,13 +23,13 @@ export class MemOrganizationComponent implements OnInit{
   }
 
   getAllOrganization() {
-    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
+    this.http.get(`${this.apiUrl}api/member`, {
       withCredentials: true
     }).subscribe(
       (memResponse: any) => {
         const memID = memResponse._id;
   
-        this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/myOrganizations/${memID}`, {
+        this.http.get(`${this.apiUrl}api/myOrganizations/${memID}`, {
           withCredentials: true
         }).subscribe((resultData: any) => {
           console.log(resultData);

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 interface ServerResponse {
   userType: string;
@@ -16,6 +17,7 @@ interface ServerResponse {
 export class MemLoginComponent implements OnInit{
   form!: FormGroup;
   userType!:string;
+  private apiUrl = environment.apiUrl;
   constructor(
     private formBuilder: FormBuilder,
     private http:HttpClient,
@@ -62,13 +64,13 @@ export class MemLoginComponent implements OnInit{
     } else {
   
     this.http
-      .post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/login', member, {
+      .post(`${this.apiUrl}api/login`, member, {
         withCredentials: true,
         
       })
       .subscribe(
         (res: any) => {
-          this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/current', { withCredentials: true })
+          this.http.get(`${this.apiUrl}api/current`, { withCredentials: true })
             .subscribe(
               (userData: any) => {
                 if (userData.userType === 'member') {

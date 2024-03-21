@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mem-orgprofile',
@@ -10,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MemOrgprofileComponent implements OnInit {
   orgInfo: any[] = [];
   membershipStatus: any[] = [];
-
+  private apiUrl = environment.apiUrl;
 
   constructor(private http: HttpClient, private route: ActivatedRoute,
     private router: Router,
@@ -30,21 +31,21 @@ export class MemOrgprofileComponent implements OnInit {
 
 
   getAllOrganization(orgId: string) {
-    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisOrg/${orgId}`)
+    this.http.get(`${this.apiUrl}api/thisOrg/${orgId}`)
       .subscribe(
         (resultData: any) => {
           console.log(resultData);
           this.orgInfo = [resultData];
           const id = resultData._id;
   
-          this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
+          this.http.get(`${this.apiUrl}api/member`, {
             withCredentials: true
           })
           .subscribe(
             (memResponse: any) => {
               const memID = memResponse._id;
   
-              this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/applicationStatus/${id}/${memID}`, {
+              this.http.get(`${this.apiUrl}api/applicationStatus/${id}/${memID}`, {
                 withCredentials: true
               })
               .subscribe(
@@ -69,21 +70,21 @@ export class MemOrgprofileComponent implements OnInit {
   }
 
   getOrganization(orgCode: string) {
-    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisOrg1/${orgCode}`)
+    this.http.get(`${this.apiUrl}api/thisOrg1/${orgCode}`)
       .subscribe(
         (resultData: any) => {
           console.log(resultData);
           this.orgInfo = [resultData];
           const id = resultData._id;
   
-          this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com//member', {
+          this.http.get(`${this.apiUrl}api/member`, {
             withCredentials: true
           })
           .subscribe(
             (memResponse: any) => {
               const memID = memResponse._id;
-  
-              this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/applicationStatus/${id}/${memID}`, {
+
+              this.http.get(`${this.apiUrl}api/applicationStatus/${id}/${memID}`, {
                 withCredentials: true
               })
               .subscribe(

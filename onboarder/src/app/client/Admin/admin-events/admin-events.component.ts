@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
+import { environment } from 'src/environments/environment';
 
 @Component({
   providers: [DatePipe],
@@ -9,6 +10,7 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./admin-events.component.css']
 })
 export class AdminEventsComponent implements OnInit{
+  private apiUrl = environment.apiUrl;
   EventArray: any[] = [];
   _id = "";
   eventTitle = "";
@@ -51,7 +53,7 @@ export class AdminEventsComponent implements OnInit{
   }
 
   getAllEvents(){
-    this.http.get("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/viewevent")
+    this.http.get(`${this.apiUrl}api/viewevent`)
     .subscribe((resultData:any) => {
       console.log(resultData);
       this.EventArray = resultData;
@@ -90,7 +92,7 @@ export class AdminEventsComponent implements OnInit{
       "eventPaymentDetails" : this.eventPaymentDetails
     }
 
-    this.http.patch("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/event" + "/" + this._id, eventData).subscribe(
+    this.http.patch(`${this.apiUrl}/api/event` + "/" + this._id, eventData).subscribe(
       (resultData: any) => {
         console.log(resultData);
         this.getAllEvents();
@@ -133,7 +135,7 @@ export class AdminEventsComponent implements OnInit{
       "eventPaymentDetails" : this.eventPaymentDetails
     }
 
-    this.http.delete("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/event" + "/" + this._id).subscribe(
+    this.http.delete(`${this.apiUrl}/api/event` + "/" + this._id).subscribe(
       (resultData: any) => {
         console.log(resultData);
         this.getAllEvents();

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment.development';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -12,6 +13,8 @@ export class AppComponent implements OnInit {
 
   title = "onboarder";
   ngOnInit(): void {
+    
+  console.log(environment.apiUrl);
     // Load and initialize the JavaScript file
     this.loadScript('assets/js/navbar.js').then(() => {
       // The JavaScript file is loaded and initialized

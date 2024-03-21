@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 interface OrgEvent {
   _id: string,
@@ -41,6 +42,7 @@ export class OrgEventsComponent implements OnInit {
   ];
 
   orgEventArray: OrgEvent[] = [];
+  private apiUrl = environment.apiUrl;
 
   constructor(
     private http: HttpClient,
@@ -56,7 +58,7 @@ export class OrgEventsComponent implements OnInit {
   }
 
   getOrgEvent(orgID: string) {
-    this.orgEvent$ = this.http.get<OrgEvent[]>(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/events/${orgID}`);
+    this.orgEvent$ = this.http.get<OrgEvent[]>(`${this.apiUrl}api/events/${orgID}`);
     this.orgEvent$.subscribe((data) => {
       this.orgEventArray = data;
       // Update the length variable

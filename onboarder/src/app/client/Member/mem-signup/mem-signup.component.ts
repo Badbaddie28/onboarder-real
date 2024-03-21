@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import {FormGroup, FormBuilder} from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -13,6 +14,7 @@ declare var $: any; // Declare jQuery to avoid TypeScript errors
 })
 export class MemberSignupComponent implements OnInit {
   form!:FormGroup
+  private apiUrl = environment.apiUrl;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -93,7 +95,7 @@ export class MemberSignupComponent implements OnInit {
   else {
 
   this.http
-    .post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/register', member, {
+    .post(`${this.apiUrl}api/register`, member, {
       withCredentials: true,
       
     })

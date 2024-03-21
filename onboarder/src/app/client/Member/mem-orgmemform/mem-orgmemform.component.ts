@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators/map';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 interface MemForm {
 
@@ -82,6 +83,7 @@ interface MemForm {
 export class MemOrgmemformComponent implements OnInit {
   memForm$: Observable<MemForm> | undefined;
   form!:FormGroup
+  private apiUrl = environment.apiUrl;
 
 
   constructor(private http: HttpClient,
@@ -189,7 +191,7 @@ export class MemOrgmemformComponent implements OnInit {
   }
 
   getMemForm(_id: string) {
-    this.memForm$ = this.http.get<MemForm>(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/myMemForm/${_id}`);
+    this.memForm$ = this.http.get<MemForm>(`${this.apiUrl}api/myMemForm/${_id}`);
     this.memForm$.subscribe(data => {
       console.log('API Response:', data);
     });
@@ -205,7 +207,7 @@ export class MemOrgmemformComponent implements OnInit {
 
       const membershipApplication = this.form.getRawValue();
       // Fetch organization details
-      this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
+      this.http.get(`${this.apiUrl}api/member`, {
         withCredentials: true
       }).subscribe(
         (memResponse: any) => {
@@ -264,7 +266,7 @@ export class MemOrgmemformComponent implements OnInit {
           };          
     
           // Post the event data to the createEvent API endpoint
-          this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/membershipApplication', memApplicationData, {
+          this.http.post(`${this.apiUrl}api/membershipApplication`, memApplicationData, {
             withCredentials: true
           }).subscribe(
             (memResponse: any) => {

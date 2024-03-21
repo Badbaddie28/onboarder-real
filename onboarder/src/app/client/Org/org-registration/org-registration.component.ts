@@ -4,6 +4,7 @@ import {FormGroup, FormBuilder, Validators} from '@angular/forms'
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -17,6 +18,7 @@ export class OrgRegistrationComponent implements OnInit {
   form!:FormGroup
   orgCode: string | undefined;
   logo!:Observable<any>
+  private apiUrl = environment.apiUrl;
 
 
   isStep1Valid = false;
@@ -177,7 +179,7 @@ makeRandomCode(lengthOfCode: number, possible: string) {
   
   else {
 
-    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/orgRegister', organization, {
+    this.http.post(`${this.apiUrl}api/orgRegister`, organization, {
   withCredentials: true,
 }).subscribe(
   (orgResponse: any) => {
@@ -192,7 +194,7 @@ makeRandomCode(lengthOfCode: number, possible: string) {
       orgID: orgID,
     };
 
-    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/createForm', membershipForm, {
+    this.http.post(`${this.apiUrl}api/createForm`, membershipForm, {
       withCredentials: true,
     }).subscribe(
       () => {

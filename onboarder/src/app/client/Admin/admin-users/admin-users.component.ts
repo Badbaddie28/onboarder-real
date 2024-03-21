@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-admin-users',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-users.component.css']
 })
 export class AdminUsersComponent {
+  private apiUrl = environment.apiUrl;
 MemberArray : any[] =[];
 _id = "";
 firstName = "";
@@ -19,7 +21,7 @@ constructor(private http: HttpClient){
 }
 
 getAllMember(){
-  this.http.get("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/viewmember")
+  this.http.get(`${this.apiUrl}api/viewmember`)
   .subscribe((resultData: any)=>
   {
     console.log(resultData);
@@ -69,7 +71,7 @@ deleteMember(){
     "dateCreated" : this.dateCreated
   };
 
-  this.http.delete("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member" + "/" + this._id).subscribe((resultData:any)=>
+  this.http.delete(`${this.apiUrl}api/member` + "/" + this._id).subscribe((resultData:any)=>
   {
     console.log(resultData);
     this.getAllMember();

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 declare var $: any; // Declare jQuery to avoid TypeScript errors
 
@@ -14,6 +15,7 @@ export class OrgNavbarComponent implements OnInit {
   logo!:string;
   orgCode!:string;
   orgID!:string;
+  private apiUrl = environment.apiUrl;
 
   constructor(private http:HttpClient,
     private router: Router) { }
@@ -23,7 +25,7 @@ export class OrgNavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization', {
+    this.http.get(`${this.apiUrl}api/organization`, {
       withCredentials: true
     }).subscribe(
       (res:any) => {
@@ -48,7 +50,7 @@ export class OrgNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/logout', null, { withCredentials: true }).subscribe(
+    this.http.post(`${this.apiUrl}api/logout`, null, { withCredentials: true }).subscribe(
       (response) => {
         // Handle the successful logout response here
         this.router.navigate(['/auth-login']);

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-admin-orgs',
@@ -9,6 +11,7 @@ import { HttpHeaders } from '@angular/common/http';
   styleUrls: ['./admin-orgs.component.css']
 })
 export class AdminOrgsComponent {
+  private apiUrl = environment.apiUrl;
   OrganizationArray : any[] =[];
   _id = "";
   orgName = "";
@@ -52,7 +55,7 @@ export class AdminOrgsComponent {
   }
   
   getAllOrganization(): void {
-    this.http.get("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/vieworganization")
+    this.http.get(`${this.apiUrl}api/vieworganization`)
       .subscribe((resultData: any) => {
         console.log(resultData);
         this.OrganizationArray = resultData;
@@ -91,7 +94,7 @@ export class AdminOrgsComponent {
       "orgCode" : this.orgCode
     }
 
-    this.http.patch("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization" + "/" + this._id, orgData).subscribe((resultData:any)=>
+    this.http.patch(`${this.apiUrl}api/organization` + "/" + this._id, orgData).subscribe((resultData:any)=>
     {
       console.log(resultData);
       this.getAllOrganization();
@@ -129,7 +132,7 @@ export class AdminOrgsComponent {
       "orgCode" : this.orgCode
     }
 
-    this.http.delete("https://onboarder-git-new-c2258314f05c.herokuapp.com/api/organization" + "/" + this._id).subscribe((resultData:any)=>
+    this.http.delete(`${this.apiUrl}api/organization` + "/" + this._id).subscribe((resultData:any)=>
     {
       console.log(resultData);
       this.getAllOrganization();

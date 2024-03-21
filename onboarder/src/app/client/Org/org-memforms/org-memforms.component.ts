@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { environment } from 'src/environments/environment';
 
 
 interface MemForm {
@@ -59,7 +60,7 @@ photo: boolean,
 export class OrgMemformsComponent implements OnInit {
 
   
-
+  private apiUrl = environment.apiUrl;
   memForm: MemForm | null = null;
 
   form!: FormGroup;
@@ -165,7 +166,7 @@ export class OrgMemformsComponent implements OnInit {
   }
 
   getMemForm(): void {
-    this.http.get<MemForm>('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/memForm', { withCredentials: true })
+    this.http.get<MemForm>(`${this.apiUrl}api/memForm`, { withCredentials: true })
       .subscribe(
         (resultData: MemForm) => {
           console.log(resultData);
@@ -197,7 +198,7 @@ export class OrgMemformsComponent implements OnInit {
 
     console.log('orgID:', this.memForm?.orgID);
 
-    this.http.patch(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/customizeForm/${this.memForm?.orgID}`, formData, { withCredentials: true })
+    this.http.patch(`${this.apiUrl}api/customizeForm/${this.memForm?.orgID}`, formData, { withCredentials: true })
     .subscribe(
       (response: any) => {
         

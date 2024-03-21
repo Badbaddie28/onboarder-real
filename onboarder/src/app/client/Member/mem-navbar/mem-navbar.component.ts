@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mem-navbar',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class MemNavbarComponent implements OnInit {
   member!: string;
+  private apiUrl = environment.apiUrl;
   constructor(
     private http:HttpClient,
     private router: Router
@@ -18,7 +20,7 @@ export class MemNavbarComponent implements OnInit {
 
     
 
-    this.http.get('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/member', {
+    this.http.get(`${this.apiUrl}api/member`, {
       withCredentials: true
     }).subscribe(
       (res:any) => {
@@ -43,7 +45,7 @@ export class MemNavbarComponent implements OnInit {
   }
 
   logout() {
-    this.http.post('https://onboarder-git-new-c2258314f05c.herokuapp.com/api/logout', null, { withCredentials: true }).subscribe(
+    this.http.post(`${this.apiUrl}api/logout`, null, { withCredentials: true }).subscribe(
       (response) => {
         // Handle the successful logout response here
         this.router.navigate(['/auth-login']);

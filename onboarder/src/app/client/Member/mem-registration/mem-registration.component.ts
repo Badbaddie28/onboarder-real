@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-mem-registration',
@@ -11,6 +12,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class MemRegistrationComponent implements OnInit {
   videoUrl: string = 'https://www.youtube.com/watch?v=YOUR_VIDEO_ID';
   eventInfo: any[] = [];
+  private apiUrl = environment.apiUrl;
 
   constructor (
     private http: HttpClient, 
@@ -27,7 +29,7 @@ export class MemRegistrationComponent implements OnInit {
   }
 
   getEventInfo(_id: string) {
-    this.http.get(`https://onboarder-git-new-c2258314f05c.herokuapp.com/api/thisevent/${_id}`)
+    this.http.get(`${this.apiUrl}api/thisevent/${_id}`)
     .subscribe((resultData: any) => {
       console.log(resultData);
       this.eventInfo = [resultData];
